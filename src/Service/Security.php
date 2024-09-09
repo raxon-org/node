@@ -16,7 +16,7 @@ class Security extends Main
     public static function is_granted($class, $role, $options): bool
     {
         if(!array_key_exists('function', $options)){
-            throw new Exception('Orgction is missing in options');
+            throw new Exception('Function is missing in options');
         }
         $name = Controller::name($class);
         $name_permission = str_replace('.', ':', $name);
