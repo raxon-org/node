@@ -5,7 +5,7 @@
         "#class": "System.Route",
         "name": "raxon-org-cli-node",
         "controller": "Package:Raxon:Org:Node:Controller:Cli:run",
-        "path": "raxon_org/node",
+        "path": "raxon/node",
         "priority": 1001,
         "method": [
           "CLI"
