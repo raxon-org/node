@@ -19,7 +19,7 @@
     }],
     "autoload" : {
         "psr-4" : {
-            "Raxon\\Org\\Node\\" : "src/"
+            "Raxon\\Node\\" : "src/"
         }
     }
 }
