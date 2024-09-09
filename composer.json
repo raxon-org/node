@@ -9,7 +9,7 @@
         "ext-posix": "*",
         "ext-zlib": "*",
         "ext-iconv": "*",
-        "raxon_org/framework": "*"
+        "raxon/framework": "*"
 
     },
     "license" : "MIT",
