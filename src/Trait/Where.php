@@ -1,10 +1,10 @@
 <?php
 
-namespace Raxon\Org\Node\Trait;
+namespace Raxon\Node\Trait;
 
-use Raxon\Org\Module\Core;
-use Raxon\Org\Module\Filter;
-use Raxon\Org\Module\Parse\Token;
+use Raxon\Module\Core;
+use Raxon\Module\Filter;
+use Raxon\Module\Parse\Token;
 
 use Exception;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Raxon\Org\Node\Trait\Data;
+namespace Raxon\Node\Trait\Data;
 
-use Raxon\Org\Module\Core;
-use Raxon\Org\Module\Controller;
-use Raxon\Org\Module\Dir;
-use Raxon\Org\Module\File;
+use Raxon\Module\Core;
+use Raxon\Module\Controller;
+use Raxon\Module\Dir;
+use Raxon\Module\File;
 
 use Exception;
 

@@ -1,16 +1,16 @@
 <?php
 
-namespace Raxon\Org\Node\Trait\Data;
+namespace Raxon\Node\Trait\Data;
 
-use Raxon\Org\Module\Controller;
-use Raxon\Org\Module\Core;
+use Raxon\Module\Controller;
+use Raxon\Module\Core;
 
-use Raxon\Org\Node\Service\Security;
+use Raxon\Node\Service\Security;
 
 use Exception;
 
-use Raxon\Org\Exception\FileWriteException;
-use Raxon\Org\Exception\ObjectException;
+use Raxon\Exception\FileWriteException;
+use Raxon\Exception\ObjectException;
 trait Read {
 
     /**
@@ -62,7 +62,7 @@ trait Read {
         )){
             return false;
         }
-        $ramdisk_record = $object->config('package.raxon_org/node.ramdisk');
+        $ramdisk_record = $object->config('package.raxon/node.ramdisk');
         if(empty($ramdisk_record)){
             $ramdisk_record = [];
         }

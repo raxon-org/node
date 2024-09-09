@@ -9,11 +9,11 @@
  *     -            all
  */
 
-use Raxon\Org\App;
+use Raxon\App;
 
-use Raxon\Org\Module\Core;
+use Raxon\Module\Core;
 
-use Raxon\Org\Exception\ObjectException;
+use Raxon\Exception\ObjectException;
 
 /**
  * @throws ObjectException

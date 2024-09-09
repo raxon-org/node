@@ -1,13 +1,13 @@
 <?php
-namespace Raxon\Org\Node\Model;
+namespace Raxon\Node\Model;
 
-use Raxon\Org\App;
+use Raxon\App;
 
-use Raxon\Org\Module\Data as Storage;
-use Raxon\Org\Module\Template\Main;
+use Raxon\Module\Data as Storage;
+use Raxon\Module\Template\Main;
 
-use Raxon\Org\Node\Trait\Data;
-use Raxon\Org\Node\Trait\Role;
+use Raxon\Node\Trait\Data;
+use Raxon\Node\Trait\Role;
 
 class Node extends Main {
     use Data;

@@ -1,5 +1,5 @@
 <?php
-namespace Raxon\Org\Node\Trait\Data;
+namespace Raxon\Node\Trait\Data;
 trait Single {
 
     public function single($response=[]): false | array

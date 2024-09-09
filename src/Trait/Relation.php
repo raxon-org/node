@@ -1,18 +1,18 @@
 <?php
-namespace Raxon\Org\Node\Trait;
+namespace Raxon\Node\Trait;
 
-use Raxon\Org\Module\Core;
-use Raxon\Org\Module\Controller;
-use Raxon\Org\Module\Data as Storage;
-use Raxon\Org\Module\File;
-use Raxon\Org\Module\Filter as Module;
-use Raxon\Org\Module\Parse;
-use Raxon\Org\Module\Route;
+use Raxon\Module\Core;
+use Raxon\Module\Controller;
+use Raxon\Module\Data as Storage;
+use Raxon\Module\File;
+use Raxon\Module\Filter as Module;
+use Raxon\Module\Parse;
+use Raxon\Module\Route;
 
 use Exception;
 
-use Raxon\Org\Exception\FileWriteException;
-use Raxon\Org\Exception\ObjectException;
+use Raxon\Exception\FileWriteException;
+use Raxon\Exception\ObjectException;
 
 trait Relation {
 
@@ -455,7 +455,7 @@ trait Relation {
                             $record = $node->data();
                             break;
                     }
-                    /* done already in raxon_org/node nodelist 1575
+                    /* done already in raxon/node nodelist 1575
                     if(
                         empty($output_filter) &&
                         property_exists($relation, 'output') &&

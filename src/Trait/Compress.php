@@ -1,14 +1,14 @@
 <?php
 
-namespace Raxon\Org\Node\Trait;
+namespace Raxon\Node\Trait;
 
-use Raxon\Org\Config;
-use Raxon\Org\Module\Controller;
-use Raxon\Org\Module\File;
+use Raxon\Config;
+use Raxon\Module\Controller;
+use Raxon\Module\File;
 
 use Exception;
 
-use Raxon\Org\Exception\ObjectException;
+use Raxon\Exception\ObjectException;
 
 trait Compress {
 

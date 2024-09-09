@@ -1,34 +1,34 @@
 <?php
 
-namespace Raxon\Org\Node\Trait\Data;
+namespace Raxon\Node\Trait\Data;
 
 use ErrorException;
-use Raxon\Org\App;
+use Raxon\App;
 
-use Raxon\Org\Config;
-use Raxon\Org\Module\Cli;
-use Raxon\Org\Module\Controller;
-use Raxon\Org\Module\Core;
-use Raxon\Org\Module\Data as Storage;
-use Raxon\Org\Module\Dir;
-use Raxon\Org\Module\File;
-use Raxon\Org\Module\Filter;
-use Raxon\Org\Module\Limit;
-use Raxon\Org\Module\Parallel;
-use Raxon\Org\Module\Parse;
-use Raxon\Org\Module\Route;
-use Raxon\Org\Module\SharedMemory;
-use Raxon\Org\Module\Sort;
+use Raxon\Config;
+use Raxon\Module\Cli;
+use Raxon\Module\Controller;
+use Raxon\Module\Core;
+use Raxon\Module\Data as Storage;
+use Raxon\Module\Dir;
+use Raxon\Module\File;
+use Raxon\Module\Filter;
+use Raxon\Module\Limit;
+use Raxon\Module\Parallel;
+use Raxon\Module\Parse;
+use Raxon\Module\Route;
+use Raxon\Module\SharedMemory;
+use Raxon\Module\Sort;
 
-use Raxon\Org\Node\Service\Security;
+use Raxon\Node\Service\Security;
 
 use Exception;
 use SplFileObject;
 
 /**
- * app raxon_org/node list -class=RaXon.Php.Word.Embedding -page=1 -limit=10 -parallel -thread=96 -ramdisk
+ * app raxon/node list -class=RaXon.Php.Word.Embedding -page=1 -limit=10 -parallel -thread=96 -ramdisk
  * count 960 duration: 120.88 msec
- * app raxon_org/node list -class=RaXon.Php.Word.Embedding -page=1 -limit=100 -parallel -thread=96 -ramdisk
+ * app raxon/node list -class=RaXon.Php.Word.Embedding -page=1 -limit=100 -parallel -thread=96 -ramdisk
  * count 9600 duration: 1050.85 msec
  */
 trait NodeList {
@@ -157,7 +157,7 @@ trait NodeList {
                     $object->config('project.dir.root') .
                     'vendor' .
                     $object->config('ds') .
-                    'raxon_org' .
+                    'raxon' .
                     $object->config('ds') .
                     'framework' .
                     $object->config('ds') .

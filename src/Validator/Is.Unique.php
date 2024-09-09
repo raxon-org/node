@@ -11,16 +11,16 @@
  */
 
 
-use Raxon\Org\App;
+use Raxon\App;
 
-use Raxon\Org\Module\Controller;
-use Raxon\Org\Module\Dir;
-use Raxon\Org\Module\File;
-use Raxon\Org\Module\Filter;
-use Raxon\Org\Module\Data as Storage;
-use Raxon\Org\Module\Parse;
+use Raxon\Module\Controller;
+use Raxon\Module\Dir;
+use Raxon\Module\File;
+use Raxon\Module\Filter;
+use Raxon\Module\Data as Storage;
+use Raxon\Module\Parse;
 
-use Raxon\Org\Node\Model\Node;
+use Raxon\Node\Model\Node;
 
 /**
  * @throws Exception

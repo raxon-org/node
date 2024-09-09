@@ -1,15 +1,15 @@
 <?php
 
-namespace Event\Raxon\Org\Node;
+namespace Event\Raxon\Node;
 
-use Event\Raxon\Org\Framework\Email;
+use Event\Raxon\Framework\Email;
 
-use Raxon\Org\App;
-use Raxon\Org\Config;
+use Raxon\App;
+use Raxon\Config;
 
 use Exception;
 
-use Raxon\Org\Exception\ObjectException;
+use Raxon\Exception\ObjectException;
 
 class Create {
 

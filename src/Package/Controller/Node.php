@@ -1,20 +1,20 @@
 <?php
 
-namespace Package\Raxon\Org\Node\Controller;
+namespace Package\Raxon\Node\Controller;
 
 use Domain\Api_Workandtravel_World\Service\Permission;
-use Raxon\Org\App;
+use Raxon\App;
 
 
-use Raxon\Org\Module\Controller;
-use Raxon\Org\Module\Dir;
-use Raxon\Org\Module\Response;
-use Raxon\Org\Node\Model\Node as Model;
+use Raxon\Module\Controller;
+use Raxon\Module\Dir;
+use Raxon\Module\Response;
+use Raxon\Node\Model\Node as Model;
 
 use Exception;
 
-use Raxon\Org\Exception\ObjectException;
-use Raxon\Org\Exception\FileWriteException;
+use Raxon\Exception\ObjectException;
+use Raxon\Exception\FileWriteException;
 
 class Node extends Controller {
     const DIR = __DIR__ . '/';

@@ -1,11 +1,11 @@
 <?php
 
-namespace Raxon\Org\Node\Trait;
+namespace Raxon\Node\Trait;
 
-use Raxon\Org\App;
+use Raxon\App;
 
-use Raxon\Org\Module\Core;
-use Raxon\Org\Module\Validate as Module;
+use Raxon\Module\Core;
+use Raxon\Module\Validate as Module;
 
 use Exception;
 

@@ -1,15 +1,15 @@
 <?php
 
-namespace Raxon\Org\Node\Service;
+namespace Raxon\Node\Service;
 
-use Raxon\Org\App;
-use Raxon\Org\Module\Core;
-use Raxon\Org\Module\Validate;
+use Raxon\App;
+use Raxon\Module\Core;
+use Raxon\Module\Validate;
 
 use Exception;
 
-use Raxon\Org\Exception\ObjectException;
-use Raxon\Org\Exception\FileWriteException;
+use Raxon\Exception\ObjectException;
+use Raxon\Exception\FileWriteException;
 
 class Main {
 

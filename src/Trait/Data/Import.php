@@ -1,23 +1,23 @@
 <?php
 
-namespace Raxon\Org\Node\Trait\Data;
+namespace Raxon\Node\Trait\Data;
 
-use Raxon\Org\App;
-use Raxon\Org\Config;
+use Raxon\App;
+use Raxon\Config;
 
-use Raxon\Org\Module\Cli;
-use Raxon\Org\Module\Controller;
-use Raxon\Org\Module\Core;
-use Raxon\Org\Module\Data as Storage;
-use Raxon\Org\Module\Dir;
-use Raxon\Org\Module\File;
-use Raxon\Org\Module\Sort;
+use Raxon\Module\Cli;
+use Raxon\Module\Controller;
+use Raxon\Module\Core;
+use Raxon\Module\Data as Storage;
+use Raxon\Module\Dir;
+use Raxon\Module\File;
+use Raxon\Module\Sort;
 
 use Exception;
 
-use Raxon\Org\Exception\FileWriteException;
-use Raxon\Org\Exception\ObjectException;
-use Raxon\Org\Node\Service\Security;
+use Raxon\Exception\FileWriteException;
+use Raxon\Exception\ObjectException;
+use Raxon\Node\Service\Security;
 
 trait Import {
 

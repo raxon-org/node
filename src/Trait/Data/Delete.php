@@ -1,16 +1,16 @@
 <?php
 
-namespace Raxon\Org\Node\Trait\Data;
+namespace Raxon\Node\Trait\Data;
 
-use Raxon\Org\App;
-use Raxon\Org\Config;
+use Raxon\App;
+use Raxon\Config;
 
-use Raxon\Org\Module\Controller;
-use Raxon\Org\Module\Core;
-use Raxon\Org\Module\Event;
-use Raxon\Org\Module\File;
+use Raxon\Module\Controller;
+use Raxon\Module\Core;
+use Raxon\Module\Event;
+use Raxon\Module\File;
 
-use Raxon\Org\Node\Service\Security;
+use Raxon\Node\Service\Security;
 
 use Exception;
 

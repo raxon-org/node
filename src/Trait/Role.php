@@ -1,22 +1,22 @@
 <?php
 
-namespace Raxon\Org\Node\Trait;
+namespace Raxon\Node\Trait;
 
-use Raxon\Org\App;
-use Raxon\Org\Config;
+use Raxon\App;
+use Raxon\Config;
 
-use Raxon\Org\Module\Core;
-use Raxon\Org\Module\Data as Storage;
-use Raxon\Org\Module\Dir;
-use Raxon\Org\Module\File;
+use Raxon\Module\Core;
+use Raxon\Module\Data as Storage;
+use Raxon\Module\Dir;
+use Raxon\Module\File;
 
 use Entity\Role as Entity;
 
 use Exception;
 
-use Raxon\Org\Exception\DirectoryCreateException;
-use Raxon\Org\Exception\FileWriteException;
-use Raxon\Org\Exception\ObjectException;
+use Raxon\Exception\DirectoryCreateException;
+use Raxon\Exception\FileWriteException;
+use Raxon\Exception\ObjectException;
 
 trait Role {
 

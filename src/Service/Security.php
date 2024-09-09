@@ -1,9 +1,9 @@
 <?php
-namespace Raxon\Org\Node\Service;
+namespace Raxon\Node\Service;
 
-use Raxon\Org\App;
-use Raxon\Org\Module\Controller;
-use Raxon\Org\Module\Data;
+use Raxon\App;
+use Raxon\Module\Controller;
+use Raxon\Module\Data;
 
 use Exception;
 

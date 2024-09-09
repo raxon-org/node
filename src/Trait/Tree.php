@@ -1,12 +1,12 @@
 <?php
 
-namespace Raxon\Org\Node\Trait;
+namespace Raxon\Node\Trait;
 
-use Raxon\Org\Module\Parse;
-use Raxon\Org\Module\Parse\Token;
+use Raxon\Module\Parse;
+use Raxon\Module\Parse\Token;
 
-use Raxon\Org\Exception\FileWriteException;
-use Raxon\Org\Exception\ObjectException;
+use Raxon\Exception\FileWriteException;
+use Raxon\Exception\ObjectException;
 
 trait Tree {
 

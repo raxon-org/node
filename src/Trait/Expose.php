@@ -1,22 +1,22 @@
 <?php
 
-namespace Raxon\Org\Node\Trait;
+namespace Raxon\Node\Trait;
 
-use Raxon\Org\App;
-use Raxon\Org\Config;
+use Raxon\App;
+use Raxon\Config;
 
-use Raxon\Org\Module\Cli;
-use Raxon\Org\Module\Controller;
-use Raxon\Org\Module\Core;
-use Raxon\Org\Module\Data as Storage;
-use Raxon\Org\Module\File;
-use Raxon\Org\Module\Parse;
+use Raxon\Module\Cli;
+use Raxon\Module\Controller;
+use Raxon\Module\Core;
+use Raxon\Module\Data as Storage;
+use Raxon\Module\File;
+use Raxon\Module\Parse;
 
 use Exception;
 
-use Raxon\Org\Exception\FileWriteException;
-use Raxon\Org\Exception\ObjectException;
-use Raxon\Org\Exception\AuthorizationException;
+use Raxon\Exception\FileWriteException;
+use Raxon\Exception\ObjectException;
+use Raxon\Exception\AuthorizationException;
 
 trait Expose {
 
