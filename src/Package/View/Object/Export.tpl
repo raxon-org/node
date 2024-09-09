@@ -10,7 +10,7 @@
 '/' +
 'Package' +
 '/' +
-'Raxon.Org.Node' +
+'Raxon.Node' +
 '/' +
 $class +
 '/' +
@@ -31,9 +31,9 @@ config('extension.json')}}
 {{$options.limit = 1000}}
 {{/if}}
 {{if(!is.empty($options.page))}}
-{{Raxon.Org.Node:Data:export(
+{{Raxon.Node:Data:export(
 $class,
-Raxon.Org.Node:Role:role.system(),
+Raxon.Node:Role:role.system(),
 [
 'url' => $options.url,
 'compression' => $options.compression,
@@ -41,9 +41,9 @@ Raxon.Org.Node:Role:role.system(),
 'limit' => $options.limit
 ])}}
 {{else}}
-{{Raxon.Org.Node:Data:export(
+{{Raxon.Node:Data:export(
 $class,
-Raxon.Org.Node:Role:role.system(),
+Raxon.Node:Role:role.system(),
 [
 'url' => $options.url,
 'compression' => $options.compression

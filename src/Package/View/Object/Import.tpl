@@ -20,9 +20,9 @@ Available classes:
 {{/for.each}}
 {{/if}}
 {{else}}
-{{$response = Raxon.Org.Node:Data:import(
+{{$response = Raxon.Node:Data:import(
 $class,
-Raxon.Org.Node:Role:role.system(),
+Raxon.Node:Role:role.system(),
 $options
 )}}
 {{$response|json.encode:'JSON_PRETTY_PRINT'}}

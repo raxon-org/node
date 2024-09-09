@@ -19,9 +19,9 @@ Available classes:
 'uuid' => 'ASC'
 ]}}
 {{/if}}
-{{$response = Raxon.Org.Node:Data:list(
+{{$response = Raxon.Node:Data:list(
 $class,
-Raxon.Org.Node:Role:role_system(),
+Raxon.Node:Role:role_system(),
 $options
 )}}
 {{$response|json.encode:'JSON_PRETTY_PRINT'}}

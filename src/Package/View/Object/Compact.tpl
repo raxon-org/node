@@ -21,9 +21,9 @@ Available classes:
 {{/for.each}}
 {{/if}}
 {{else}}
-{{$response = Raxon.Org.Node:Data:compact(
+{{$response = Raxon.Node:Data:compact(
 $class,
-Raxon.Org.Node:Role:role.system(),
+Raxon.Node:Role:role.system(),
 $options
 )}}
 {{$response|json.encode:'JSON_PRETTY_PRINT'}}

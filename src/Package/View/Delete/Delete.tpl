@@ -17,9 +17,9 @@ Available classes:
 {{if(is.empty($options.uuid))}}
 You can use list to get the uuid.
 {{else}}
-{{$response = Raxon.Org.Node:Data:delete(
+{{$response = Raxon.Node:Data:delete(
 $class,
-Raxon.Org.Node:Role:role_system(),
+Raxon.Node:Role:role_system(),
 $options
 )}}
 {{$response|json.encode:'JSON_PRETTY_PRINT'}}

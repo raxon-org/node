@@ -14,9 +14,9 @@ Available classes:
 {{/for.each}}
 {{/if}}
 {{else}}
-{{$response = Raxon.Org.Node:Data:count(
+{{$response = Raxon.Node:Data:count(
 $class,
-Raxon.Org.Node:Role:role_system(),
+Raxon.Node:Role:role_system(),
 $options
 )}}
 {{$response|json.encode:'JSON_PRETTY_PRINT'}}
