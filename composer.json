@@ -1,0 +1,25 @@
+{
+    "name" : "raxon/node",
+    "description" : "raxon/node see https://raxon.org for detailed usage",
+    "type" : "package",
+    "keywords" : ["node", "raxon", "org", "library", "framework", "node", "json", "storage", "raxon.org"],
+    "homepage": "https://raxon.org",
+    "require" : {
+        "ext-pcntl": "*",
+        "ext-posix": "*",
+        "ext-zlib": "*",
+        "ext-iconv": "*",
+        "raxon_org/framework": "*"
+
+    },
+    "license" : "MIT",
+    "authors" : [{
+        "name" : "Remco van der Velde",
+        "email" : "development@universeorange.com"
+    }],
+    "autoload" : {
+        "psr-4" : {
+            "Raxon\\Org\\Node\\" : "src/"
+        }
+    }
+}
