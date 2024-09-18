@@ -55,7 +55,6 @@ class Security extends Main
             foreach($role_permissions_raw as $role_permission){
                 $role_permissions[] = [
                     'name' => $role_permission->getName(),
-                    'id' => $role_permission->getId()
                 ];
             }
         } else {
