@@ -40,6 +40,7 @@ class Security extends Main
             $permissions[] = $name_permission . ':' . $function_permission . '.' . 'parse';
         }
         if(array_key_exists('debug', $options)){
+            trace();
             d(get_class($role));
             ddd(get_class_methods($role));
         }
