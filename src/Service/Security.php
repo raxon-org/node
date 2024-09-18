@@ -41,6 +41,7 @@ class Security extends Main
         }
         if(array_key_exists('debug', $options)){
             trace();
+            d($role->data());
             d(get_class($role));
             ddd(get_class_methods($role));
         }
