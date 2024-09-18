@@ -22,13 +22,7 @@ class Security extends Main
         $name_permission = str_replace('.', ':', $name);
         $function_permission = str_replace('_', '.', $options['function']);
         if(
-            !in_array(
-                get_class($role),
-                [
-                    'Raxon\Module\Data',
-                    'Entity\Role'
-                ]
-            )
+            get_class($role) !== 'Raxon\Module\Data'
         ){
             $role = new Data($role);
         }
@@ -49,21 +43,11 @@ class Security extends Main
         ){
             $permissions[] = $name_permission . ':' . $function_permission . '.' . 'parse';
         }
-        if(method_exists($role, 'getPermissions')){
-            $role_permissions_raw = (array) $role->getPermissions();
-            $role_permissions = [];
-            foreach($role_permissions_raw as $role_permission){
-                $role_permissions[] = [
-                    'name' => $role_permission->getName(),
-                ];
-            }
-        } else {
-            $role_permissions = $role->get('permission');
-        }
+        $role_permissions = $role->get('permission');
         if(is_array($role_permissions)){
             foreach($role_permissions as $permission){
                 $permission = new Data($permission);
-//                d($permission);
+                d($permission);
                 if($permission->get('name') === $name_permission . ':' .$function_permission){
                     $is_permission = true;
                 }
