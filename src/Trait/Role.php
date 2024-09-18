@@ -82,7 +82,16 @@ trait Role {
     public function role_system_create($package=''): void
     {
         $object = $this->object();
-        if($object->config(Config::POSIX_ID) === 0){
+        if(
+            in_array(
+                $object->config(Config::POSIX_ID),
+                [
+                    0,
+                    33
+                ],
+                true
+            )
+        ){
             $url = $object->config('project.dir.data') . 'Account' . $object->config('ds') . 'Role.System.json';
             $url_package = $object->config('project.dir.vendor') . $package . '/Data/Role.System.json';
             if(File::exist($url_package)){
@@ -124,6 +133,7 @@ trait Role {
                             File::permission($object, [
                                 'url' => $url
                             ]);
+                            echo 'Roles imported: ' . $url_package . PHP_EOL;
                         }
                     };
                 } else {
@@ -143,6 +153,7 @@ trait Role {
                             'dir' => $dir,
                             'url' => $url
                         ]);
+                        echo 'Roles imported: ' . $url_package . PHP_EOL;
                     }
                 }
             }
