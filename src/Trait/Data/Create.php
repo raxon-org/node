@@ -64,9 +64,6 @@ trait Create {
         if(!array_key_exists('relation', $options)){
             $options['relation'] = false;
         }
-        if(array_key_exists('debug', $options)){
-            ddd($options);
-        }
         $relation = $options['relation'];
         $options['relation'] = false; //first create without relation
         if(!Security::is_granted(
