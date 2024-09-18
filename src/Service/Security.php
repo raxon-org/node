@@ -53,7 +53,7 @@ class Security extends Main
             $role_permissions_raw = (array) $role->getPermissions();
             $role_permissions = [];
             foreach($role_permissions_raw as $role_permission){
-                $role_permissions[] = $role_permission->get('name');
+                $role_permissions[] = $role_permission->getName();
             }
             ddd($role_permissions);
         } else {
