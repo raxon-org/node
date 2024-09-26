@@ -130,6 +130,7 @@ trait Expose {
                                             property_exists($action->object, $property) &&
                                             is_array($action->object->$property)
                                         ) {
+                                            d($function);
                                             d($property);
                                             ddd($action);
                                         }
