@@ -128,6 +128,15 @@ trait Expose {
                                         if (
                                             property_exists($action, 'object') &&
                                             property_exists($action->object, $property) &&
+                                            is_array($action->object->$property)
+                                        ) {
+                                            d($property);
+                                            ddd($action);
+                                        }
+                                        if (
+                                            property_exists($action, 'object') &&
+                                            property_exists($action->object, $property) &&
+                                            !is_array($action->object->$property) &&
                                             property_exists($action->object->$property, 'output')
                                         ) {
                                             if (
