@@ -223,7 +223,7 @@ trait Data {
                 foreach($attribute as $attribute_nr => $value){
                     $attribute[$attribute_nr] = trim($value);
                 }
-                $action = strtolower($attribute[0]);
+                $action = mb_strtolower($attribute[0]);
                 $is_unique[] = (object) [
                     'is.unique' => [
                         'class' => $options['class'],

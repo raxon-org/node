@@ -140,7 +140,7 @@ trait Where {
             }
             elseif(
                 in_array(
-                    strtolower($record['value']),
+                    mb_strtolower($record['value']),
                     [
                         'and',
                         'or',
@@ -205,13 +205,13 @@ trait Where {
             }
             elseif(
                 in_array(
-                    strtolower($record['value']),
+                    mb_strtolower($record['value']),
                     Filter::OPERATOR_LIST_NAME,
                     true
                 )
             ){
                 $attribute = $this->tree_record_attribute($list[$previous]);
-                $operator = strtolower($record['value']);
+                $operator = mb_strtolower($record['value']);
                 $value = $this->tree_record_attribute($list[$next]);
                 $list[$previous] = [
                     'attribute' => $attribute,

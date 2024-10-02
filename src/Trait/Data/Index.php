@@ -624,7 +624,7 @@ trait Index {
                                                         $rightSearch = $object->config('node.record.rightsearch') ?? $seek;
 //                                                        d($leftSearch);
 //                                                        d($rightSearch);
-                                                        switch(strtolower($strategy)){
+                                                        switch(mb_strtolower($strategy)){
                                                             case 'left' :
                                                                 //search all of left
                                                                 $leftSearch--;
@@ -1770,7 +1770,7 @@ trait Index {
                     if(
                         is_string($record) &&
                         in_array(
-                            strtolower($record),
+                            mb_strtolower($record),
                             [
                                 '(',
                                 ')',
@@ -1781,7 +1781,7 @@ trait Index {
                             true
                         )
                     ){
-//                        $where[] = strtolower($record);
+//                        $where[] = mb_strtolower($record);
                     }
                     elseif(
                         is_array($record) &&

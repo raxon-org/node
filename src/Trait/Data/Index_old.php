@@ -293,7 +293,7 @@ trait Index_old {
                                         ddd($set);
                                         throw new Exception('cannot find operator in where set');
                                     }
-                                    switch(strtolower($operator)){
+                                    switch(mb_strtolower($operator)){
                                         case 'or' :
                                             if(array_key_exists($options['set']['index'], $set)){
                                                 if(
@@ -1051,7 +1051,7 @@ trait Index_old {
                     if(
                         is_string($record) &&
                         in_array(
-                            strtolower($record),
+                            mb_strtolower($record),
                             [
                                 '(',
                                 ')',
@@ -1062,7 +1062,7 @@ trait Index_old {
                             true
                         )
                     ){
-//                        $where[] = strtolower($record);
+//                        $where[] = mb_strtolower($record);
                     }
                     elseif(
                         is_array($record) &&

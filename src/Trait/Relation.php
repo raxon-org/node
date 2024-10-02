@@ -59,7 +59,7 @@ trait Relation {
                     }
                     elseif(is_array($options_relation)){
                         foreach($options_relation as $option){
-                            if(strtolower($option) === strtolower($relation->class)){
+                            if(mb_strtolower($option) === mb_strtolower($relation->class)){
                                 $is_allowed = true;
                                 break;
                             }
@@ -75,7 +75,7 @@ trait Relation {
                     ){
                         $output_filter = $relation->output->filter;
                     }
-                    switch(strtolower($relation->type)){
+                    switch(mb_strtolower($relation->type)){
                         case 'one-one':
                             if(
                                 $is_allowed &&
