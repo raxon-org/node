@@ -90,7 +90,7 @@ trait Data {
         )){
             return;
         }
-        Core::interactive();
+        ob_implicit_flush(true);
         ob_start();
         $url = $dir_data .
             $name .
