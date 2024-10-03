@@ -91,7 +91,6 @@ trait Data {
             return;
         }
         ob_implicit_flush(true);
-        ob_start();
         $url = $dir_data .
             $name .
             $object->config('extension.json')
