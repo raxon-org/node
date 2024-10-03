@@ -409,6 +409,7 @@ trait Data {
             }
             echo 'Available types:' . PHP_EOL;
             $this->object_create_type_available();
+            $type = Cli::read('input', 'Enter the "type" of the property2: ');
             $type = Cli::read('input', 'Enter the "type" of the property: ');
             while(
             !in_array(
