@@ -274,13 +274,13 @@ trait Data {
         }
         $data->set($class . '.count.output', [ $expose->data() ]);
         $data->set($class . '.create.output', [ $expose->data() ]);
-//        $data->set($class . '.create_many.expose', [ $expose->data() ]);
+        $data->set($class . '.create_many.output', [ $expose->data() ]);
         $data->set($class . '.list.output', [ $expose->data() ]);
         $data->set($class . '.page.output', [ $expose->data() ]);
         $data->set($class . '.patch.output', [ $expose->data() ]);
-//        $data->set($class . '.patch_many.expose', [ $expose->data() ]);
+        $data->set($class . '.patch_many.output', [ $expose->data() ]);
         $data->set($class . '.put.output', [ $expose->data() ]);
-//        $data->set($class . '.put_many.expose', [ $expose->data() ]);
+        $data->set($class . '.put_many.output', [ $expose->data() ]);
         $data->set($class . '.read.output', [ $expose->data() ]);
         $data->set($class . '.record.output', [ $expose->data() ]);
         return $data->data();
@@ -372,6 +372,7 @@ trait Data {
             'null',
             'object',
             'string',
+            'scalar',
             'time',
             'uuid',
             'relation',
