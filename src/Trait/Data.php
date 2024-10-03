@@ -91,6 +91,7 @@ trait Data {
             return;
         }
         Core::interactive();
+        ob_start();
         $url = $dir_data .
             $name .
             $object->config('extension.json')
@@ -402,8 +403,6 @@ trait Data {
         echo 'Leave "name" empty if finished.' . PHP_EOL;
         fwrite(STDOUT, 'Leave "name" empty if finished.' . PHP_EOL);
         while(true){
-            $input = trim(fgets(STDIN));
-            die;
 //            $name = Cli::read('input', 'Enter the "name" of the property: ');
             if(empty($name)){
                 if($deep > 1){
