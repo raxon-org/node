@@ -160,6 +160,8 @@ trait Data {
                         'type' => 'string'
                     ];
                 }
+            } else {
+                throw new Exception('Empty object properties.');
             }
             $item['is.unique'] = $this->object_create_is_unique($object, $name);
             $item = (object) $item;
