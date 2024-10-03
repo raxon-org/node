@@ -351,8 +351,9 @@ trait Data {
 
     public function object_create_type_available(): void
     {
-        echo 'Available types:' . PHP_EOL;
+
         $array = $this->object_create_type_available_array();
+        d($array);
         foreach($array as $nr => $type){
             echo '    - ' . $type . PHP_EOL;
         }
@@ -408,6 +409,7 @@ trait Data {
                 }
                 break;
             }
+            echo 'Available types:' . PHP_EOL;
             $this->object_create_type_available();
             $type = Cli::read('input', 'Enter the "type" of the property: ');
             while(
@@ -417,6 +419,7 @@ trait Data {
                 true
             )
             ){
+                echo 'Available types:' . PHP_EOL;
                 $this->object_create_type_available();
                 $type = Cli::read('input', 'Enter the "type" of the property: ');
             }
@@ -488,6 +491,7 @@ trait Data {
                             true
                         )
                     ){
+                        echo 'Available types:' . PHP_EOL;
                         $this->object_create_type_available();
                         $has_property_type = Cli::read('input', 'Enter the "type" of the property: ');
                     }
