@@ -77,6 +77,12 @@ trait Read {
             $options_record['ramdisk'] = $options['ramdisk'];
         }
         $data = $this->record($name, $role, $options_record);
+        unset($object);
+        unset($name);
+        unset($options);
+        unset($options_record);
+        unset($role);
+        unset($ramdisk_record);
         if($data){
             return $data;
         }

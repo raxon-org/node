@@ -48,6 +48,10 @@ trait Record {
             ];
         }
         $response = $this->list($name, $role, $options);
+        unset($name);
+        unset($options);
+        unset($role);
+        unset($class);
         if(
             is_array($response) &&
             array_key_exists('list', $response) &&
@@ -58,6 +62,7 @@ trait Record {
             if(property_exists($record['node'], '#index')){
                 unset($record['node']->{'#index'});
             }
+            unset($response);
             unset($record['max']);
             unset($record['sort']);
             unset($record['list']);

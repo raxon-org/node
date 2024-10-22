@@ -139,6 +139,15 @@ trait NodeList {
                 $result['duration']->item_per_second = 0;
                 $result['duration']->item_per_second_nodelist = 0;
             }
+            unset($list);
+            unset($object);
+            unset($name);
+            unset($options);
+            unset($role);
+            unset($start);
+            unset($is_debug);
+            unset($parse);
+            unset($mtime);
             return $result;
         }
         if (!array_key_exists('index', $options)) {
@@ -229,6 +238,17 @@ trait NodeList {
                 $result['duration']->item_per_second = 0;
                 $result['duration']->item_per_second_nodelist = 0;
             }
+            unset($list);
+            unset($object);
+            unset($name);
+            unset($options);
+            unset($role);
+            unset($start);
+            unset($is_debug);
+            unset($parse);
+            unset($mtime);
+            unset($data_url);
+
             return $result;
         }
         $mtime = File::mtime($data_url);
@@ -361,6 +381,16 @@ trait NodeList {
                                 $response['duration']->item_per_second_nodelist = ( (int) $options['limit'] / $response['duration']->nodelist) * 1000;
                             }
                         }
+                        unset($list);
+                        unset($object);
+                        unset($name);
+                        unset($options);
+                        unset($role);
+                        unset($start);
+                        unset($is_debug);
+                        unset($parse);
+                        unset($mtime);
+                        unset($data_url);
                         return $response;
                     }
                 }
@@ -417,6 +447,15 @@ trait NodeList {
                                     $response['duration']->item_per_second_nodelist = ($response['count'] / $response['duration']->nodelist) * 1000;
                                 }
                             }
+                            unset($object);
+                            unset($name);
+                            unset($options);
+                            unset($role);
+                            unset($start);
+                            unset($is_debug);
+                            unset($parse);
+                            unset($mtime);
+                            unset($data_url);
                             return $response;
                         }
                     }
@@ -710,6 +749,17 @@ trait NodeList {
                 $result['duration']->item_per_second = ($count / $result['duration']->total) * 1000;
                 $result['duration']->item_per_second_nodelist = ($count / $result['duration']->nodelist) * 1000;
             }
+            unset($list);
+            unset($object);
+            unset($name);
+            unset($options);
+            unset($role);
+            unset($start);
+            unset($is_debug);
+            unset($parse);
+            unset($mtime);
+            unset($data_url);
+            unset($ramdisk);
             return $result;
         }
         if (
@@ -1262,6 +1312,19 @@ trait NodeList {
                         $result['duration']->item_per_second = ($list_count / $result['duration']->total) * 1000;
                         $result['duration']->item_per_second_nodelist = ($list_count / $result['duration']->nodelist) * 1000;
                     }
+                    unset($list_sort);
+                    unset($list_ramdisk);
+                    unset($object);
+                    unset($name);
+                    unset($options);
+                    unset($role);
+                    unset($start);
+                    unset($is_debug);
+                    unset($parse);
+                    unset($mtime);
+                    unset($data_url);
+                    unset($ramdisk);
+
                     return $result;
                 }
                 $page = $options['page'] ?? 1;
@@ -1390,6 +1453,17 @@ trait NodeList {
                     $result['duration']->item_per_second = ($list_count / $result['duration']->total) * 1000;
                     $result['duration']->item_per_second_nodelist = ($list_count / $result['duration']->nodelist) * 1000;
                 }
+                unset($list);
+                unset($object);
+                unset($name);
+                unset($options);
+                unset($role);
+                unset($start);
+                unset($is_debug);
+                unset($parse);
+                unset($mtime);
+                unset($data_url);
+                unset($ramdisk);
                 return $result;
             }
         }
@@ -1427,6 +1501,17 @@ trait NodeList {
             $result['duration']->item_per_second = 0;
             $result['duration']->item_per_second_nodelist = 0;
         }
+        unset($list);
+        unset($object);
+        unset($name);
+        unset($options);
+        unset($role);
+        unset($start);
+        unset($is_debug);
+        unset($parse);
+        unset($mtime);
+        unset($data_url);
+        unset($ramdisk);
         return $result;
     }
 
