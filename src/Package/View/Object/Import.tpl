@@ -14,7 +14,7 @@ Submodule: {{$request.submodule|uppercase.first}}
 
 {{$class = data.extract('options.class')}}
 {{if(is.empty($class))}}
-{{terminal.error('You need to provide the option class.')}}
+{{terminal.error('You need to provide the option (class).')}}
 
 
 Available classes:
