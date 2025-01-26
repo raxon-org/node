@@ -1,11 +1,7 @@
 {{R3M}}
 {{$request = request()}}
 {{$options = options()}}
-{{if(is.empty($options.url))}}
-{{terminal.error('You need to provide the option (url) to provide the source file of the import.')}}
 
-
-{{/if}}
 Package: {{$request.package}}
 
 Module: {{$request.module|uppercase.first}}
@@ -25,6 +21,11 @@ Available classes:
 - {{file.basename($file.name, config('extension.json'))}}
 
 {{/for.each}}
+{{/if}}
+{{if(is.empty($options.url))}}
+{{terminal.error('You need to provide the option (url) to provide the source file of the import.')}}
+
+
 {{/if}}
 {{else}}
 {{$response = Raxon.Node:Data:import(
