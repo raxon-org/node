@@ -1,6 +1,9 @@
 {{R3M}}
 {{$request = request()}}
 {{$options = options()}}
+{{if(is.empty($options.url))}}
+You need to provide the option (url) to provide the source file of the import.
+{{/if}}
 Package: {{$request.package}}
 
 Module: {{$request.module|uppercase.first}}
