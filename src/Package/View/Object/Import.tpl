@@ -2,7 +2,9 @@
 {{$request = request()}}
 {{$options = options()}}
 {{if(is.empty($options.url))}}
-{{terminal.error('You need to provide the option (url) to provide the source file of the import.' + PHP_EOL)}}
+{{terminal.error('You need to provide the option (url) to provide the source file of the import.')}}
+
+
 {{/if}}
 Package: {{$request.package}}
 
@@ -12,7 +14,9 @@ Submodule: {{$request.submodule|uppercase.first}}
 
 {{$class = data.extract('options.class')}}
 {{if(is.empty($class))}}
-{{terminal.error('You need to provide the option class.' + PHP_EOL)}}
+{{terminal.error('You need to provide the option class.')}}
+
+
 Available classes:
 {{$read = dir.read(config('project.dir.node') + 'Object/')}}
 {{if(is.array($read))}}
