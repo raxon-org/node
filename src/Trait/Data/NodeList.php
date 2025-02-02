@@ -204,6 +204,7 @@ trait NodeList {
             $name .
             $object->config('extension.json')
         ;
+        breakpoint($data_url);
         if (!File::exist($data_url)) {
             $list = [];
             $result = [];
