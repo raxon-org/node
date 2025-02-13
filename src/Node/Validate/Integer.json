@@ -1,0 +1,31 @@
+{
+    "Integer": {
+        "create": {
+            "validate": {
+                "Integer": [
+                    {
+                        "is.integer": true
+                    }
+                ]
+            }
+        },
+        "put": {
+            "validate": {
+                "Integer": [
+                    {
+                        "is.integer": true
+                    }
+                ]
+            }
+        },
+        "patch": {
+            "validate": {
+                "?Integer": [
+                    {
+                        "is.integer": true
+                    }
+                ]
+            }
+        }
+    }
+}

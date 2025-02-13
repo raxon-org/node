@@ -1,0 +1,31 @@
+{
+    "Number": {
+        "create": {
+            "validate": {
+                "Number": [
+                    {
+                        "is.number": true
+                    }
+                ]
+            }
+        },
+        "put": {
+            "validate": {
+                "Number": [
+                    {
+                        "is.number": true
+                    }
+                ]
+            }
+        },
+        "patch": {
+            "validate": {
+                "?Number": [
+                    {
+                        "is.number": true
+                    }
+                ]
+            }
+        }
+    }
+}

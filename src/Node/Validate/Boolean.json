@@ -1,0 +1,31 @@
+{
+    "Boolean": {
+        "create": {
+            "validate": {
+                "Boolean": [
+                    {
+                        "is.boolean": true
+                    }
+                ]
+            }
+        },
+        "put": {
+            "validate": {
+                "Boolean": [
+                    {
+                        "is.boolean": true
+                    }
+                ]
+            }
+        },
+        "patch": {
+            "validate": {
+                "?Boolean": [
+                    {
+                        "is.boolean": true
+                    }
+                ]
+            }
+        }
+    }
+}

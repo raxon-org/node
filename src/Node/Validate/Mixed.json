@@ -1,0 +1,31 @@
+{
+    "Mixed": {
+        "create": {
+            "validate": {
+                "Mixed": [
+                    {
+                        "is.mixed": true
+                    }
+                ]
+            }
+        },
+        "put": {
+            "validate": {
+                "Mixed": [
+                    {
+                        "is.mixed": true
+                    }
+                ]
+            }
+        },
+        "patch": {
+            "validate": {
+                "?Mixed": [
+                    {
+                        "is.mixed": true
+                    }
+                ]
+            }
+        }
+    }
+}

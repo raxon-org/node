@@ -1,0 +1,31 @@
+{
+    "Array": {
+        "create": {
+            "validate": {
+                "Array": [
+                    {
+                        "is.array": true
+                    }
+                ]
+            }
+        },
+        "put": {
+            "validate": {
+                "Array": [
+                    {
+                        "is.array": true
+                    }
+                ]
+            }
+        },
+        "patch": {
+            "validate": {
+                "?Array": [
+                    {
+                        "is.array": true
+                    }
+                ]
+            }
+        }
+    }
+}

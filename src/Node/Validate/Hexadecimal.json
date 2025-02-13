@@ -1,0 +1,31 @@
+{
+    "Hexadecimal": {
+        "create": {
+            "validate": {
+                "Hexadecimal": [
+                    {
+                        "is.hexadecimal": true
+                    }
+                ]
+            }
+        },
+        "put": {
+            "validate": {
+                "Hexadecimal": [
+                    {
+                        "is.hexadecimal": true
+                    }
+                ]
+            }
+        },
+        "patch": {
+            "validate": {
+                "?Hexadecimal": [
+                    {
+                        "is.hexadecimal": true
+                    }
+                ]
+            }
+        }
+    }
+}

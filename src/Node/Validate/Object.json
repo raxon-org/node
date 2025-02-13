@@ -1,0 +1,31 @@
+{
+    "Object": {
+        "create": {
+            "validate": {
+                "Object": [
+                    {
+                        "is.object": true
+                    }
+                ]
+            }
+        },
+        "put": {
+            "validate": {
+                "Object": [
+                    {
+                        "is.object": true
+                    }
+                ]
+            }
+        },
+        "patch": {
+            "validate": {
+                "?Object": [
+                    {
+                        "is.object": true
+                    }
+                ]
+            }
+        }
+    }
+}
