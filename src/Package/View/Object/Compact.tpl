@@ -1,4 +1,3 @@
-{{R3M}}
 {{$request = request()}}
 {{$options = options()}}
 {{$class = data.extract('options.class')}}

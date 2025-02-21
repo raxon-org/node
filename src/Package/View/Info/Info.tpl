@@ -1,4 +1,3 @@
-{{R3M}}
 {{$request = request()}}
 {{d($request)}}
 Package: {{$request.package}}

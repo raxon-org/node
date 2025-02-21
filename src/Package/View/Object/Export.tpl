@@ -1,4 +1,3 @@
-{{R3M}}
 {{$options = options()}}
 {{while(is.empty($options.class))}}
 {{$options.class = terminal.readline('Class: ')}}
