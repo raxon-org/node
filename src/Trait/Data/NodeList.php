@@ -1212,7 +1212,6 @@ trait NodeList {
 //                        d($list_sort);
                     }
                     $list_sort = $this->nodelist_output_filter($object, $list_sort, $options);
-                    ddd($list_sort);
                     $list_ramdisk = null;
                     if(
                         $options['parse'] === true &&
