@@ -1180,7 +1180,6 @@ trait NodeList {
                         $list_sort = $list;
                     }
                     unset($list);
-                    ddd($list_sort);
                 }
                 if(
                     !empty($limit) &&
@@ -1212,6 +1211,7 @@ trait NodeList {
                     if(array_key_exists('view', $options)){
 //                        d($list_sort);
                     }
+                    ddd($list_sort);
                     $list_sort = $this->nodelist_output_filter($object, $list_sort, $options);
                     $list_ramdisk = null;
                     if(
