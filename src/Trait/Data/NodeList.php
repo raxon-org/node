@@ -1680,7 +1680,6 @@ trait NodeList {
                     property_exists($route, 'controller') &&
                     property_exists($route, 'function')
                 ){
-                    ddd($route);
                     //don't check on empty $list, an output filter can have defaults...
                     $list = $route->controller::{$route->function}($object, $list);
                 }
