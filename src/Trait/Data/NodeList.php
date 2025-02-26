@@ -1165,7 +1165,6 @@ trait NodeList {
                     }
                     $list = $list_filtered;
                     unset($list_filtered);
-                    ddd($list);
                     if(
                         !empty($options['sort']) &&
                         is_array($options['sort'])
@@ -1181,6 +1180,7 @@ trait NodeList {
                         $list_sort = $list;
                     }
                     unset($list);
+                    ddd($list_sort);
                 }
                 if(
                     !empty($limit) &&
