@@ -837,8 +837,6 @@ trait NodeList {
         $list_filtered = [];
 //        d('no-index:' . $name);
 //        trace();
-        d($data);
-        ddd($name);
         if ($data) {
             $list = $data->data($name);
             if (
@@ -1167,6 +1165,7 @@ trait NodeList {
                     }
                     $list = $list_filtered;
                     unset($list_filtered);
+                    ddd($list);
                     if(
                         !empty($options['sort']) &&
                         is_array($options['sort'])
