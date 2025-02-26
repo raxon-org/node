@@ -101,7 +101,6 @@ trait NodeList {
         }
         $options['page'] = $options['page'] ?? 1;
         $options['limit'] = $options['limit'] ?? 1000;
-        dd('before security');
         if (!Security::is_granted(
             $name,
             $role,
@@ -838,6 +837,7 @@ trait NodeList {
         $list_filtered = [];
 //        d('no-index:' . $name);
 //        trace();
+        ddd($name);
         if ($data) {
             $list = $data->data($name);
             if (
