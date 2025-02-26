@@ -1663,7 +1663,6 @@ trait NodeList {
         if(!array_key_exists('output', $options)){
             return $list;
         }
-        ddd($options);
         if($options['output'] === false){
             return $list;
         }
@@ -1681,6 +1680,7 @@ trait NodeList {
                     property_exists($route, 'controller') &&
                     property_exists($route, 'function')
                 ){
+                    ddd($route);
                     //don't check on empty $list, an output filter can have defaults...
                     $list = $route->controller::{$route->function}($object, $list);
                 }
