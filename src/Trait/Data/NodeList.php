@@ -1663,6 +1663,7 @@ trait NodeList {
         if(!array_key_exists('output', $options)){
             return $list;
         }
+        ddd($options);
         if($options['output'] === false){
             return $list;
         }
