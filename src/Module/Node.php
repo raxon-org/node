@@ -1,5 +1,5 @@
 <?php
-namespace Raxon\Node\Model;
+namespace Raxon\Node\Module;
 
 use Raxon\App;
 
@@ -15,6 +15,6 @@ class Node extends Main {
 
     public function __construct(App $object){
         $this->object($object);
-        $this->storage(new Storage());
+        $this->data(new Storage());
     }
 }

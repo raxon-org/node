@@ -9,7 +9,7 @@ use Raxon\App;
 use Raxon\Module\Controller;
 use Raxon\Module\Dir;
 use Raxon\Module\Response;
-use Raxon\Node\Model\Node as Model;
+use Raxon\Node\Module\Node as Model;
 
 use Exception;
 

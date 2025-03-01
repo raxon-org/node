@@ -14,7 +14,7 @@ use Raxon\Module\Data;
 use Raxon\Module\File;
 use Raxon\Module\Filter;
 
-use Raxon\Node\Model\Node;
+use Raxon\Node\Module\Node;
 
 use Raxon\Exception\ObjectException;
 use Raxon\Exception\FileWriteException;

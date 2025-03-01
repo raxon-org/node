@@ -20,7 +20,7 @@ use Raxon\Module\Filter;
 use Raxon\Module\Data as Storage;
 use Raxon\Module\Parse;
 
-use Raxon\Node\Model\Node;
+use Raxon\Node\Module\Node;
 
 /**
  * @throws Exception
