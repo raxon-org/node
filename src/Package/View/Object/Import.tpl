@@ -16,10 +16,10 @@ Available classes:
 {{$read = dir.read(config('project.dir.node') + 'Object/')}}
 {{if(is.array($read))}}
 {{$read = data.sort($read, ['name' => 'ASC'])}}
-{{for.each($read as $file)}}
+{{foreach($read as $file)}}
 - {{file.basename($file.name, config('extension.json'))}}
 
-{{/for.each}}
+{{/foreach}}
 {{/if}}
 {{if(is.empty($options.url))}}
 {{terminal.error('You need to provide the option (url) to provide the source file of the import.')}}

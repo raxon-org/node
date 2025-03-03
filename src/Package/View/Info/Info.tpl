@@ -11,11 +11,11 @@ Submodule: {{$request.submodule|uppercase.first}}
 {{$files = dir.read(config('controller.dir.view') + 'Object/')}}
 {{$files = data.sort($files, ['url' => 'ASC'])}}
 Commands:
-{{for.each($files as $file)}}
+{{foreach($files as $file)}}
 {{$file.basename = file.basename($file.name, config('extension.tpl'))}}
 {{binary()}} {{$request.package}} object {{$file.basename|lowercase}}
 
-{{/for.each}}
+{{/foreach}}
 {{else}}
 {{$options = options()}}
 {{$is.all = false}}
@@ -24,7 +24,7 @@ Commands:
 {{$files = dir.read(config('controller.dir.view') + 'Object/Info/')}}
 {{$files = data.sort($files, ['url' => 'ASC'])}}
 Options:
-{{for.each($files as $file)}}
+{{foreach($files as $file)}}
 {{if($file.name === 'Object.Info.tpl')}}
 {{continue()}}
 {{/if}}
@@ -33,11 +33,11 @@ Options:
 {{binary()}} {{$request.package}} {{$request.module}} {{$request.submodule}} -{{$file.basename|lowercase}}
 
 {{/if}}
-{{/for.each}}
+{{/foreach}}
 {{else}}
 {{$files = dir.read(config('controller.dir.view') + 'Object/Info/')}}
 {{$files = data.sort($files, ['url' => 'ASC'])}}
-{{for.each($files as $file)}}
+{{foreach($files as $file)}}
 {{if($file.name === 'Object.Info.tpl')}}
 {{continue()}}
 {{/if}}
@@ -45,6 +45,6 @@ Options:
 {{if(!is.empty($options[$file.basename|lowercase]) || !is.empty($is.all))}}
 {{require($file.url)}}
 {{/if}}
-{{/for.each}}
+{{/foreach}}
 {{/if}}
 {{/if}}
