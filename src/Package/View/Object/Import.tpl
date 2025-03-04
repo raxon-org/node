@@ -3,9 +3,9 @@
 
 Package: {{$request.package}}
 
-Module: {{$request.module|uppercase.first}}
+Module: {{$request.module|string.uppercase.first}}
 
-Submodule: {{$request.submodule|uppercase.first}}
+Submodule: {{$request.submodule|string.uppercase.first}}
 
 {{$class = data.extract('options.class')}}
 {{if(is.empty($class))}}
