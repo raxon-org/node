@@ -1,12 +1,12 @@
 {{$request = request()}}
 Package: {{$request.package}}
 
-Module: {{$request.module|uppercase.first}}
+Module: {{$request.module|string.uppercase.first}}
 {{if(is.empty($request.submodule))}}
 {{$request.submodule = 'info'}}
 {{/if}}
 
-Submodule: {{$request.submodule|uppercase.first}}
+Submodule: {{$request.submodule|string.uppercase.first}}
 
 {{$options = options()}}
 {{$is.all = false}}
