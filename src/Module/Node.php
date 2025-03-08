@@ -15,6 +15,6 @@ class Node extends Main {
 
     public function __construct(App $object){
         $this->object($object);
-        $this->data(new Storage());
+        $this->storage(new Storage());
     }
 }
