@@ -147,6 +147,7 @@ trait Relation {
                                 $node->has($relation->attribute)
                             ){
                                 $one_many = $node->get($relation->attribute);
+
                                 d($one_many);
                                 if(is_object($one_many)){
                                     if(!property_exists($one_many, 'limit')){
@@ -202,6 +203,18 @@ trait Relation {
                                     }
                                     $record = $node->data();
                                     break;
+                                }
+                                elseif(is_array($one_many)){
+                                    $response = $this->list(
+                                        $relation->class,
+                                        $this->role_system(),
+                                        [
+                                            'filter' => [
+                                                'uuid' => $one_many
+                                            ],
+                                        ]
+                                    );
+                                    ddd($response);
                                 }
                                 elseif($one_many === '*'){
                                     $one_many = (object) [
