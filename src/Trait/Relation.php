@@ -214,7 +214,22 @@ trait Relation {
                                             ],
                                         ]
                                     );
-                                    ddd($response);
+                                    if(
+                                        !empty($response) &&
+                                        array_key_exists('list', $response)
+                                    ){
+                                        $output_filter_options = $options;
+                                        if(property_exists($relation, 'output')){
+                                            $output_filter_options['output'] = [];
+                                            $output_filter_options['output']['filter'] = $output_filter;
+                                        }
+                                        $response['list'] = $this->nodelist_output_filter($object, $response['list'], $output_filter_options);
+                                        $node->set($relation->attribute, $response['list']);
+                                    } else {
+                                        $node->set($relation->attribute, []);
+                                    }
+                                    $record = $node->data();
+                                    break;
                                 }
                                 elseif($one_many === '*'){
                                     $one_many = (object) [
