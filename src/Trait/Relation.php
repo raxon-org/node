@@ -76,8 +76,6 @@ trait Relation {
                         $output_filter = $relation->output->filter;
                     }
                     d($relation);
-                    d($is_allowed);
-                    d($node->has($relation->attribute));
                     switch(mb_strtolower($relation->type)){
                         case 'one-one':
                             if(
@@ -148,6 +146,7 @@ trait Relation {
                                 $is_allowed &&
                                 $node->has($relation->attribute)
                             ){
+                                d('tes');
                                 $one_many = $node->get($relation->attribute);
                                 if(is_object($one_many)){
                                     if(!property_exists($one_many, 'limit')){
