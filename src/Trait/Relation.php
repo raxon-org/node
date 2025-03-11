@@ -76,6 +76,8 @@ trait Relation {
                         $output_filter = $relation->output->filter;
                     }
                     d($relation);
+                    d($is_allowed);
+                    d($node->has($relation->attribute));
                     switch(mb_strtolower($relation->type)){
                         case 'one-one':
                             if(
