@@ -146,8 +146,8 @@ trait Relation {
                                 $is_allowed &&
                                 $node->has($relation->attribute)
                             ){
-                                d('tes');
                                 $one_many = $node->get($relation->attribute);
+                                d($one_many);
                                 if(is_object($one_many)){
                                     if(!property_exists($one_many, 'limit')){
                                         throw new Exception('Relation: ' . $relation->attribute . ' has no limit');
