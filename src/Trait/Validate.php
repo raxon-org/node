@@ -14,7 +14,7 @@ trait Validate {
     /**
      * @throws Exception
      */
-    protected function validate(App $object, $url, $type, $function=''): object | false
+    protected function validate(App $object, $record, $url, $type, $function=''): object | false
     {
         $data = $object->parse_read($url, sha1($url));
         if($data){
@@ -24,7 +24,7 @@ trait Validate {
                 if(Core::object_is_empty($validate)){
                     throw new Exception('No validation found for ' . $type . ' in ' . $url . '.');
                 }
-                return Module::validate($object, $validate, false, $function);
+                return Module::validate($object, $validate, $record, false, $function);
             } else {
                 throw new Exception('No validation found for ' . $type . ' in ' . $url . '.');
             }
