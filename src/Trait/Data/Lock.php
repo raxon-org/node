@@ -43,7 +43,7 @@ trait Lock {
                 sleep(1);
                 $timer++;
                 if($timer > $lock_wait_timeout){
-                    throw new Exception('Lock timeout on class: ' . $name);
+                    throw new Exception('Lock timeout on class: ' . $name . PHP_EOL . 'File: ' . $url_lock);
                 }
             }
         }
