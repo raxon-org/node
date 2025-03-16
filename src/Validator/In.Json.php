@@ -24,7 +24,7 @@ use Raxon\Exception\FileWriteException;
  * @throws FileWriteException
  * @throws Exception
  */
-function validate_in_json(App $object, $request=null, $field='', $argument='', $function=false): bool
+function validate_in_json(App $object, object $record, mixed $request=null, mixed $field='', mixed $argument='', mixed $function=false): bool
 {
     $url = $argument->url ?? false;
     $list = $argument->list ?? false;
@@ -66,10 +66,10 @@ function validate_in_json(App $object, $request=null, $field='', $argument='', $
                     case 'list':
                         $list = [];
                         $node = new Node($object);
-                        foreach($data_key as $nr => $record){
-                            $data_where = $node->where($record, $where);
+                        foreach($data_key as $nr => $record_data){
+                            $data_where = $node->where($record_data, $where);
                             if(!empty($data_where)){
-                                $list[] = $record;
+                                $list[] = $record_data;
                             }
                         }
                         if(!empty($list)){

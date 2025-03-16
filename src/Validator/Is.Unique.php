@@ -14,23 +14,21 @@
 use Raxon\App;
 
 use Raxon\Module\Controller;
-use Raxon\Module\Dir;
-use Raxon\Module\File;
+use Raxon\Module\Data;
 use Raxon\Module\Filter;
-use Raxon\Module\Data as Storage;
-use Raxon\Module\Parse;
 
 use Raxon\Node\Module\Node;
 
 /**
  * @throws Exception
  */
-function validate_is_unique(App $object, $value='', $attribute='', $validate='', $function=false): bool
+function validate_is_unique(App $object, object $record, mixed $value='', mixed $attribute='', mixed $validate='', mixed $function=false): bool
 {
     $dir_node = $object->config('project.dir.node');
     $url = false;
     $name = false;
     $allow_empty = false;
+    $data = new Data($record);
     $uuid = $object->request('node.uuid');
     if (is_object($validate)) {
         if (property_exists($validate, 'class')) {
@@ -43,8 +41,8 @@ function validate_is_unique(App $object, $value='', $attribute='', $validate='',
             $explode = [];
             $value_count = 0;
             if (is_array($attribute)) {
-                foreach ($attribute as $nr => $record) {
-                    $explode = explode(':', $record);
+                foreach ($attribute as $nr => $record_attribute) {
+                    $explode = explode(':', $record_attribute);
                     foreach($explode as $explode_nr => $explode_value){
                         $explode[$explode_nr] = trim($explode_value);
                     }
@@ -153,13 +151,13 @@ function validate_is_unique(App $object, $value='', $attribute='', $validate='',
         is_array($response) &&
         array_key_exists('node', $response)
     ){
-        $record = $response['node'];
+        $record_node = $response['node'];
         if(
-            is_object($record) &&
-            property_exists($record, 'uuid') &&
-            !empty($record->uuid)
+            is_object($record_node) &&
+            property_exists($record_node, 'uuid') &&
+            !empty($record_node->uuid)
         ){
-            if($uuid === $record->uuid){
+            if($uuid === $record_node->uuid){
                 //can patch, can put
                 return true;
             }
