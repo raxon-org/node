@@ -29,7 +29,8 @@ function validate_is_unique(App $object, object $record, mixed $value='', mixed 
     $name = false;
     $allow_empty = false;
     $data = new Data($record);
-    $uuid = $object->request('node.uuid');
+    $uuid = $data->get('uuid');
+//    $uuid = $object->request('node.uuid');
     if (is_object($validate)) {
         if (property_exists($validate, 'class')) {
             $name = Controller::name($validate->class);
