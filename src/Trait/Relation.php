@@ -41,7 +41,6 @@ trait Relation {
             if(!is_array($relations)){
                 return $record;
             }
-            d($relations);
             foreach($relations as $relation){
                 if(
                     is_object($relation) &&
@@ -184,6 +183,7 @@ trait Relation {
                                         $this->role_system(),
                                         $one_many
                                     );
+                                    d($one_many);
                                     d($response);
                                     if(
                                         !empty($response) &&
