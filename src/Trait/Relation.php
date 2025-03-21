@@ -208,8 +208,11 @@ trait Relation {
                                         $relation->class,
                                         $this->role_system(),
                                         [
-                                            'filter' => [
-                                                'uuid' => $one_many
+                                            'where' => [
+                                                'uuid' => [
+                                                    'value' => $one_many,
+                                                    'operator' => 'IN'
+                                                ]
                                             ],
                                         ]
                                     );
