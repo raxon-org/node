@@ -41,6 +41,7 @@ trait Relation {
             if(!is_array($relations)){
                 return $record;
             }
+            d($relations);
             foreach($relations as $relation){
                 if(
                     is_object($relation) &&
