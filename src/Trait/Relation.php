@@ -515,6 +515,7 @@ trait Relation {
                 }
             }
         }
+        d($record);
         return $record;
     }
 
