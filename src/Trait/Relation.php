@@ -520,7 +520,7 @@ trait Relation {
             property_exists($record, '#class') &&
             $record->{"#class"} !== 'System.Config'
         ){
-            ddd($record);
+            d($record);
         }
 
         return $record;
