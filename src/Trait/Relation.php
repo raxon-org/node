@@ -216,7 +216,6 @@ trait Relation {
                                             'where' => $where,
                                         ]
                                     );
-                                    ddd($response);
                                     if(
                                         !empty($response) &&
                                         array_key_exists('list', $response)
