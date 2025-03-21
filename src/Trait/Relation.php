@@ -203,17 +203,17 @@ trait Relation {
                                     break;
                                 }
                                 elseif(is_array($one_many)){
-                                    d($one_many);
+                                    $where = [];
+                                    $where[] = [
+                                        'attribute' => 'uuid',
+                                        'value' => $one_many,
+                                        'operator' => 'IN'
+                                    ];
                                     $response = $this->list(
                                         $relation->class,
                                         $this->role_system(),
                                         [
-                                            'where' => [
-                                                'uuid' => [
-                                                    'value' => $one_many,
-                                                    'operator' => 'IN'
-                                                ]
-                                            ],
+                                            'where' => $where,
                                         ]
                                     );
                                     ddd($response);
