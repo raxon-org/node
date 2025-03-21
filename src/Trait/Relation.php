@@ -519,14 +519,6 @@ trait Relation {
                 }
             }
         }
-        if(
-            is_object($record) &&
-            property_exists($record, '#class') &&
-            $record->{"#class"} !== 'System.Config'
-        ){
-            d($record);
-        }
-
         return $record;
     }
 
