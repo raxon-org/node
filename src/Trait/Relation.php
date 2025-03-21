@@ -207,7 +207,7 @@ trait Relation {
                                     $where[] = [
                                         'attribute' => 'uuid',
                                         'value' => $one_many,
-                                        'operator' => 'IN'
+                                        'operator' => 'in'
                                     ];
                                     $response = $this->list(
                                         $relation->class,
