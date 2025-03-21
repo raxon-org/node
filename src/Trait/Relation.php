@@ -204,7 +204,6 @@ trait Relation {
                                 }
                                 elseif(is_array($one_many)){
                                     d($one_many);
-                                    ddd('yes');
                                     $response = $this->list(
                                         $relation->class,
                                         $this->role_system(),
@@ -214,6 +213,7 @@ trait Relation {
                                             ],
                                         ]
                                     );
+                                    ddd($response);
                                     if(
                                         !empty($response) &&
                                         array_key_exists('list', $response)
