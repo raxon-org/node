@@ -1096,7 +1096,6 @@ trait NodeList {
                             $record = $node->data();
                             */
                             if($has_relation){
-                                d($record);
                                 $record = $this->relation($record, $object_data, $role, $options);
                                 //collect relation mtime
                             }
