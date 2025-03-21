@@ -48,7 +48,6 @@ trait Record {
             ];
         }
         $response = $this->list($name, $role, $options);
-        ddd($response);
         unset($name);
         unset($options);
         unset($role);
