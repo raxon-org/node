@@ -203,6 +203,8 @@ trait Relation {
                                     break;
                                 }
                                 elseif(is_array($one_many)){
+                                    d($one_many);
+                                    ddd('yes');
                                     $response = $this->list(
                                         $relation->class,
                                         $this->role_system(),
