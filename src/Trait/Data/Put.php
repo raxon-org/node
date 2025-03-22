@@ -133,7 +133,7 @@ trait Put {
             ){
                 $validate = (object) ['success' => true];
             } else {
-                $validate = $this->validate($object, $object->request('node') . $validate_url,  $name . '.put', $options['function']);
+                $validate = $this->validate($object, $object->request('node'), $validate_url,  $name . '.put', $options['function']);
             }
             if($validate) {
                 if ($validate->success === true) {
