@@ -27,6 +27,7 @@ function validate_is_relation(App $object, object $record, mixed $array=null, mi
     ){
         $array = Core::object($array, Core::OBJECT_ARRAY);
     }
+    d($array);
     if(is_array($array)){
         foreach($array as $nr => $value){
             //format: *
