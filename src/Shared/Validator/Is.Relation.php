@@ -27,7 +27,6 @@ function validate_is_relation(App $object, object $record, mixed $array=null, mi
     ){
         $array = Core::object($array, Core::OBJECT_ARRAY);
     }
-    d($array);
     if(is_array($array) || is_object($array)){
         foreach($array as $nr => $value){
             //format: *
@@ -36,32 +35,25 @@ function validate_is_relation(App $object, object $record, mixed $array=null, mi
                 return true;
             }
             if(strlen($value) !== 36){
-                d('1');
                 return false;
             }
             $explode = explode('-', $value);
             if(count($explode) !== 5){
-                d('1');
                 return false;
             }
             if(strlen($explode[0]) !== 8){
-                d('1');
                 return false;
             }
             if(strlen($explode[1]) !== 4){
-                d('1');
                 return false;
             }
             if(strlen($explode[2]) !== 4){
-                d('1');
                 return false;
             }
             if(strlen($explode[3]) !== 4){
-                d('1');
                 return false;
             }
             if(strlen($explode[4]) !== 12){
-                d('1');
                 return false;
             }
         }
