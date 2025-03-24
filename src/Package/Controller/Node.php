@@ -65,10 +65,9 @@ class Node extends Controller {
         ){
             $filter['user'] = $user->getUuid();
         }
-        ddd($role);
         $response = $model->list(
             $object->request('class'),
-            $model->role($role),
+            $role,
             [
                 'sort' => $sort,
                 'filter' => $filter,
@@ -76,6 +75,7 @@ class Node extends Controller {
                 'page' => $page
             ]
         );
+        ddd($response);
         return new Response(
             $response,
             Response::TYPE_JSON
