@@ -21,6 +21,7 @@ class Security extends Main
         $name = Controller::name($class);
         $name_permission = str_replace('.', ':', $name);
         $function_permission = str_replace('_', '.', $options['function']);
+        trace();
         if(
             get_class($role) !== 'Raxon\Module\Data'
         ){
