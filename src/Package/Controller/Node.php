@@ -75,7 +75,6 @@ class Node extends Controller {
                 'page' => $page
             ]
         );
-        ddd($response);
         return new Response(
             $response,
             Response::TYPE_JSON
