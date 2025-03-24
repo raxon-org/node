@@ -163,19 +163,19 @@ trait Role {
     /**
      * @throws Exception
      */
-    public function role(Entity $role, $options=[]){
+    public function role($role, $options=[]){
         $object = $this->object();
         $result = $object->config('user.role');
         if($result === null){
-            $permissions = $role->getPermissions();
+            $permissions = $role->permission;
             foreach($permissions as $nr => $permission){
                 $permissions[$nr] = (object) [
-                    'name' => $permission->getName()
+                    'name' => $permission->name
                 ];
             }
             $result = (object) [
-                'name' => $role->getName(),
-                'rank' => $role->getRank(),
+                'name' => $role->name,
+                'rank' => $role->rank,
                 '#class' => 'Account.Role',
                 'uuid' => Core::uuid(),
                 'permission' => $permissions
