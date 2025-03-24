@@ -59,7 +59,10 @@ class Node extends Controller {
         if(empty($page)){
             $page = 1;
         }
-        if($role->getName() === 'ROLE_USER'){
+        if(
+            property_exists($role, 'name') &&
+            $role->name === 'ROLE_USER'
+        ){
             $filter['user'] = $user->getUuid();
         }
         $response = $model->list(
