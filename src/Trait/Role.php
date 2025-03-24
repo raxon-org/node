@@ -167,6 +167,7 @@ trait Role {
         $object = $this->object();
         $result = $object->config('user.role');
         if($result === null){
+            ddd($role);
             $permissions = $role->permission;
             foreach($permissions as $nr => $permission){
                 $permissions[$nr] = (object) [
