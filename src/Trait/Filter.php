@@ -23,6 +23,7 @@ trait Filter {
 
         $list = [];
         $list[] = $record;
+        d($filter);
         $list = Module::list($list)->where($filter);
         if(!empty($list)){
             return $record;
