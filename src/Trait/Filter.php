@@ -1,17 +1,9 @@
 <?php
 namespace Raxon\Node\Trait;
 
-use Raxon\Module\Core;
-use Raxon\Module\Controller;
-use Raxon\Module\Data as Storage;
-use Raxon\Module\File;
 use Raxon\Module\Filter as Module;
-use Raxon\Module\Parse;
 
 use Exception;
-
-use Raxon\Exception\FileWriteException;
-use Raxon\Exception\ObjectException;
 
 trait Filter {
 
