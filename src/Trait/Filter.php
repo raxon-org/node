@@ -15,7 +15,7 @@ trait Filter {
 
         $list = [];
         $list[] = $record;
-        d($filter);
+        d($record);
         $list = Module::list($list)->where($filter);
         if(!empty($list)){
             return $record;
