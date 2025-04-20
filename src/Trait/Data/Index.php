@@ -1904,6 +1904,9 @@ trait Index {
                 } else {
                     if(!Dir::is($ramdisk_dir_index)){
                         Dir::create($ramdisk_dir_index);
+                        File::permission($object, [
+                            'dir_index' => $ramdisk_dir_index
+                        ]);
                     }
                     $explode = explode(',', $record->name);
                     $result = [];
@@ -1921,6 +1924,9 @@ trait Index {
             }
             File::write($url[$index_nr], Core::object($index, Core::OBJECT_JSON));
             File::touch($url[$index_nr], $mtime);
+            File::permission($object, [
+                'file_index' => $url[$index_nr]
+            ]);
         }
     }
 }

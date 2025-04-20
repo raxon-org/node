@@ -87,6 +87,12 @@ Trait View {
                 ;
                 if(!Dir::is($dir_record)) {
                     Dir::create($dir_record, Dir::CHMOD);
+                    File::permission(
+                        $object,
+                        [
+                            'target' => $dir_record,
+                        ]
+                    );
                 }
                 $create = $dir_record .
                     $node->data('uuid') .
