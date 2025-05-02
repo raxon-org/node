@@ -191,7 +191,6 @@ trait Create {
                             array_key_exists('event', $options) &&
                             $options['event'] === true
                         ){
-                            ddd($record);
                             Event::trigger($object, 'raxon.org.node.create', [
                                 'class' => $name,
                                 'node' => $record,
