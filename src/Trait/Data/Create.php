@@ -147,6 +147,7 @@ trait Create {
                     $node = new Storage();
                     $node->data($object->request('node'));
                     $node->set('#class', $name);
+                    ddd($node);
                     if (
                         $expose &&
                         $role
