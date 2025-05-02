@@ -158,6 +158,7 @@ trait Create {
                             $options['function'],
                             $role
                         );
+                        d($name);
                         d($expose);
                         ddd($node);
                         $record = $node->data();
