@@ -1,5 +1,4 @@
 {{$request = request()}}
-{{d($request)}}
 Package: {{$request.package}}
 
 Module: {{$request.module|string.uppercase.first}}
