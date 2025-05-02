@@ -31,7 +31,6 @@ Options:
 {{$file.basename = file.basename($file.name, config('extension.tpl'))}}
 {{if(!is.empty($options[$file.basename|string.lowercase]) || !is.empty($is.all))}}
 {{binary()}} {{$request.package}} {{$request.module}} {{$request.submodule|default:''}} -{{$file.basename|string.lowercase}}
-
 {{/if}}
 {{/foreach}}
 {{else}}
