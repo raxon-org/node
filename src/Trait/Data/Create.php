@@ -147,7 +147,6 @@ trait Create {
                     $node = new Storage();
                     $node->data($object->request('node'));
                     $node->set('#class', $name);
-                    ddd($node);
                     if (
                         $expose &&
                         $role
@@ -159,6 +158,8 @@ trait Create {
                             $options['function'],
                             $role
                         );
+                        d($expose);
+                        ddd($node);
                         $record = $node->data();
                         if(Core::object_is_empty($record)){
                             throw new Exception('Empty node after expose...');
