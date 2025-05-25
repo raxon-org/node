@@ -310,7 +310,18 @@ trait Import {
                                     throw new Exception('Unique value cannot be empty...');
                                 }
                             } else {
-                                throw new Exception('Unique value cannot be empty...');
+                                $node->set($attribute[0], Core::uuid()); //new item
+                                $match_1 = $node->get($attribute[0]);
+                                if (
+                                    $match_1 !== null &&
+                                    $match_1 !== ''
+                                ) {
+                                    unset($list_filter[1]['allow_empty']);
+                                    $list_filter[1]['list'][$record_nr] = [
+                                        'attribute' => $attribute[0],
+                                        'value' => $match_1,
+                                    ];
+                                }
                             }
                         }
                     }
