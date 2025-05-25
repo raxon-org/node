@@ -579,11 +579,13 @@ trait Import {
                 'relation' => $options['relation'] ?? false
             ]);
             if (
+                $response &&
                 array_key_exists('list', $response) &&
                 is_array($response['list'])
             ) {
                 $create = count($response['list']);
             } elseif (
+                $response &&
                 array_key_exists('error', $response)
             ) {
                 $error = $response['error'];
@@ -598,12 +600,14 @@ trait Import {
                 'relation' => $options['relation'] ?? false
             ]);
             if(
+                $response &&
                 array_key_exists('list', $response) &&
                 is_array($response['list'])
             ) {
                 $put = count($response['list']);
             }
             elseif(
+                $response &&
                 array_key_exists('error', $response)
             ){
                 $error = array_merge($error, $response['error']);
@@ -618,12 +622,14 @@ trait Import {
                 'relation' => $options['relation'] ?? false
             ]);
             if(
+                $response &&
                 array_key_exists('list', $response) &&
                 is_array($response['list'])
             ) {
                 $patch = count($response['list']);
             }
             elseif(
+                $response &&
                 array_key_exists('error', $response)
             ){
                 $error = array_merge($error, $response['error']);
