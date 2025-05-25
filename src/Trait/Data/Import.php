@@ -144,8 +144,6 @@ trait Import {
                             }
                             $chunk[$record_nr] = $node->data();
                         }
-                        d($chunk[$record_nr]);
-                        ddd($data_object);
                         if (
                             $data_object &&
                             $data_object->has('is.unique') &&
