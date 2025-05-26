@@ -136,6 +136,7 @@ trait Create {
                     ddd($validate);
                 }
                 catch (Exception $exception){
+                    ddd($exception);
                     if ($options['import'] === false){
                         $this->unlock($name);
                     }
