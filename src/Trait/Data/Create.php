@@ -103,7 +103,6 @@ trait Create {
         $error = [];
         $object_data = null;
         $count = 0;
-        ddd($nodeList);
         foreach($nodeList as $nr => $node){
             if(
                 is_object($node) &&
@@ -139,6 +138,7 @@ trait Create {
                     throw $exception;
                 }
             }
+            ddd($validate);
             if($validate) {
                 if ($validate->success === true) {
                     $expose = $this->expose_get(
