@@ -129,14 +129,7 @@ trait Create {
                 $validate = (object) ['success' => true];
             } else {
                 try {
-                    trace();
-                    d($validate_url);
-                    d($name . '.create');
-                    d($options);
                     $validate = $this->validate($object, $object->request('node'), $validate_url,  $name . '.create', $options['function']);
-                    d($object->request('node'));
-                    d($validate_url);
-                    ddd($validate);
                 }
                 catch (Exception $exception){
                     if ($options['import'] === false){
@@ -145,7 +138,6 @@ trait Create {
                     throw $exception;
                 }
             }
-            ddd($validate);
             if($validate) {
                 if ($validate->success === true) {
                     $expose = $this->expose_get(
