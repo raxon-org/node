@@ -129,6 +129,10 @@ trait Create {
                 $validate = (object) ['success' => true];
             } else {
                 try {
+                    d($validate_url);
+                    d($name . '.create');
+                    d($options);
+                    ddd($object->request());
                     $validate = $this->validate($object, $object->request('node'), $validate_url,  $name . '.create', $options['function']);
                 }
                 catch (Exception $exception){
