@@ -308,8 +308,8 @@ trait Import {
                                     throw new Exception('Unique value cannot be empty...');
                                 }
                             } else {
-                                ddd($node);
-                                throw new Exception('Unique value cannot be empty...');
+                                $create_many[] = $chunk[$record_nr];
+//                                throw new Exception('Unique value cannot be empty...');
                             }
                         }
                     }
@@ -483,6 +483,7 @@ trait Import {
                                 break;
                         }
                     }
+                    ddd($create_many);
                     $response = $this->update(
                         $class,
                         $role,
