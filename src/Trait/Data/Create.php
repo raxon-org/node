@@ -74,7 +74,6 @@ trait Create {
             throw new Exception('Security error, not granted:');
             return false;
         }
-        ddd($name);
         $transaction = $object->config('node.transaction.' . $name);
         if(
             $options['import'] === false &&
@@ -104,6 +103,7 @@ trait Create {
         $error = [];
         $object_data = null;
         $count = 0;
+        ddd($nodeList);
         foreach($nodeList as $nr => $node){
             if(
                 is_object($node) &&
