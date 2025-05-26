@@ -74,6 +74,7 @@ trait Create {
             throw new Exception('Security error, not granted:');
             return false;
         }
+        ddd($name);
         $transaction = $object->config('node.transaction.' . $name);
         if(
             $options['import'] === false &&
