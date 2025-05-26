@@ -19,7 +19,7 @@ class Node extends Main {
      */
     public function __construct(App $object){
         $this->object($object);
-        $autoload = $object->data();
+        $autoload = $object->data(App::AUTOLOAD_RAXON);
         ddd($autoload);
         $this->storage(new Storage());
     }
