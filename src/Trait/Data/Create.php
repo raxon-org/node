@@ -132,8 +132,8 @@ trait Create {
                     d($validate_url);
                     d($name . '.create');
                     d($options);
-                    ddd($object->request());
                     $validate = $this->validate($object, $object->request('node'), $validate_url,  $name . '.create', $options['function']);
+                    ddd($validate);
                 }
                 catch (Exception $exception){
                     if ($options['import'] === false){
