@@ -129,6 +129,7 @@ trait Create {
                 $validate = (object) ['success' => true];
             } else {
                 try {
+                    trace();
                     d($validate_url);
                     d($name . '.create');
                     d($options);
