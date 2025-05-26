@@ -308,6 +308,7 @@ trait Import {
                                     throw new Exception('Unique value cannot be empty...');
                                 }
                             } else {
+                                ddd($node);
                                 throw new Exception('Unique value cannot be empty...');
                             }
                         }
