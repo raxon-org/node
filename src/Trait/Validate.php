@@ -26,6 +26,7 @@ trait Validate {
                 }
                 return Module::validate($object, $validate, $record, false, $function);
             } else {
+                ddd('found');
                 throw new Exception('No validation found for ' . $type . ' in ' . $url . '.');
             }
         }
