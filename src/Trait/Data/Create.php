@@ -133,6 +133,8 @@ trait Create {
                     d($name . '.create');
                     d($options);
                     $validate = $this->validate($object, $object->request('node'), $validate_url,  $name . '.create', $options['function']);
+                    d($object->request('node'));
+                    d($validate_url);
                     ddd($validate);
                 }
                 catch (Exception $exception){
