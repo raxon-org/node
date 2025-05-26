@@ -31,6 +31,7 @@ trait Validate {
                 throw new Exception('No validation found for ' . $type . ' in ' . $url . '.');
             }
         }
+        ddd($url);
         return false;
     }
 }
