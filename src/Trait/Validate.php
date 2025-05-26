@@ -24,14 +24,11 @@ trait Validate {
                 if(Core::object_is_empty($validate)){
                     throw new Exception('No validation found for ' . $type . ' in ' . $url . '.');
                 }
-                d($function);
                 return Module::validate($object, $validate, $record, false, $function);
             } else {
-                ddd('found');
                 throw new Exception('No validation found for ' . $type . ' in ' . $url . '.');
             }
         }
-        d($function);
         return false;
     }
 }

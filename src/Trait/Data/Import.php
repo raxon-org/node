@@ -568,10 +568,6 @@ trait Import {
                 'event' => $options['event'] ?? false,
                 'relation' => $options['relation'] ?? false
             ]);
-            d($name);
-            d($role);
-            d($create_many);
-            ddd($response);
             if (
                 $response &&
                 array_key_exists('list', $response) &&
