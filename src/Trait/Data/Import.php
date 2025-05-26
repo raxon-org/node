@@ -308,18 +308,7 @@ trait Import {
                                     throw new Exception('Unique value cannot be empty...');
                                 }
                             } else {
-                                $node->set($attribute[0], Core::uuid()); //new item
-                                $match_1 = $node->get($attribute[0]);
-                                if (
-                                    $match_1 !== null &&
-                                    $match_1 !== ''
-                                ) {
-                                    unset($list_filter[1]['allow_empty']);
-                                    $list_filter[1]['list'][$record_nr] = [
-                                        'attribute' => $attribute[0],
-                                        'value' => $match_1,
-                                    ];
-                                }
+                                throw new Exception('Unique value cannot be empty...');
                             }
                         }
                     }
@@ -579,13 +568,11 @@ trait Import {
                 'relation' => $options['relation'] ?? false
             ]);
             if (
-                $response &&
                 array_key_exists('list', $response) &&
                 is_array($response['list'])
             ) {
                 $create = count($response['list']);
             } elseif (
-                $response &&
                 array_key_exists('error', $response)
             ) {
                 $error = $response['error'];
@@ -600,14 +587,12 @@ trait Import {
                 'relation' => $options['relation'] ?? false
             ]);
             if(
-                $response &&
                 array_key_exists('list', $response) &&
                 is_array($response['list'])
             ) {
                 $put = count($response['list']);
             }
             elseif(
-                $response &&
                 array_key_exists('error', $response)
             ){
                 $error = array_merge($error, $response['error']);
@@ -622,14 +607,12 @@ trait Import {
                 'relation' => $options['relation'] ?? false
             ]);
             if(
-                $response &&
                 array_key_exists('list', $response) &&
                 is_array($response['list'])
             ) {
                 $patch = count($response['list']);
             }
             elseif(
-                $response &&
                 array_key_exists('error', $response)
             ){
                 $error = array_merge($error, $response['error']);
