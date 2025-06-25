@@ -165,5 +165,4 @@ trait Tree {
         }
         return $attribute;
     }
-
 }
