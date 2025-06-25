@@ -19,7 +19,7 @@ trait Record {
      */
     public function record($class, $role, $options=[]): ?array
     {
-//        header('status: 200');
+        header('status: 200');
         $name = Controller::name($class);
         $options = Core::object($options, Core::OBJECT_ARRAY);
         $options['limit'] = 1;
@@ -36,7 +36,7 @@ trait Record {
         elseif($options['index'] === true){
             $options['index'] = $this->index($name, $role, $options);
         }
-//        header('status: 200');
+        header('status: 200');
         if(!Security::is_granted(
             $name,
             $role,
@@ -44,15 +44,15 @@ trait Record {
         )){
             return null;
         }
-//        header('status: 200');
+        header('status: 200');
         if(!array_key_exists('sort', $options)){
             $options['sort'] = [
                 'uuid' => 'ASC'
             ];
         }
-//        header('status: 200');
+        header('status: 200');
         $response = $this->list($name, $role, $options);
-//        header('status: 200');
+        header('status: 200');
         unset($name);
         unset($options);
         unset($role);
