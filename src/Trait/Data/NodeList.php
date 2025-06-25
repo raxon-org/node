@@ -39,7 +39,6 @@ trait NodeList {
     public function list($class, $role, $options=[]): array
     {
         set_time_limit(30 * 60 * 60);
-        Core::interactive();
         $mtime = false;
         $name = Controller::name($class);
         $options = Core::object($options, Core::OBJECT_ARRAY);
@@ -501,11 +500,11 @@ trait NodeList {
             }
             $count = 0;
             $list = [];
-            echo Cli::tput('cursor.up');
-            echo str_repeat(' ', Cli::tput('columns')) . PHP_EOL;
-            echo Cli::tput('cursor.up');
-            echo 'indexing' . PHP_EOL;
-            $local_options = $options;
+//            echo Cli::tput('cursor.up');
+//            echo str_repeat(' ', Cli::tput('columns')) . PHP_EOL;
+//            echo Cli::tput('cursor.up');
+//            echo 'indexing' . PHP_EOL;
+            $local_options = $optionfs;
             $local_options['limit'] = 1;
             $local_options['page'] = 1;
             $record = $this->index_list_record($class, $role, $local_options);
