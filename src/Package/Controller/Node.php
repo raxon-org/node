@@ -2,7 +2,7 @@
 
 namespace Package\Raxon\Node\Controller;
 
-use Domain\Api_Workandtravel_World\Service\Permission;
+use Package\Raxon\Account\Module\Permission;
 use Raxon\App;
 
 
@@ -63,7 +63,7 @@ class Node extends Controller {
             property_exists($role, 'name') &&
             $role->name === 'ROLE_USER'
         ){
-            $filter['user'] = $user->getUuid();
+            $filter['user'] = $user->uuid;
         }
         $response = $model->list(
             $object->request('class'),
