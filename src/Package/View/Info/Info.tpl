@@ -1,10 +1,10 @@
 {{$request = request()}}
 Package: {{$request.package}}
 
-Module: {{$request.module|string.uppercase.first}}
+Module: {{$request.module|>string.uppercase.first}}
 
 {{if(!is.empty($request.submodule))}}
-Submodule: {{$request.submodule|string.uppercase.first}}
+Submodule: {{$request.submodule|>string.uppercase.first}}
 {{/if}}
 {{if($request.module === 'info')}}
 {{$files = dir.read(config('controller.dir.view') + 'Object/')}}
@@ -12,7 +12,7 @@ Submodule: {{$request.submodule|string.uppercase.first}}
 Commands:
 {{foreach($files as $file)}}
 {{$file.basename = file.basename($file.name, config('extension.tpl'))}}
-{{binary()}} {{$request.package}} object {{$file.basename|string.lowercase}}
+{{binary()}} {{$request.package}} object {{$file.basename|>string.lowercase}}
 
 {{/foreach}}
 {{else}}
@@ -28,8 +28,8 @@ Options:
 {{continue()}}
 {{/if}}
 {{$file.basename = file.basename($file.name, config('extension.tpl'))}}
-{{if(!is.empty($options[$file.basename|string.lowercase]) || !is.empty($is.all))}}
-{{binary()}} {{$request.package}} {{$request.module}} {{$request.submodule|default:''}} -{{$file.basename|string.lowercase}}
+{{if(!is.empty($options[$file.basename|>string.lowercase]) || !is.empty($is.all))}}
+{{binary()}} {{$request.package}} {{$request.module}} {{$request.submodule|>default:''}} -{{$file.basename|>string.lowercase}}
 {{/if}}
 {{/foreach}}
 {{else}}
@@ -40,7 +40,7 @@ Options:
 {{continue()}}
 {{/if}}
 {{$file.basename = file.basename($file.name, config('extension.tpl'))}}
-{{if(!is.empty($options[$file.basename|string.lowercase]) || !is.empty($is.all))}}
+{{if(!is.empty($options[$file.basename|>string.lowercase]) || !is.empty($is.all))}}
 {{require($file.url)}}
 {{/if}}
 {{/foreach}}

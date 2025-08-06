@@ -3,9 +3,9 @@
 
 Package: {{$request.package}}
 
-Module: {{$request.module|string.uppercase.first}}
+Module: {{$request.module|>string.uppercase.first}}
 
-Submodule: {{$request.submodule|string.uppercase.first}}
+Submodule: {{$request.submodule|>string.uppercase.first}}
 
 {{$class = data.extract('options.class')}}
 {{if(is.empty($class))}}
@@ -32,6 +32,6 @@ $class,
 Raxon.Node:Role:role.system(),
 $options
 )}}
-{{$response|json.encode:'JSON_PRETTY_PRINT'}}
+{{$response|>json.encode:'JSON_PRETTY_PRINT'}}
 
 {{/if}}

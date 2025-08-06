@@ -1,12 +1,12 @@
 {{$request = request()}}
 Package: {{$request.package}}
 
-Module: {{$request.module|string.uppercase.first}}
+Module: {{$request.module|>string.uppercase.first}}
 {{if(is.empty($request.submodule))}}
 {{$request.submodule = 'info'}}
 {{/if}}
 
-Submodule: {{$request.submodule|string.uppercase.first}}
+Submodule: {{$request.submodule|>string.uppercase.first}}
 
 {{$options = options()}}
 {{$is.all = false}}
@@ -20,8 +20,8 @@ Options:
 {{continue()}}
 {{/if}}
 {{$file.basename = file.basename($file.name, config('extension.tpl'))}}
-{{if(!is.empty($options[$file.basename|lowercase]) || !is.empty($is.all))}}
-{{binary()}} {{$request.package}} {{$request.module}} {{$request.submodule}} -{{$file.basename|lowercase}}
+{{if(!is.empty($options[$file.basename|>lowercase]) || !is.empty($is.all))}}
+{{binary()}} {{$request.package}} {{$request.module}} {{$request.submodule}} -{{$file.basename|>lowercase}}
 
 {{/if}}
 {{/foreach}}

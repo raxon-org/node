@@ -3,9 +3,9 @@
 {{if($options.confirmation !== 'y')}}
 Package: {{$request.package}}
 
-Module: {{$request.module|string.uppercase.first}}
+Module: {{$request.module|>string.uppercase.first}}
 
-Submodule: {{$request.submodule|string.uppercase.first}}
+Submodule: {{$request.submodule|>string.uppercase.first}}
 
 {{/if}}
 {{while(is.empty($options.class))}}
@@ -22,5 +22,5 @@ $options.class,
 Raxon.Node:Role:role.system(),
 [
 ])}}
-{{$response|json.encode:'JSON_PRETTY_PRINT'}}
+{{$response|>json.encode:'JSON_PRETTY_PRINT'}}
 
