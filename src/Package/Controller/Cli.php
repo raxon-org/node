@@ -23,8 +23,7 @@ class Cli extends Controller {
     const MODULE_INFO = 'Info';
     const INFO = [
         '{{binary()}} raxon/node                    | Node (Object store) options',
-        '{{binary()}} raxon/node object             | Node (Object Classes) options',
-        '{{binary()}} raxon/node setup              | Node setup'
+        '{{binary()}} raxon/node object             | Node (Object classes) options',        
     ];
 
     /**
