@@ -1,0 +1,88 @@
+{
+ "command": [
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}}",
+        "description": [
+            "{{__('info')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} setup",
+        "description": [
+            "{{__('setup')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} clear",
+        "description": [
+            "{{__('clear')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} create",
+        "description": [
+            "{{__('create')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} drop",
+        "description": [
+            "{{__('drop')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} export",
+        "description": [
+            "{{__('export')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} import",
+        "description": [
+            "{{__('import')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} list",
+        "description": [
+            "{{__('list')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} patch",
+        "description": [
+            "{{__('patch')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} put",
+        "description": [
+            "{{__('put')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} read",
+        "description": [
+            "{{__('read')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} rename",
+        "description": [
+            "{{__('rename')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} sync",
+        "description": [
+            "{{__('sync')}}"
+        ]
+    },
+    {
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} truncate",
+        "description": [
+            "{{__('truncate')}}"
+        ]
+    }
+ ]   
+}

@@ -1,0 +1,16 @@
+{
+    "info" : "This info",
+    "setup" : "Setup the raxon/node package" ,
+    "clear" : "Clear",   
+    "create" : "Create",
+    "drop" : "Drop",   
+    "export" : "Export",
+    "import" : "Import",
+    "list" : "List",
+    "patch" : "Patch",
+    "put" : "Put",
+    "read" : "Read",
+    "rename" : "Rename",
+    "sync" : "Sync",
+    "truncate" : "Truncate"
+}
