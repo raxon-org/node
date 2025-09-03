@@ -12,6 +12,7 @@ Submodule: {{$request.submodule|>string.uppercase.first}}
 Commands:
 {{foreach($files as $file)}}
 {{$file.basename = file.basename($file.name, config('extension.tpl'))}}
+{{dd($file.basename)}}
 {{binary()}} {{$request.package}} object {{$file.basename|>string.lowercase}}
 
 {{/foreach}}
