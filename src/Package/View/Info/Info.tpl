@@ -12,7 +12,7 @@ Submodule: {{$request.submodule|>string.uppercase.first}}
 Commands:
 {{foreach($files as $file)}}
 {{$file.basename = file.basename($file.name, config('extension.tpl'))}}
-{{dd($file.basename)}}
+{{dd($file.basename)}}  
 {{binary()}} {{$request.package}} object {{$file.basename|>string.lowercase}}
 
 {{/foreach}}
@@ -30,7 +30,7 @@ Options:
 {{/if}}
 {{$file.basename = file.basename($file.name, config('extension.tpl'))}}
 {{if(!is.empty($options[$file.basename|>string.lowercase]) || !is.empty($is.all))}}
-{{binary()}} {{$request.package}} {{$request.module}} {{$request.submodule|>default:''}} -{{$file.basename|>string.lowercase}}
+{{binary()}} {{$request.package}} {{$request.module|>string.lowercase}} {{$request.submodule|>default:''}} -{{$file.basename|>string.lowercase}}
 {{/if}}
 {{/foreach}}
 {{else}}
