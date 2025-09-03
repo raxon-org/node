@@ -27,8 +27,7 @@ Options:
 {{foreach($files as $file)}}
 {{if($file.name === 'Object.Info.tpl')}}
 {{continue()}}
-{{/if}}
-{{$file.basename = file.basename($file.name, config('extension.tpl'))}}
+{{/if}}{{$file.basename = file.basename($file.name, config('extension.tpl'))}}
 {{if(!is.empty($options[$file.basename|>string.lowercase]) || !is.empty($is.all))}}
 {{binary()}} {{$request.package}} {{$request.module|>string.lowercase}} {{$request.submodule|>default:''}} -{{$file.basename|>string.lowercase}}
 {{/if}}
