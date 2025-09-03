@@ -1,43 +1,37 @@
+{{translation.import()}}
 {{$request = request()}}
-Package: {{$request.package}}
+{{$selected = (int) parameter($request.package, 1)}}
+{{$list = parse.read(config('controller.dir.data') + 'Command.json', true, (object) ['array_fast' => true])}}
+{{$sort = Sort::list($list.command)}}
+{{$list.command = $sort->with(['command' => 'asc'])}}
+Package: {{$request.package|>string.lowercase|>string.uppercase.first}}
 
-Module: {{$request.module|>string.uppercase.first}}
+{{if(!is.empty($request.module))}}Module: {{$request.module|>string.lowercase|>string.uppercase.first}}
 
-{{if(!is.empty($request.submodule))}}
-Submodule: {{$request.submodule|>string.uppercase.first}}
 {{/if}}
-{{if($request.module === 'info')}}
-{{$files = dir.read(config('controller.dir.view') + 'Object/')}}
-{{$files = data.sort($files, ['url' => 'ASC'])}}
-Commands:
-{{foreach($files as $file)}}
-{{$file.basename = file.basename($file.name, config('extension.tpl'))}}
-{{dd($file.basename)}}  
-{{binary()}} {{$request.package}} object {{$file.basename|>string.lowercase}}
+{{if(!is.empty($list.command))}}
+{{$nr = 1}}{{if($selected > 0)}}{{else}}Commands:
+{{/if}}{{foreach($list.command as $item)}}
+{{$key = $nr}}
+{{if($key < 10)}}
+{{$key = '0' + $key}}
+{{/if}}{{if($selected > 0)}}{{if($selected === $nr)}}
+{{$execute = string.trim.right($item.command + ' ' + implode(' ', flags('#command')) + ' ' + implode(' ', options('#command')), ' ')}}
+Executing ({{$execute}})...
+{{terminal.interactive()}}
+{{execute($execute)}}
+{{/if}}{{else}}[{{$key}}] {{$item.command}}
 
+{{/if}}{{$nr++}}
 {{/foreach}}
-{{else}}
-{{$options = options()}}
-{{$is.all = false}}
-{{if(is.empty.object($options))}}
-{{$is.all = true}}
-{{$files = dir.read(config('controller.dir.view') + 'Object/Info/')}}
-{{$files = data.sort($files, ['url' => 'ASC'])}}
-Options:
-{{foreach($files as $file)}}
-{{if($file.name === 'Object.Info.tpl')}}{{continue()}}{{/if}}{{$file.basename = file.basename($file.name, config('extension.tpl'))}}
-{{if(!is.empty($options[$file.basename|>string.lowercase]) || !is.empty($is.all))}}
-{{binary()}} {{$request.package}} {{$request.module|>string.lowercase}} {{$request.submodule|>default:''}} -{{$file.basename|>string.lowercase}}
-{{/if}
-}{{/foreach}}
-{{else}}{{$files = dir.read(config('controller.dir.view') + 'Object/Info/')}}
-{{$files = data.sort($files, ['url' => 'ASC'])}}
-{{foreach($files as $file)}}
-{{if($file.name === 'Object.Info.tpl')}}{{continue()}}{{/if}}
-{{$file.basename = file.basename($file.name, config('extension.tpl'))}}
-{{if(!is.empty($options[$file.basename|>string.lowercase]) || !is.empty($is.all))}}
-{{require($file.url)}}
-{{/if}}
+{{$nr = 1}}{{if($selected > 0)}}{{else}}
+Description:
+{{/if}}{{foreach($list.command as $item)}}
+{{$key = $nr}}
+{{if($key < 10)}}
+{{$key = '0' + $key}}
+{{/if}}{{if($selected > 0)}}{{else}}[{{$key}}] {{implode(PHP_EOL, $item.description)}}
+
+{{/if}}{{$nr++}}
 {{/foreach}}
-{{/if}}
 {{/if}}
