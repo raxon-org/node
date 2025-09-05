@@ -1,91 +1,91 @@
 {
  "command": [
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object clear",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} clear",
         "description": [
             "{{__('object.clear')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object compact",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} compact",
         "description": [
             "{{__('object.compact')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object compress",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} compress",
         "description": [
             "{{__('object.compress')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object create",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} create",
         "description": [
             "{{__('object.create')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object drop",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} drop",
         "description": [
             "{{__('object.drop')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object expand",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} expand",
         "description": [
             "{{__('object.expand')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object export",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} export",
         "description": [
             "{{__('object.export')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object extract",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} extract",
         "description": [
             "{{__('object.extract')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object import",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} import",
         "description": [
             "{{__('object.import')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object list",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} list",
         "description": [
             "{{__('object.list')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object read",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} read",
         "description": [
             "{{__('object.read')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object rename",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} rename",
         "description": [
             "{{__('object.rename')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object sync",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} sync",
         "description": [
             "{{__('object.sync')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object truncate",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} truncate",
         "description": [
             "{{__('object.truncate')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} object update",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} {{$request.module|>string.lowercase}} update",
         "description": [
             "{{__('object.update')}}"
         ]
