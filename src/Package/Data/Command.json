@@ -89,25 +89,13 @@
         "description": [
             "{{__('list')}}"
         ]
-    },
-    {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} patch",
-        "description": [
-            "{{__('patch')}}"
-        ]
-    },
+    },    
     {
         "command": "{{binary()}} {{$request.package|>string.lowercase}} put",
         "description": [
             "{{__('put')}}"
         ]
-    },
-    {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} read",
-        "description": [
-            "{{__('read')}}"
-        ]
-    },
+    },    
     {
         "command": "{{binary()}} {{$request.package|>string.lowercase}} rename",
         "description": [
