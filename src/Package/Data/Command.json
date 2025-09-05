@@ -13,67 +13,67 @@
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} clear",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} count",
         "description": [
             "{{__('count')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} clear",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} create",
         "description": [
             "{{__('create')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} clear",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} delete",
         "description": [
             "{{__('delete')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} clear",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} list",
         "description": [
             "{{__('list')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} clear",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} page",
         "description": [
             "{{__('page')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} clear",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} patch",
         "description": [
             "{{__('patch')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} clear",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} put",
         "description": [
             "{{__('put')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} clear",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} read",
         "description": [
             "{{__('read')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} clear",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} record",
         "description": [
             "{{__('record')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} clear",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} unset",
         "description": [
             "{{__('unset')}}"
         ]
     },
     {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} clear",
+        "command": "{{binary()}} {{$request.package|>string.lowercase}} object",
         "description": [
             "{{__('object')}}"
         ]
