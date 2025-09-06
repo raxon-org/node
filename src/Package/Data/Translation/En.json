@@ -12,5 +12,5 @@
     "unset" : "Delete a property from a node",
     "delete" : "Delete a node by uuid",
     "object" : "Object info command",
-    "page" : "Find page number by option -uuid"    
+    "page" : "Find page number by option -uuid and -limit"    
 }
