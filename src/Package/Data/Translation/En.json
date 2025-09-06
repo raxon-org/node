@@ -9,5 +9,8 @@
     "put" : "Put (update) a node",
     "read" : "Read a node by uuid",
     "record" : "Read a node by a custom property with option -where",    
-    "unset" : "Delete a property from a node"    
+    "unset" : "Delete a property from a node",
+    "delete" : "Delete a node by uuid",
+    "object" : "Object info command",
+    "page" : "Find page number by option -uuid"    
 }

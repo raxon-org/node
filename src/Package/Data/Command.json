@@ -89,12 +89,6 @@
         "description": [
             "{{__('put')}}"
         ]
-    },    
-    {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} rename",
-        "description": [
-            "{{__('rename')}}"
-        ]
     }    
  ]   
 }
