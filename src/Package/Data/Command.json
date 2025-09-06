@@ -77,13 +77,7 @@
         "description": [
             "{{__('object')}}"
         ]
-    },
-    {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} import",
-        "description": [
-            "{{__('import')}}"
-        ]
-    },
+    },    
     {
         "command": "{{binary()}} {{$request.package|>string.lowercase}} list",
         "description": [
@@ -101,18 +95,6 @@
         "description": [
             "{{__('rename')}}"
         ]
-    },
-    {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} sync",
-        "description": [
-            "{{__('sync')}}"
-        ]
-    },
-    {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} truncate",
-        "description": [
-            "{{__('truncate')}}"
-        ]
-    }
+    }    
  ]   
 }
