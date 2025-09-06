@@ -1,16 +1,13 @@
 {
     "info" : "This info",
     "setup" : "Setup the raxon/node package" ,
-    "clear" : "Clear",   
-    "create" : "Create",
-    "drop" : "Drop",   
-    "export" : "Export",
-    "import" : "Import",
-    "list" : "List",
-    "patch" : "Patch",
-    "put" : "Put",
-    "read" : "Read",
-    "rename" : "Rename",
-    "sync" : "Sync",
-    "truncate" : "Truncate"
+    "count" : "Count items including option -where",   
+    "clear" : "Clears the filter and where files which where invalidated",   
+    "create" : "Create a node",             
+    "list" : "List nodes including option -where, -limit, -offset and -sort",
+    "patch" : "Patch (update) a node",
+    "put" : "Put (update) a node",
+    "read" : "Read a node by uuid",
+    "record" : "Read a node by a custom property with option -where",    
+    "unset" : "Delete a property from a node"    
 }
