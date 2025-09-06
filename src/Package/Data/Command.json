@@ -77,12 +77,6 @@
         "description": [
             "{{__('object')}}"
         ]
-    },    
-    {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} list",
-        "description": [
-            "{{__('list')}}"
-        ]
-    }    
+    }     
  ]   
 }
