@@ -83,12 +83,6 @@
         "description": [
             "{{__('list')}}"
         ]
-    },    
-    {
-        "command": "{{binary()}} {{$request.package|>string.lowercase}} put",
-        "description": [
-            "{{__('put')}}"
-        ]
     }    
  ]   
 }
