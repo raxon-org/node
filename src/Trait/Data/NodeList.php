@@ -504,7 +504,7 @@ trait NodeList {
 //            echo str_repeat(' ', Cli::tput('columns')) . PHP_EOL;
 //            echo Cli::tput('cursor.up');
 //            echo 'indexing' . PHP_EOL;
-            $local_options = $optionfs;
+            $local_options = $options;
             $local_options['limit'] = 1;
             $local_options['page'] = 1;
             $record = $this->index_list_record($class, $role, $local_options);
