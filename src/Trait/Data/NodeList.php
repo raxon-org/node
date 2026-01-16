@@ -1293,13 +1293,15 @@ trait NodeList {
                             $ramdisk->set('mtime', $mtime);
                             $ramdisk->set('response', $result_ramdisk);
                             $ramdisk->set('relation', $relation_mtime);
-                            $ramdisk->write($ramdisk_url_node);
-                            File::permission($object, [
-                                'ramdisk_dir' => $ramdisk_dir,
-                                'ramdisk_dir_node' => $ramdisk_dir_node,
-                                'ramdisk_dir_list' => $ramdisk_dir_list,
-                                'ramdisk_url_node' => $ramdisk_url_node,
-                            ]);
+                            if(File::is_writeable($ramdisk_url_node)){
+                                $ramdisk->write($ramdisk_url_node);
+                                File::permission($object, [
+                                    'ramdisk_dir' => $ramdisk_dir,
+                                    'ramdisk_dir_node' => $ramdisk_dir_node,
+                                    'ramdisk_dir_list' => $ramdisk_dir_list,
+                                    'ramdisk_url_node' => $ramdisk_url_node,
+                                ]);
+                            }
                         }
                     }
                     if($start){
