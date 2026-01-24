@@ -559,9 +559,6 @@ trait Import {
         $put = 0;
         $patch = 0;
         $create = 0;
-        d($create_many);
-        d($patch_many);
-        ddd($put_many);
         if(!empty($create_many)) {
             $response = $this->create_many($name, $role, $create_many, [
                 'import' => true,
@@ -648,6 +645,7 @@ trait Import {
         $total = $put + $patch + $create;
         $item_per_second = round($total / $duration, 2);
         return [
+            'class' => $class,
             'skip' => $skip,
             'put' => $put,
             'patch' => $patch,
