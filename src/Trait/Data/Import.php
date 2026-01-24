@@ -656,5 +656,6 @@ trait Import {
             'item_per_second' => $item_per_second,
             'transaction' => true
         ];
+
     }
 }
