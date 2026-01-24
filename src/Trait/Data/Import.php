@@ -559,8 +559,9 @@ trait Import {
         $put = 0;
         $patch = 0;
         $create = 0;
-        trace();
-        ddd($options);
+        d($create_many);
+        d($patch_many);
+        ddd($put_many);
         if(!empty($create_many)) {
             $response = $this->create_many($name, $role, $create_many, [
                 'import' => true,
