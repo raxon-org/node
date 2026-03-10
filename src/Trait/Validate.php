@@ -16,7 +16,6 @@ trait Validate {
      */
     protected function validate(App $object, $record, $url, $type, $function=''): object | false
     {
-        d($url);
         $data = $object->parse_read($url, sha1($url));
         if($data){
             $clone = $data->data($type . '.validate');
@@ -30,6 +29,6 @@ trait Validate {
                 throw new Exception('No validation found for ' . $type . ' in ' . $url . '.');
             }
         }
-        return false;
+        throw new Exception('No data found for ' . $type . ' in ' . $url . '.');
     }
 }
