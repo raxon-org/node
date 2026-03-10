@@ -28,6 +28,7 @@ trait Create {
         }
         $nodeList = [$node];
         $response = $this->create_many($class, $role, $nodeList, $options);
+        d($response);
         return $this->single($response);
     }
 
