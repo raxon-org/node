@@ -95,6 +95,7 @@ trait NodeList {
                 is_array($options['where'])
             ){
                 $where = $this->list_where($options);
+                breakpoint($where);
             }
             $options['where'] = $where;
         }
