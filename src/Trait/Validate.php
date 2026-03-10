@@ -16,6 +16,7 @@ trait Validate {
      */
     protected function validate(App $object, $record, $url, $type, $function=''): object | false
     {
+        d($url);
         $data = $object->parse_read($url, sha1($url));
         if($data){
             $clone = $data->data($type . '.validate');
