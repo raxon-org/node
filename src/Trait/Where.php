@@ -544,6 +544,7 @@ trait Where {
                                 'strict' => $set[0]['strict'] ?? true
                             ]
                         ];
+                        d($filter_where);
                         $left = Filter::list($list)->where($filter_where);
                         $filter_where = [
                             $set[2]['attribute'] => [
@@ -552,6 +553,7 @@ trait Where {
                                 'strict' => $set[2]['strict'] ?? true
                             ]
                         ];
+
                         $right = Filter::list($list)->where($filter_where);
                         if (!empty($left) && !empty($right)) {
                             $set[0] = [
