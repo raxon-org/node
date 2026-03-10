@@ -73,7 +73,6 @@ trait Create {
             $options
         )){
             throw new Exception('Security error, not granted:');
-            return false;
         }
         $transaction = $object->config('node.transaction.' . $name);
         if(
@@ -139,6 +138,7 @@ trait Create {
                     throw $exception;
                 }
             }
+            d($validate);
             if($validate) {
                 if ($validate->success === true) {
                     $expose = $this->expose_get(
