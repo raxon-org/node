@@ -555,6 +555,8 @@ trait Where {
                         ];
 
                         $right = Filter::list($list)->where($filter_where);
+                        d($left);
+                        breakpoint($right);
                         if (!empty($left) && !empty($right)) {
                             $set[0] = [
                                 'attribute' => 'uuid',
