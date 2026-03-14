@@ -108,8 +108,14 @@ trait Create {
                 get_class($node) === Storage::class
             ){
                 $node = $node->data();
+            }
+            elseif(is_array($node)) {
+                $node = (object) $node;
+            }
+            elseif(is_object($node)){
+                //nothing
             } else {
-                $node = Core::object($node, Core::OBJECT_OBJECT);
+                $error[] = 'Node is not an object or array (nr: ' . $nr . ')';
             }
             $object->request('node', $node);
             if(
