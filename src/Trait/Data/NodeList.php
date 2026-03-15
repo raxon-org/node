@@ -875,6 +875,7 @@ trait NodeList {
                     $options['parallel'] === true &&
                     Core::is_cli()
                 ) {
+                    d('##PARALLEL_ENABLED###############');
                     $threads = $options['thread'];
                     $chunks = array_chunk($list, ceil(count($list) / $threads));
                     $chunk_count = count($chunks);
@@ -1072,6 +1073,7 @@ trait NodeList {
                     unset($list);
                     $limit = '*'; //handler
                 } else {
+                    d('##PARALLEL_DISABLED###############');
                     $expose = false;
                     foreach($list as $nr => $record) {
                         if(
