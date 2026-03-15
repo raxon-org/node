@@ -42,13 +42,14 @@ trait Record {
         )){
             return null;
         }
-        breakpoint('pass security');
         if(!array_key_exists('sort', $options)){
             $options['sort'] = [
                 'uuid' => 'ASC'
             ];
         }
+        d($options);
         $response = $this->list($name, $role, $options);
+        d($response);
         unset($name);
         unset($options);
         unset($role);
