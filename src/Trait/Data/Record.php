@@ -48,6 +48,7 @@ trait Record {
             ];
         }
         d($options);
+        d($name);
         $response = $this->list($name, $role, $options);
         d($response);
         unset($name);
