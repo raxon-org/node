@@ -1108,6 +1108,8 @@ trait NodeList {
                                 $record = $parse->compile($record, $object->data(), $parse->storage());
                             }
                             if($is_filter){
+                                d($record);
+                                d($options['filter']);
                                 $record = $this->filter($record, $options['filter'], $options);
                                 if(!$record){
                                     unset($list[$nr]);
