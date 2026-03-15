@@ -42,6 +42,7 @@ trait Record {
         )){
             return null;
         }
+        breakpoint('pass security');
         if(!array_key_exists('sort', $options)){
             $options['sort'] = [
                 'uuid' => 'ASC'
