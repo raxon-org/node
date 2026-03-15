@@ -864,6 +864,7 @@ trait NodeList {
                     is_array($options['filter'])
                 ) {
                     $is_filter = true;
+                    d('####FILTER_ENABLED################');
                 }
                 elseif (!empty($options['where'])) {
                     $is_where = true;
