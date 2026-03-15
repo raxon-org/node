@@ -12,8 +12,6 @@ trait Filter {
      */
     private function filter($record=[], $filter=[], $options=[]): mixed
     {
-d('###YES############################');
-
         $list = [];
         $list[] = $record;
         $list = Module::list($list)->where($filter);
