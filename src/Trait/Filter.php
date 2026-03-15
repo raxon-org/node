@@ -12,6 +12,7 @@ trait Filter {
      */
     private function filter($record=[], $filter=[], $options=[]): mixed
     {
+d('###YES############################');
 
         $list = [];
         $list[] = $record;
