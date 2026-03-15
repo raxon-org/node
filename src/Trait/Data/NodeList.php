@@ -106,7 +106,6 @@ trait NodeList {
             $role,
             $options
         )) {
-            d('####YES##########################');
             $list = [];
             $result = [];
             $result['page'] = $options['page'];
@@ -845,6 +844,7 @@ trait NodeList {
                 is_array($list)
             ) {
                 $max = count($list);
+                d('max:' . $max);
                 $relation = [];
                 if ($object_data) {
                     $relation = $object_data->get('relation');
