@@ -146,7 +146,10 @@ function validate_is_unique(App $object, object $record, mixed $value='', mixed 
 //        $options['index'] = $node->index($name, $node->role_system(), $options);
         //add index as options to record
     }
+    d($name);
+    d($options);
     $response = $node->record($name, $node->role_system(), $options);
+    d($response);
     if(
         !empty($response) &&
         is_array($response) &&
