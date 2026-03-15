@@ -105,6 +105,7 @@ trait NodeList {
             $role,
             $options
         )) {
+            d('####YES##########################');
             $list = [];
             $result = [];
             $result['page'] = $options['page'];
