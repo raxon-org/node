@@ -394,10 +394,12 @@ trait NodeList {
                     }
                 }
             }
+            /*
             if($is_debug === true){
                 d($ramdisk_url_node);
                 d(File::exist($ramdisk_url_node));
             }
+            */
             if (File::exist($ramdisk_url_node)) {
                 if ($options['transaction'] === true) {
                     $ramdisk = $object->data_read($ramdisk_url_node, sha1($ramdisk_url_node));
@@ -617,7 +619,6 @@ trait NodeList {
                 $parse->storage()->data('raxon.org.parse.view.mtime', $mtime);
                 $list = $parse->compile($list, $object->data(), $parse->storage());
             }
-            d('from index:' . $name);
             $result = [];
             $result['page'] = $options['page'];
             $result['limit'] = $options['limit'];
@@ -843,7 +844,6 @@ trait NodeList {
                 is_array($list)
             ) {
                 $max = count($list);
-                d('max:' . $max);
                 $relation = [];
                 if ($object_data) {
                     $relation = $object_data->get('relation');
@@ -864,7 +864,6 @@ trait NodeList {
                     is_array($options['filter'])
                 ) {
                     $is_filter = true;
-                    d('####FILTER_ENABLED################');
                 }
                 elseif (!empty($options['where'])) {
                     $is_where = true;
@@ -875,7 +874,6 @@ trait NodeList {
                     $options['parallel'] === true &&
                     Core::is_cli()
                 ) {
-                    d('##PARALLEL_ENABLED###############');
                     $threads = $options['thread'];
                     $chunks = array_chunk($list, ceil(count($list) / $threads));
                     $chunk_count = count($chunks);
@@ -1073,10 +1071,8 @@ trait NodeList {
                     unset($list);
                     $limit = '*'; //handler
                 } else {
-                    d('##PARALLEL_DISABLED###############');
                     $expose = false;
                     foreach($list as $nr => $record) {
-                        d($record);
                         if(
                             is_object($record) &&
                             property_exists($record, '#class')
@@ -1112,8 +1108,6 @@ trait NodeList {
                                 $parse->storage()->data('raxon.org.parse.view.mtime', $mtime);
                                 $record = $parse->compile($record, $object->data(), $parse->storage());
                             }
-                            d($is_filter);
-                            d($options);
                             if($is_filter){
                                 $record = $this->filter($record, $options['filter'], $options);
                                 if(!$record){

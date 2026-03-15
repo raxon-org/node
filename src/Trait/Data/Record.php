@@ -47,10 +47,7 @@ trait Record {
                 'uuid' => 'ASC'
             ];
         }
-        d($options);
-        d($name);
         $response = $this->list($name, $role, $options);
-        d($response);
         unset($name);
         unset($options);
         unset($role);
