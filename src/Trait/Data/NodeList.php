@@ -1076,6 +1076,7 @@ trait NodeList {
                     d('##PARALLEL_DISABLED###############');
                     $expose = false;
                     foreach($list as $nr => $record) {
+                        d($record);
                         if(
                             is_object($record) &&
                             property_exists($record, '#class')
