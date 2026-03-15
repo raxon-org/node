@@ -100,6 +100,7 @@ trait NodeList {
         }
         $options['page'] = $options['page'] ?? 1;
         $options['limit'] = $options['limit'] ?? 1000;
+        d('####NO##########################');
         if (!Security::is_granted(
             $name,
             $role,
