@@ -100,7 +100,6 @@ trait NodeList {
         }
         $options['page'] = $options['page'] ?? 1;
         $options['limit'] = $options['limit'] ?? 1000;
-        d('####NO##########################');
         if (!Security::is_granted(
             $name,
             $role,
@@ -1109,9 +1108,9 @@ trait NodeList {
                                 $parse->storage()->data('raxon.org.parse.view.mtime', $mtime);
                                 $record = $parse->compile($record, $object->data(), $parse->storage());
                             }
+                            d($is_filter);
+                            d($options);
                             if($is_filter){
-                                d($record);
-                                d($options['filter']);
                                 $record = $this->filter($record, $options['filter'], $options);
                                 if(!$record){
                                     unset($list[$nr]);
@@ -1119,8 +1118,6 @@ trait NodeList {
                                 }
                             }
                             elseif($is_where){
-                                d($record);
-                                d($options['where']);
                                 $record = $this->where($record, $options['where'], $options);
                                 if(!$record){
                                     unset($list[$nr]);
