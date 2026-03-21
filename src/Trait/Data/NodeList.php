@@ -1661,6 +1661,7 @@ trait NodeList {
 
     private function nodelist_output_filter(App $object, $list, $options=[]): mixed
     {
+        d($options);
         if(!array_key_exists('output', $options)){
             return $list;
         }
