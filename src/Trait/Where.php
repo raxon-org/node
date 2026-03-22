@@ -92,6 +92,7 @@ trait Where {
         }
         $flags = (object) [];
         $options = (object) [];
+        $object = $this->object();
         $tree = Token::tokenize($object, $flags, $options, '{{if(' . $string . ')}}{{/if}}');
         ddd($tree);
         $tag = reset($tree);
