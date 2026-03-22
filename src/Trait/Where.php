@@ -152,12 +152,6 @@ trait Where {
                 $skip++;
             }
         }
-        ddd($tree);
-        $tree = [];
-        foreach($list as $nr => $record){
-            $tree[] = $record;
-            unset($list[$nr]);
-        }
         return $tree;
     }
 
