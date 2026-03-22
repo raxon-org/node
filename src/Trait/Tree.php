@@ -2,8 +2,7 @@
 
 namespace Raxon\Node\Trait;
 
-use Raxon\Module\Parse;
-use Raxon\Module\Parse\Token;
+use Exception;
 
 use Raxon\Exception\FileWriteException;
 use Raxon\Exception\ObjectException;
