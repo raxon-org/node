@@ -100,6 +100,7 @@ trait Where {
         $previous = null;
         $next = null;
         $skip = 0;
+        $tree = [];
         foreach($list as $nr => $record){
             $record = $this->where_operator_add($record);
             if($skip > 0){
@@ -121,18 +122,13 @@ trait Where {
                 $record['is_operator'] === true
             ){
                 $attribute = $this->tree_record_attribute($list[$previous]);
-                d($attribute);
                 $operator = $record['value'];
-                d($operator);
                 $value = $this->tree_record_attribute($list[$next]);
-                d($value);
-                $list[$previous] = [
+                $tree[] = [
                     'attribute' => $attribute,
                     'value' => $value,
                     'operator' => $operator
                 ];
-                $list[$nr] = null;
-                $list[$next] = null;
                 $skip++;
             }
             elseif(
@@ -146,13 +142,11 @@ trait Where {
                 $attribute = $this->tree_record_attribute($list[$previous]);
                 $operator = mb_strtolower($record['value']);
                 $value = $this->tree_record_attribute($list[$next]);
-                $list[$previous] = [
+                $tree = [
                     'attribute' => $attribute,
                     'value' => $value,
                     'operator' => $operator
                 ];
-                $list[$nr] = null;
-                $list[$next] = null;
                 $skip++;
             }
         }
