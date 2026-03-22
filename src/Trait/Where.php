@@ -145,6 +145,7 @@ trait Where {
                 unset($list[$next]);
             }
         }
+        ddd($list);
         $tree = [];
         foreach($list as $nr => $record){
             $tree[] = $record;
@@ -918,7 +919,11 @@ trait Where {
 
     private function operator_add($record): array
     {
-        dd($record);
+        if(
+            array_key_exists('value', $record) &&
+            in_array($record['value'], ['and', 'or', 'xor'], true)){
+            $record['is_operator'] = true;
+        }
         return $record;
     }
 }
