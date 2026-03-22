@@ -120,9 +120,11 @@ trait Where {
                 $record['is_operator'] === true
             ){
                 $attribute = $this->tree_record_attribute($list[$previous]);
+                d($attribute);
                 $operator = $record['value'];
+                d($operator);
                 $value = $this->tree_record_attribute($list[$next]);
-
+                d($value);
                 $list[$previous] = [
                     'attribute' => $attribute,
                     'value' => $value,
