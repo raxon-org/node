@@ -101,6 +101,7 @@ trait Where {
         $next = null;
         $skip = 0;
         $tree = [];
+        ddd($list);
         foreach($list as $nr => $record){
             $record = $this->where_operator_add($record);
             if($skip > 0){
