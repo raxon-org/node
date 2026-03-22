@@ -1528,6 +1528,7 @@ trait NodeList {
         if (is_string($options['where'])) {
             $options['where'] = $this->where_convert($options['where']);
         }
+        d($options);
         if (is_array($options['where'])) {
             foreach ($options['where'] as $key => $where) {
                 if (is_string($where)) {
