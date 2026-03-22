@@ -52,7 +52,7 @@ class Node extends Controller {
             throw new Exception('Filter must be an array.');
         }
         $where = $object->request('where');
-        d($where);
+//        d($where);
         $limit = (int) $object->request('limit');
         if(empty($limit)){
             $limit = 30;
