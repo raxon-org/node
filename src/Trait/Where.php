@@ -821,16 +821,7 @@ trait Where {
             if($counter > 1024){
                 break;
             }
-//            d($where);
             $set = $this->where_get_set($where, $key, $deepest);
-            if(array_key_exists('debug', $options)){
-                d($set);
-            }
-            if($record->uuid === '3cd80fdf-38fe-40e8-9bfe-4d1d4f281bf1' && $deepest === 0){
-                d($set);
-            }
-
-//            d($where);
             while($record !== false){
                 if(array_key_exists('debug', $options)) {
                     d($set);
