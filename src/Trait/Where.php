@@ -811,6 +811,10 @@ trait Where {
         if(empty($where)){
             return $record;
         }
+        if(is_string($where)){
+            $where = $this->where_string_to_array($where);
+
+        }
         if(!is_array($where)){
             $where = Core::object($where, Core::OBJECT_ARRAY);
         }
@@ -947,5 +951,47 @@ trait Where {
 //            d('here2');
         }
         return $record;
+    }
+
+    public function where_string_to_array($where): array
+    {
+        if(is_array($where)){
+            return $where;
+        }
+        $separators = [
+            ' and ',
+            ' AND ',
+            ' or ',
+            ' OR ',
+            ' xor ',
+            ' XOR'
+        ];
+        foreach ($separators as $separator) {
+            while(true) {
+                if(is_string($where)) {
+                    $explode = explode($separator, $where, 2);
+                    if(count($explode) === 1) {
+                        break;
+                    }
+                    $result = [];
+                    $result[] =$explode[0];
+                    $result[] = trim($separator);
+                    $result[] = $explode[1];
+                    $where = $result;
+                }
+                elseif(is_array($where)) {
+                    $explode = array_pop($where);
+                    $explode = explode($separator, $explode, 2);
+                    if(count($explode) === 1) {
+                        break;
+                    }
+                    $where[] =$explode[0];
+                    $where[] = trim($separator);
+                    $where[] = $explode[1];
+                }
+            }
+        }
+        ddd($where);
+        return $where;
     }
 }
