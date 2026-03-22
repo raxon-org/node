@@ -90,6 +90,7 @@ trait Tree {
     private function tree_record_attribute($record=[]): mixed
     {
         $attribute = '';
+        ddd($record);
         if(!array_key_exists('collection', $record)){
             switch($record['type']){
                 case Token::TYPE_QUOTE_DOUBLE_STRING:

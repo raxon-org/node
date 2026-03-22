@@ -100,7 +100,7 @@ trait Where {
         $previous = null;
         $next = null;
         foreach($list as $nr => $record){
-            $record = $this->operator_add($record);
+            $record = $this->where_operator_add($record);
             if(array_key_exists($nr - 1, $list)){
                 $previous = $nr - 1;
             }
@@ -917,7 +917,7 @@ trait Where {
         return $where;
     }
 
-    private function operator_add($record): array
+    private function where_operator_add($record): array
     {
         if(
             array_key_exists('value', $record) &&
