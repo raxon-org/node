@@ -90,6 +90,17 @@ trait Where {
         if(!is_string($string)){
             return $string;
         }
+        $flags = (object) [];
+        $options = (object) [];
+        $tree = Token::tokenize($object, $flags, $options, '{{if(' . $string . ')}}{{/if}}');
+        ddd($tree);
+        $tag = reset($tree);
+        $if = reset($tag);
+        $left = null;
+        $equation = null;
+        $right = null;
+
+
         $options = [
             'with_whitespace' => true,
             'extra_operators' => [
