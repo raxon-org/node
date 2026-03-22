@@ -88,7 +88,7 @@ trait Tree {
      */
     private function tree_record_attribute($record=[]): mixed
     {
-        if(!array_key_exists('type', $record){
+        if(!array_key_exists('type', $record)){
             ddd($$record);
         }
         switch($record['type']){
