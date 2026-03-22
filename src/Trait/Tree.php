@@ -98,6 +98,8 @@ trait Tree {
         }
         switch($record['type']){
             case 'string':
+            case 'integer':
+            case 'float':
                 return $record['execute'];
             default:
                 d($record);
