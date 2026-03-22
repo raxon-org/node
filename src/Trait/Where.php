@@ -135,6 +135,7 @@ trait Where {
                 $skip++;
             }
             elseif(
+                array_key_exists('value', $record) &&
                 in_array(
                     mb_strtolower($record['value']),
                     Filter::OPERATOR_LIST_NAME,
