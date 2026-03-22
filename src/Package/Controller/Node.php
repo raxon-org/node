@@ -96,6 +96,7 @@ class Node extends Controller {
                 [
                     'sort' => $sort,
                     'filter' => $filter,
+                    'where' => $where,
                     'limit' =>  $limit,
                     'page' => $page
                 ]
