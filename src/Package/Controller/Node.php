@@ -65,18 +65,35 @@ class Node extends Controller {
         ){
             $filter['user'] = $user->uuid;
         }
-        $output = $object->request('output');
-        d($object->request());
-        $response = $model->list(
-            $object->request('class'),
-            $role,
-            [
-                'sort' => $sort,
-                'filter' => $filter,
-                'limit' =>  $limit,
-                'page' => $page
-            ]
-        );
+        $output_filter = $object->request('output_filter');
+        if($output_filter){
+            $object->request('delete', 'output_filter');
+            $response = $model->list(
+                $object->request('class'),
+                $role,
+                [
+                    'sort' => $sort,
+                    'filter' => $filter,
+                    'limit' =>  $limit,
+                    'page' => $page,
+                    'output' => (object) [
+                        'filter' => $output_filter
+                    ]
+                ]
+            );
+        } else {
+            $response = $model->list(
+                $object->request('class'),
+                $role,
+                [
+                    'sort' => $sort,
+                    'filter' => $filter,
+                    'limit' =>  $limit,
+                    'page' => $page
+                ]
+            );
+        }
+
         return new Response(
             $response,
             Response::TYPE_JSON
