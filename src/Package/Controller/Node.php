@@ -52,7 +52,12 @@ class Node extends Controller {
             throw new Exception('Filter must be an array.');
         }
         $where = $object->request('where');
-        d($where);
+        if(empty($where)){
+            $where = [];
+        }
+        elseif(!is_array($where)){
+            throw new Exception('Filter must be an array.');
+        }
         $limit = (int) $object->request('limit');
         if(empty($limit)){
             $limit = 30;
@@ -76,6 +81,7 @@ class Node extends Controller {
                 [
                     'sort' => $sort,
                     'filter' => $filter,
+                    'where' => $where,
                     'limit' =>  $limit,
                     'page' => $page,
                     'output' => (object) [
