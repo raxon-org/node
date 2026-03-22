@@ -734,7 +734,6 @@ trait Where {
         }
         if(is_string($where)){
             $where = $this->where_string_to_array($where);
-
         }
         if(!is_array($where)){
             $where = Core::object($where, Core::OBJECT_ARRAY);
@@ -912,7 +911,6 @@ trait Where {
                 }
             }
         }
-        ddd($where);
         return $where;
     }
 
