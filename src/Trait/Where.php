@@ -94,9 +94,9 @@ trait Where {
         $options = (object) [];
         $object = $this->object();
         $tree = Token::tokenize($object, $flags, $options, '{{if(' . $string . ')}}{{/if}}');
-        ddd($tree);
         $tag = reset($tree);
         $if = reset($tag);
+        ddd($if);
         $left = null;
         $equation = null;
         $right = null;
