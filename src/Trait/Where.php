@@ -4,7 +4,7 @@ namespace Raxon\Node\Trait;
 
 use Raxon\Module\Core;
 use Raxon\Module\Filter;
-use Raxon\Module\Parse\Token;
+use Raxon\Parse\Module\Token;
 
 use Exception;
 
