@@ -1656,7 +1656,6 @@ trait NodeList {
                 }
             }
         }
-        d($options['where']);
         return $options['where'];
     }
 
