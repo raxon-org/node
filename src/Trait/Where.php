@@ -99,8 +99,13 @@ trait Where {
         $list = $if['method']['argument'][0]['array'] ?? [];
         $previous = null;
         $next = null;
+        $skip = 0;
         foreach($list as $nr => $record){
             $record = $this->where_operator_add($record);
+            if($skip > 0){
+                $skip--;
+                continue;
+            }
             if(array_key_exists($nr - 1, $list)){
                 $previous = $nr - 1;
             }
@@ -125,6 +130,7 @@ trait Where {
                 ];
                 unset($list[$nr]);
                 unset($list[$next]);
+                $skip++;
             }
             elseif(
                 in_array(
@@ -143,6 +149,7 @@ trait Where {
                 ];
                 unset($list[$nr]);
                 unset($list[$next]);
+                $skip++;
             }
         }
         ddd($list);
