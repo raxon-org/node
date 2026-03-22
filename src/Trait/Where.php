@@ -96,102 +96,11 @@ trait Where {
         $tree = Token::tokenize($object, $flags, $options, '{{if(' . $string . ')}}{{/if}}');
         $tag = reset($tree);
         $if = reset($tag);
-        ddd($if);
-        $left = null;
-        $equation = null;
-        $right = null;
-
-
-        $options = [
-            'with_whitespace' => true,
-            'extra_operators' => [
-                'and',
-                'or',
-                'xor'
-            ]
-        ];
-        $tree = Token::tree('{' . $string . '}', $options);
-        $tree = $this->operator($tree);
-        $is_collect = false;
+        $list = $if['method']['argument'][0]['array'] ?? [];
         $previous = null;
         $next = null;
-        foreach($tree as $nr => $record){
-            if(array_key_exists($nr - 1, $tree)){
-                $previous = $nr - 1;
-            }
-            if(array_key_exists($nr - 2, $tree)){
-                $next = $nr - 2;
-            }
-            if($record['type'] === Token::TYPE_CURLY_OPEN){
-                unset($tree[$nr]);
-            }
-            elseif($record['type'] === Token::TYPE_CURLY_CLOSE){
-                unset($tree[$nr]);
-            }
-            elseif($record['type'] === Token::TYPE_WHITESPACE){
-                if(!empty($collection)){
-                    if(array_key_exists($is_collect, $tree)){
-                        $tree[$is_collect]['collection'] = $collection;
-                        $tree[$is_collect]['type'] = Token::TYPE_COLLECTION;
-                        $tree[$is_collect]['value'] = '';
-                    }
-                    $collection = [];
-                }
-                $is_collect = false;
-                unset($tree[$nr]);
-            }
-            elseif($record['value'] === '('){
-                $tree[$nr] = '(';
-            }
-            elseif($record['value'] === ')'){
-                $tree[$nr] = ')';
-            }
-            elseif($is_collect === false && $record['value'] === '.'){
-                $is_collect = true;
-                $collection = [];
-                $collection[] = $tree[$previous];
-                unset($tree[$previous]);
-            }
-            elseif(
-                in_array(
-                    mb_strtolower($record['value']),
-                    [
-                        'and',
-                        'or',
-                        'xor'
-                    ],
-                    true
-                )
-            ){
-                $tree[$nr] = $record['value'];
-            }
-            if($is_collect === true){
-                $collection[] = $record;
-                $is_collect = $nr;
-            }
-            elseif($is_collect){
-                if($record['type'] !== Token::TYPE_CURLY_CLOSE){
-                    $collection[] = $record;
-                }
-                unset($tree[$nr]);
-            }
-        }
-        if(!empty($collection)){
-            if(array_key_exists($is_collect, $tree)){
-                $tree[$is_collect]['collection'] = $collection;
-                $tree[$is_collect]['type'] = Token::TYPE_COLLECTION;
-                $tree[$is_collect]['value'] = '';
-            }
-            $collection = [];
-        }
-        $previous = null;
-        $next = null;
-        $list = [];
-        foreach($tree as $nr => $record){
-            $list[] = $record;
-            unset($tree[$nr]);
-        }
         foreach($list as $nr => $record){
+            $record = $this->operator_add($record);
             if(array_key_exists($nr - 1, $list)){
                 $previous = $nr - 1;
             }
@@ -1005,5 +914,11 @@ trait Where {
         }
         ddd($where);
         return $where;
+    }
+
+    private function operator_add($record): array
+    {
+        dd($record);
+        return $record;
     }
 }
