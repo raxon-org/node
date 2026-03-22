@@ -120,15 +120,18 @@ trait Where {
                 array_key_exists('is_operator', $record) &&
                 $record['is_operator'] === true
             ){
+                $tree[] = $record['value'];
+                /*
                 $attribute = $this->tree_record_attribute($list[$previous]);
                 $operator = $record['value'];
-                $value = $this->tree_record_attribute($list[$next]);
+                $value = $this->tree_reco   rd_attribute($list[$next]);
                 $tree[] = [
                     'attribute' => $attribute,
                     'value' => $value,
                     'operator' => $operator
                 ];
-                $skip++;
+                */
+//                $skip++;
             }
             elseif(
                 array_key_exists('value', $record) &&
