@@ -12,6 +12,7 @@ trait Where {
 
     private function operator($tree=[]): mixed
     {
+        ddd($tree);
         if(!is_array($tree)){
             return $tree;
         }
