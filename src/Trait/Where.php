@@ -442,6 +442,8 @@ trait Where {
                                     'strict' => $set[2]['strict'] ?? true
                                 ]
                             ];
+                            d($list);
+                            d($filter_where);
                             $right = Filter::list($list)->where($filter_where);
                         }
                     }
