@@ -150,7 +150,7 @@ trait Where {
                 $skip++;
             }
         }
-        ddd($list);
+        ddd($tree);
         $tree = [];
         foreach($list as $nr => $record){
             $tree[] = $record;
