@@ -96,6 +96,6 @@ trait Tree {
                 d($record);
                 throw new Exception('Unknown type: ' . $record['type']);
         }
-        return false;
+        return null;
     }
 }
