@@ -115,6 +115,7 @@ trait Where {
             if(!is_array($record)){
                 continue;
             }
+            d($record);
             if(
                 array_key_exists('is_operator', $record) &&
                 $record['is_operator'] === true
@@ -130,8 +131,8 @@ trait Where {
                     'value' => $value,
                     'operator' => $operator
                 ];
-                unset($list[$nr]);
-                unset($list[$next]);
+                $list[$nr] = null;
+                $list[$next] = null;
                 $skip++;
             }
             elseif(
@@ -150,8 +151,8 @@ trait Where {
                     'value' => $value,
                     'operator' => $operator
                 ];
-                unset($list[$nr]);
-                unset($list[$next]);
+                $list[$nr] = null;
+                $list[$next] = null;
                 $skip++;
             }
         }
