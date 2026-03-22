@@ -66,7 +66,9 @@ class Node extends Controller {
             $filter['user'] = $user->uuid;
         }
         $output = $object->request('output');
-        d($output);
+        if(!empty($output)){
+            d($output);
+        }
         $response = $model->list(
             $object->request('class'),
             $role,
