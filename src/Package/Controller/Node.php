@@ -72,6 +72,7 @@ class Node extends Controller {
             $filter['user'] = $user->uuid;
         }
         $output_filter = $object->request('output_filter');
+        ddd($object->request());
         if($output_filter){
             $object->request('delete', 'output_filter');
             $response = $model->list(
