@@ -1659,6 +1659,9 @@ trait NodeList {
         return $options['where'];
     }
 
+    /**
+     * @throws Exception
+     */
     private function nodelist_output_filter(App $object, $list, $options=[]): mixed
     {
 //        d($options);
@@ -1682,8 +1685,13 @@ trait NodeList {
                     property_exists($route, 'controller') &&
                     property_exists($route, 'function')
                 ){
-                    //don't check on empty $list, an output filter can have defaults...
-                    $list = $route->controller::{$route->function}($object, $list);
+                    $class_methods = get_class_methods($route->controller);
+                    if(in_array($route->function, $class_methods, true)){
+                        //don't check on empty $list, an output filter can have defaults...
+                        $list = $route->controller::{$route->function}($object, $list);
+                    } else {
+                        throw new Exception('Controller method not found: ' . $route->controller . '::' . $route->function);
+                    }
                 }
             }
         }
