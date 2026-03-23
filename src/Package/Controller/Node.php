@@ -45,7 +45,10 @@ class Node extends Controller {
             $role,
             $object->request('node')
         );
-        return $response;
+        return new Response(
+            $response,
+            Response::TYPE_JSON
+        );
     }
 
     /**
