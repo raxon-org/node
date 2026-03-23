@@ -6,6 +6,7 @@ use Package\Raxon\Account\Module\Permission;
 use Raxon\App;
 
 
+use Raxon\Exception\ErrorException;
 use Raxon\Module\Controller;
 use Raxon\Module\Dir;
 use Raxon\Module\Response;
@@ -26,6 +27,12 @@ class Node extends Controller {
     }
 
 
+    /**
+     * @throws FileWriteException
+     * @throws ErrorException
+     * @throws ObjectException
+     * @throws Exception
+     */
     public static function create(App $object): Response
     {
         $role = Permission::controller($object, $object->request('class'), __FUNCTION__, $user);
@@ -33,7 +40,12 @@ class Node extends Controller {
             throw new Exception('Role is empty...');
         }
         $model = new Model($object);
-        ddd($object->request());
+        $response = $model->create(
+            $object->request('class'),
+            $role,
+            $object->request('node')
+        );
+        return $response;
     }
 
     /**
