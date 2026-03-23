@@ -26,6 +26,16 @@ class Node extends Controller {
     }
 
 
+    public static function create(App $object): Response
+    {
+        $role = Permission::controller($object, $object->request('class'), __FUNCTION__, $user);
+        if(empty($role)) {
+            throw new Exception('Role is empty...');
+        }
+        $model = new Model($object);
+        ddd($object->request());
+    }
+
     /**
      * @throws ObjectException
      * @throws FileWriteException
