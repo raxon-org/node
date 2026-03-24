@@ -130,6 +130,23 @@ class Node extends Controller {
         ){
             $filter['user'] = $user->uuid;
         }
+        $sort = $object->request('sort');
+        if(is_string($sort)){
+            $sort_object = (object) [];
+            $explode = explode('&', $sort);
+            foreach($explode as $item){
+                $temp = explode('=', $item);
+                if(
+                    array_key_exists(0, $temp) &&
+                    array_key_exists(1, $temp)
+                ){
+                    $sort_object->{$temp[0]} = $temp[1];
+                }
+
+            }
+            $sort = $sort_object;
+            unset($sort_object);
+        }
         $output_filter = $object->request('output_filter');
         if($output_filter){
             $object->request('delete', 'output_filter');
