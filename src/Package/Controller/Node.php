@@ -63,12 +63,20 @@ class Node extends Controller {
         if(empty($role)) {
             throw new Exception('Role is empty...');
         }
+        $class = (string) $object->request('class');
+        if(empty($class)){
+            throw new Exception('Class is empty...');
+        }
+        $uuid = (string) $object->request('uuid');
+        if(empty($uuid)){
+            throw new Exception('Uuid is empty...');
+        }
         $model = new Model($object);
         $response = $model->delete(
-            $object->request('class'),
+            $class,
             $role,
             [
-                'uuid' => $object->request('uuid')
+                'uuid' => $uuid
             ]
         );
         return new Response(
