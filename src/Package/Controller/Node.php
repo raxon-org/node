@@ -52,6 +52,32 @@ class Node extends Controller {
     }
 
     /**
+     * @throws FileWriteException
+     * @throws ErrorException
+     * @throws ObjectException
+     * @throws Exception
+     */
+    public static function delete(App $object): Response
+    {
+        $role = Permission::controller($object, $object->request('class'), __FUNCTION__, $user);
+        if(empty($role)) {
+            throw new Exception('Role is empty...');
+        }
+        $model = new Model($object);
+        $response = $model->delete(
+            $object->request('class'),
+            $role,
+            [
+                'uuid' => $object->request('uuid')
+            ]
+        );
+        return new Response(
+            $response,
+            Response::TYPE_JSON
+        );
+    }
+
+    /**
      * @throws ObjectException
      * @throws FileWriteException
      * @throws Exception
