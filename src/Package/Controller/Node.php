@@ -116,9 +116,12 @@ class Node extends Controller {
             throw new Exception('Where must be an array.');
         }
         */
-        $limit = (int) $object->request('limit');
+        $limit = $object->request('limit');
         if(empty($limit)){
             $limit = 30;
+        }
+        elseif($limit !== '*'){
+            $limit = (int) $limit;
         }
         $page = (int) $object->request('page');
         if(empty($page)){
