@@ -87,6 +87,9 @@ trait NodeList {
         }
         if(array_key_exists('where', $options)){
             $where = false;
+            if($object->config('debug') === true) {
+                d($options['where']);
+            }
             if(
                 is_string($options['where']) ||
                 is_array($options['where'])
