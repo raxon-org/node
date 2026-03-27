@@ -74,6 +74,10 @@ trait Where {
      */
     private function where_convert($input=[]): array
     {
+        $object = $this->object();
+        if($object->config('debug') === true){
+            ddd($input);
+        }
         if(is_array($input)){
             $is_string = true;
             foreach($input as $nr => $line){
