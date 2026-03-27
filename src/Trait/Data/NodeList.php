@@ -50,9 +50,6 @@ trait NodeList {
             $start = microtime(true);
         }
         $is_debug = false;
-        if($name === 'Account.User'){
-            $is_debug = true;
-        }
 //        d($options);
 //        d($name);
         $object = $this->object();
@@ -100,6 +97,9 @@ trait NodeList {
         }
         $options['page'] = $options['page'] ?? 1;
         $options['limit'] = $options['limit'] ?? 1000;
+        if($object->config('debug') === true){
+            d($options);
+        }
         if (!Security::is_granted(
             $name,
             $role,

@@ -112,7 +112,7 @@ class Node extends Controller {
         }
         $where = $object->request('where') ?? null;
         if(!empty($where) && !stristr($where, 'user')){
-            d($where);
+            $object->config('debug', true);
         }
 
         /*
