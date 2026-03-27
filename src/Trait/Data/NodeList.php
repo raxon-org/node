@@ -1525,9 +1525,11 @@ trait NodeList {
      */
     private function list_where($options=[]): bool | array
     {
+        /*
         if(!array_key_exists('where', $options)){
             return false;
         }
+        */
         if (is_string($options['where'])) {
             $options['where'] = $this->where_convert($options['where']);
         }
