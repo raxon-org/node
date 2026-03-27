@@ -267,7 +267,9 @@ trait Where {
                         'strict' => $set[0]['strict'] ?? true
                     ]
                 ];
+                d($filter_where);
                 $left = Filter::list($list)->where($filter_where);
+                d($left);
                 if(!empty($left)){
                     $set[0] = [
                         'attribute' => 'uuid',
@@ -763,18 +765,7 @@ trait Where {
                     return $record;
                 }
                 $count_set = count($set);
-                if(array_key_exists('debug', $options)){
-                    d($record);
-                    d($set);
-                }
-
                 if($count_set === 1){
-                    if($record->uuid === '3cd80fdf-38fe-40e8-9bfe-4d1d4f281bf1'){
-                        d($operator);
-                        d($deepest);
-                        d($set);
-                        d($set);
-                    }
                     if(
                         array_key_exists('match', $set[0]) &&
                         $operator === null &&
