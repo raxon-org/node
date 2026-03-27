@@ -111,7 +111,7 @@ class Node extends Controller {
             throw new Exception('Filter must be an array.');
         }
         $where = $object->request('where') ?? null;
-        if(!empty($where)){
+        if(!empty($where) && !stristr($where, 'user')){
             d($where);
         }
 
