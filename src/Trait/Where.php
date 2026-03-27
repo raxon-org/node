@@ -267,9 +267,7 @@ trait Where {
                         'strict' => $set[0]['strict'] ?? true
                     ]
                 ];
-                d($filter_where);
                 $left = Filter::list($list)->where($filter_where);
-                d($left);
                 if(!empty($left)){
                     $set[0] = [
                         'attribute' => 'uuid',
