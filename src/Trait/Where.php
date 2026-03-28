@@ -78,7 +78,7 @@ trait Where {
     {
         $object = $this->object();
         if($object->config('debug') === true){
-            ddd($input);
+            d($input);
         }
         if(is_array($input)){
             $is_string = true;
@@ -173,6 +173,9 @@ trait Where {
                 ];
                 $skip++;
             }
+        }
+        if($object->config('debug') === true){
+            ddd($tree);
         }
         return $tree;
     }
