@@ -9,6 +9,7 @@ use Raxon\App;
 use Raxon\Exception\ErrorException;
 use Raxon\Module\Controller;
 use Raxon\Module\Dir;
+use Raxon\Module\Handler;
 use Raxon\Module\Response;
 use Raxon\Node\Module\Node as Model;
 
@@ -39,6 +40,32 @@ class Node extends Controller {
         if(empty($role)) {
             throw new Exception('Role is empty...');
         }
+        $model = new Model($object);
+        $response = $model->create(
+            $object->request('class'),
+            $role,
+            $object->request('node')
+        );
+        return new Response(
+            $response,
+            Response::TYPE_JSON
+        );
+    }
+
+    /**
+     * @throws FileWriteException
+     * @throws ErrorException
+     * @throws ObjectException
+     * @throws Exception
+     */
+    public static function update(App $object): Response
+    {
+        $role = Permission::controller($object, $object->request('class'), __FUNCTION__, $user);
+        if(empty($role)) {
+            throw new Exception('Role is empty...');
+        }
+        ddd(Handler::method());
+
         $model = new Model($object);
         $response = $model->create(
             $object->request('class'),
