@@ -107,7 +107,6 @@ trait Where {
         $next = null;
         $skip = 0;
         $tree = [];
-        d($list);
         foreach($list as $nr => $record){
             $record = $this->where_operator_add($record);
             if($skip > 0){
@@ -159,6 +158,7 @@ trait Where {
                 $skip++;
             }
         }
+        d($tree);
         return $tree;
     }
 
