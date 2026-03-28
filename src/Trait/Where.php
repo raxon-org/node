@@ -126,7 +126,6 @@ trait Where {
                 array_key_exists('is_operator', $record) &&
                 $record['is_operator'] === true
             ){
-                $tree[] = $record['value'];
                 $attribute = $this->tree_record_attribute($list[$previous]);
                 $operator = $record['value'];
                 $value = $this->tree_record_attribute($list[$next]);
