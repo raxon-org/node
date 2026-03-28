@@ -111,10 +111,6 @@ class Node extends Controller {
             throw new Exception('Filter must be an array.');
         }
         $where = $object->request('where') ?? null;
-        if(!empty($where) && !stristr($where, 'user')){
-            $object->config('debug', true);
-        }
-
         /*
         elseif(!is_array($where)){
             throw new Exception('Where must be an array.');
