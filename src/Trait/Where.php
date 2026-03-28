@@ -174,8 +174,6 @@ trait Where {
                 $skip++;
             }
         }
-        d($list);
-        d($tree);
         return $tree;
     }
 
