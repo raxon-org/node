@@ -66,7 +66,6 @@ class Node extends Controller {
         }
         switch(Handler::method()){
             case 'PATCH':
-                ddd($object->request());
                 $model = new Model($object);
                 $response = $model->patch(
                     $object->request('class'),
