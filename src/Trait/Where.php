@@ -108,7 +108,7 @@ trait Where {
         $skip = 0;
         $tree = [];
         foreach($list as $nr => $record){
-            $record = $this->where_operator_add($record);
+            $record = $this->where_operator_combination_add($record);
             if($skip > 0){
                 $skip--;
                 continue;
@@ -123,18 +123,10 @@ trait Where {
                 continue;
             }
             if(
-                array_key_exists('is_operator', $record) &&
-                $record['is_operator'] === true
+                array_key_exists('is_operator_combination', $record) &&
+                $record['is_operator_combination'] === true
             ){
-                $attribute = $this->tree_record_attribute($list[$previous]);
-                $operator = $record['value'];
-                $value = $this->tree_record_attribute($list[$next]);
-                $tree[] = [
-                    'attribute' => $attribute,
-                    'value' => $value,
-                    'operator' => $operator
-                ];
-                $skip++;
+                $tree[] = $record['value'];
             }
             elseif(
                 array_key_exists('type', $record) &&
@@ -935,12 +927,12 @@ trait Where {
         return $where;
     }
 
-    private function where_operator_add($record): array
+    private function where_operator_combination_add($record): array
     {
         if(
             array_key_exists('value', $record) &&
             in_array($record['value'], ['and', 'or', 'xor'], true)){
-            $record['is_operator'] = true;
+            $record['is_operator_combination'] = true;
         }
         return $record;
     }
