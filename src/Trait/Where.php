@@ -10,6 +10,7 @@ use Exception;
 
 trait Where {
 
+    /*
     private function operator($tree=[]): mixed
     {
         trace();
@@ -68,6 +69,7 @@ trait Where {
         }
         return $tree;
     }
+    */
 
     /**
      * @throws Exception
@@ -105,6 +107,7 @@ trait Where {
         $next = null;
         $skip = 0;
         $tree = [];
+        d($list);
         foreach($list as $nr => $record){
             $record = $this->where_operator_add($record);
             if($skip > 0){
