@@ -137,6 +137,33 @@ trait Where {
                 $skip++;
             }
             elseif(
+                array_key_exists('type', $record) &&
+                $record['type'] === 'symbol' && in_array(
+                    $record['value'],
+                    [
+                        '==',
+                        '===',
+                        '<=',
+                        '>=',
+                        '<<',
+                        '>>',
+                        '<',
+                        '>',
+                    ],
+                    true
+                )
+            ){
+                $attribute = $this->tree_record_attribute($list[$previous]);
+                $operator = $record['value'];
+                $value = $this->tree_record_attribute($list[$next]);
+                $tree[] = [
+                    'attribute' => $attribute,
+                    'value' => $value,
+                    'operator' => $operator
+                ];
+                $skip++;
+            }
+            elseif(
                 array_key_exists('value', $record) &&
                 in_array(
                     mb_strtolower($record['value']),
