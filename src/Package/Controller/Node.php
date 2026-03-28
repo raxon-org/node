@@ -64,18 +64,23 @@ class Node extends Controller {
         if(empty($role)) {
             throw new Exception('Role is empty...');
         }
-        ddd(Handler::method());
+        switch(Handler::method()){
+            case 'PATCH':
+                ddd($object->request());
+                $model = new Model($object);
+                $response = $model->patch(
+                    $object->request('class'),
+                    $role,
+                    $object->request('node')
+                );
+                return new Response(
+                    $response,
+                    Response::TYPE_JSON
+                );
+            default:
+                throw new Exception('Method not allowed...');
 
-        $model = new Model($object);
-        $response = $model->create(
-            $object->request('class'),
-            $role,
-            $object->request('node')
-        );
-        return new Response(
-            $response,
-            Response::TYPE_JSON
-        );
+        }
     }
 
     /**
