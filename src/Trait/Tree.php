@@ -99,6 +99,36 @@ trait Tree {
             case 'integer':
             case 'float':
                 return $record['execute'];
+            case 'array':
+                $array = [];
+                foreach($record['array'] as $nr => $value){
+                    if(!is_array($value)) {
+                        continue;
+                    }
+                    if(!array_key_exists('type', $value)){
+                        continue;
+                    }
+                    if(
+                        array_key_exists('value', $value) &&
+                        $value['value'] === '['
+                    ){
+                        continue;
+                    }
+                    if(
+                        array_key_exists('value', $value) &&
+                        $value['value'] === ']'
+                    ){
+                        continue;
+                    }
+                    if(
+                        array_key_exists('value', $value) &&
+                        $value['value'] === ','
+                    ){
+                        continue;
+                    }
+                    $array[] = $this->tree_record_attribute($value);
+                }
+                return $array;
             default:
                 d($record);
                 throw new Exception('Unknown type: ' . $record['type']);
