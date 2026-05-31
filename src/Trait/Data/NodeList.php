@@ -1692,14 +1692,14 @@ trait NodeList {
                     property_exists($route, 'function')
                 ){
                     try {
-                        $class_methods = get_class_methods($route->controller);
+//                        $class_methods = get_class_methods($route->controller);
                         //dd($object->config('project.dir.output.filter'));
 //                        dd($object->data(App::AUTOLOAD_RAXON));
                         //catch all locations in development mode, we need to move this one (framework output filter system server to raxon/server and doctrine to doctrine
-                        if(in_array($route->function, $class_methods, true)){
+//                        if(in_array($route->function, $class_methods, true)){
                             //don't check on empty $list, an output filter can have defaults...
                             $list = $route->controller::{$route->function}($object, $list);
-                        }
+//                        }
                     }
                     catch (Exception | TypeError $e) {
                         throw new Exception('Controller method not found: ' . $route->controller . '::' . $route->function);
