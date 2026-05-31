@@ -1702,8 +1702,7 @@ trait NodeList {
 //                        }
                     }
                     catch (Exception | TypeError $e) {
-                        d($e);
-                        throw new Exception('Controller method not found: ' . $route->controller . '::' . $route->function);
+                        throw new Exception('Controller method not found: ' . $route->controller . '::' . $route->function . ' and ' . $e->getMessage());
                     }
                 }
             }
