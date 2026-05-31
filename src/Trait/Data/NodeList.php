@@ -1693,7 +1693,9 @@ trait NodeList {
                 ){
                     try {
                         $class_methods = get_class_methods($route->controller);
-                        dd($object->data(App::AUTOLOAD_RAXON));
+                        dd($object->config('project.dir.output.filter'));
+
+//                        dd($object->data(App::AUTOLOAD_RAXON));
                         //catch all locations in development mode, we need to move this one (framework output filter system server to raxon/server and doctrine to doctrine
                         if(in_array($route->function, $class_methods, true)){
                             //don't check on empty $list, an output filter can have defaults...
