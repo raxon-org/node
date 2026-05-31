@@ -1691,7 +1691,7 @@ trait NodeList {
                     property_exists($route, 'function')
                 ){
                     try {
-                        $class_methods = get_class_methods($route->controller);
+                        $class_methods = @get_class_methods($route->controller);
                         if(in_array($route->function, $class_methods, true)){
                             //don't check on empty $list, an output filter can have defaults...
                             $list = $route->controller::{$route->function}($object, $list);
