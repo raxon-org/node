@@ -24,6 +24,7 @@ use Raxon\Node\Service\Security;
 
 use Exception;
 use SplFileObject;
+use TypeError;
 
 /**
  * app raxon/node list -class=RaXon.Php.Word.Embedding -page=1 -limit=10 -parallel -thread=96 -ramdisk
@@ -1697,7 +1698,7 @@ trait NodeList {
                             $list = $route->controller::{$route->function}($object, $list);
                         }
                     }
-                    catch (Exception $e) {
+                    catch (Exception | TypeError $e) {
                         throw new Exception('Controller method not found: ' . $route->controller . '::' . $route->function);
                     }
                 }
