@@ -715,16 +715,21 @@ trait NodeList {
                                 $ramdisk->set('response', $ramdisk_data);
                                 $ramdisk->set('relation', $relation_mtime);
                                 $ramdisk->write($ramdisk_url_nodelist_item);
-                                File::permission($object, [
-                                    'ramdisk_url_nodelist_item' => $ramdisk_url_nodelist_item,
-                                ]);
+                                if($object->config(Config::POSIX_ID) !== 0){
+                                    File::permission($object, [
+                                        'ramdisk_url_nodelist_item' => $ramdisk_url_nodelist_item,
+                                    ]);
+                                }
+
                             }
                         }
-                        File::permission($object, [
-                            'ramdisk_dir' => $ramdisk_dir,
-                            'ramdisk_dir_node' => $ramdisk_dir_node,
-                            'ramdisk_dir_list' => $ramdisk_dir_list,
-                        ]);
+                        if($object->config(Config::POSIX_ID) !== 0){
+                            File::permission($object, [
+                                'ramdisk_dir' => $ramdisk_dir,
+                                'ramdisk_dir_node' => $ramdisk_dir_node,
+                                'ramdisk_dir_list' => $ramdisk_dir_list,
+                            ]);
+                        }
                     }
                 } else {
                     $result_ramdisk = $result;
@@ -736,12 +741,14 @@ trait NodeList {
                     $ramdisk->set('response', $result_ramdisk);
                     $ramdisk->set('relation', $relation_mtime);
                     $ramdisk->write($ramdisk_url_node);
-                    File::permission($object, [
-                        'ramdisk_dir' => $ramdisk_dir,
-                        'ramdisk_dir_node' => $ramdisk_dir_node,
-                        'ramdisk_dir_list' => $ramdisk_dir_list,
-                        'ramdisk_url_node' => $ramdisk_url_node,
-                    ]);
+                    if($object->config(Config::POSIX_ID) !== 0){
+                        File::permission($object, [
+                            'ramdisk_dir' => $ramdisk_dir,
+                            'ramdisk_dir_node' => $ramdisk_dir_node,
+                            'ramdisk_dir_list' => $ramdisk_dir_list,
+                            'ramdisk_url_node' => $ramdisk_url_node,
+                        ]);
+                    }
                 }
             }
             if($start){
@@ -898,9 +905,11 @@ trait NodeList {
                         ;
                         if(!Dir::exist($ramdisk_dir_parallel)){
                             Dir::create($ramdisk_dir_parallel, Dir::CHMOD);
-                            File::permission($object, [
-                                'ramdisk_dir_parallel' => $ramdisk_dir_parallel,
-                            ]);
+                            if($object->config(Config::POSIX_ID) !== 0){
+                                File::permission($object, [
+                                    'ramdisk_dir_parallel' => $ramdisk_dir_parallel,
+                                ]);
+                            }
                         }
                         /*
                         $ramdisk_dir_parallel_name = $ramdisk_dir_parallel .
@@ -1276,16 +1285,21 @@ trait NodeList {
                                         $ramdisk->set('response', $ramdisk_data);
                                         $ramdisk->set('relation', $relation_mtime);
                                         $ramdisk->write($ramdisk_url_nodelist_item);
-                                        File::permission($object, [
-                                            'ramdisk_url_nodelist_item' => $ramdisk_url_nodelist_item,
-                                        ]);
+                                        if($object->config(Config::POSIX_ID) !== 0){
+                                            File::permission($object, [
+                                                'ramdisk_url_nodelist_item' => $ramdisk_url_nodelist_item,
+                                            ]);
+                                        }
                                     }
                                 }
-                                File::permission($object, [
-                                    'ramdisk_dir' => $ramdisk_dir,
-                                    'ramdisk_dir_node' => $ramdisk_dir_node,
-                                    'ramdisk_dir_list' => $ramdisk_dir_list,
-                                ]);
+                                if($object->config(Config::POSIX_ID) !== 0){
+                                    File::permission($object, [
+                                        'ramdisk_dir' => $ramdisk_dir,
+                                        'ramdisk_dir_node' => $ramdisk_dir_node,
+                                        'ramdisk_dir_list' => $ramdisk_dir_list,
+                                    ]);
+                                }
+
                             }
                         } else {
                             $result_ramdisk = $result;
@@ -1300,12 +1314,14 @@ trait NodeList {
                             $ramdisk->set('relation', $relation_mtime);
                             if(File::is_writeable($ramdisk_url_node)){
                                 $ramdisk->write($ramdisk_url_node);
-                                File::permission($object, [
-                                    'ramdisk_dir' => $ramdisk_dir,
-                                    'ramdisk_dir_node' => $ramdisk_dir_node,
-                                    'ramdisk_dir_list' => $ramdisk_dir_list,
-                                    'ramdisk_url_node' => $ramdisk_url_node,
-                                ]);
+                                if($object->config(Config::POSIX_ID) !== 0){
+                                    File::permission($object, [
+                                        'ramdisk_dir' => $ramdisk_dir,
+                                        'ramdisk_dir_node' => $ramdisk_dir_node,
+                                        'ramdisk_dir_list' => $ramdisk_dir_list,
+                                        'ramdisk_url_node' => $ramdisk_url_node,
+                                    ]);
+                                }
                             }
                         }
                     }
@@ -1330,7 +1346,6 @@ trait NodeList {
                     unset($mtime);
                     unset($data_url);
                     unset($ramdisk);
-
                     return $result;
                 }
                 $page = $options['page'] ?? 1;
@@ -1421,15 +1436,19 @@ trait NodeList {
                             $ramdisk->set('response', $ramdisk_data);
                             $ramdisk->set('relation', $relation_mtime);
                             $ramdisk->write($ramdisk_url_nodelist_item);
+                            if($object->config(Config::POSIX_ID) !== 0){
+                                File::permission($object, [
+                                    'ramdisk_url_nodelist_item' => $ramdisk_url_nodelist_item,
+                                ]);
+                            }
+                        }
+                        if($object->config(Config::POSIX_ID) !== 0){
                             File::permission($object, [
-                                'ramdisk_url_nodelist_item' => $ramdisk_url_nodelist_item,
+                                'ramdisk_dir' => $ramdisk_dir,
+                                'ramdisk_dir_node' => $ramdisk_dir_node,
+                                'ramdisk_dir_list' => $ramdisk_dir_list,
                             ]);
                         }
-                        File::permission($object, [
-                            'ramdisk_dir' => $ramdisk_dir,
-                            'ramdisk_dir_node' => $ramdisk_dir_node,
-                            'ramdisk_dir_list' => $ramdisk_dir_list,
-                        ]);
                     } else {
                         $result_ramdisk = $result;
                         if($list_ramdisk !== null){
@@ -1442,12 +1461,14 @@ trait NodeList {
                         $ramdisk->set('response', $result_ramdisk);
                         $ramdisk->set('relation', $relation_mtime);
                         $ramdisk->write($ramdisk_url_node);
-                        File::permission($object, [
-                            'ramdisk_dir' => $ramdisk_dir,
-                            'ramdisk_dir_node' => $ramdisk_dir_node,
-                            'ramdisk_dir_list' => $ramdisk_dir_list,
-                            'ramdisk_url_node' => $ramdisk_url_node,
-                        ]);
+                        if($object->config(Config::POSIX_ID) !== 0){
+                            File::permission($object, [
+                                'ramdisk_dir' => $ramdisk_dir,
+                                'ramdisk_dir_node' => $ramdisk_dir_node,
+                                'ramdisk_dir_list' => $ramdisk_dir_list,
+                                'ramdisk_url_node' => $ramdisk_url_node,
+                            ]);
+                        }
                     }
                 }
                 if($start){
