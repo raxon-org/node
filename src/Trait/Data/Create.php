@@ -293,6 +293,8 @@ trait Create {
                     'dir_data' => $dir_data,
                     'url' => $url,
                 ]);
+            } else {
+                File::chmod($url, File::CHMOD);
             }
             $response['byte'] = $write;
             $response['transaction'] = false;

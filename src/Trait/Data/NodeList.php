@@ -715,12 +715,12 @@ trait NodeList {
                                 $ramdisk->set('response', $ramdisk_data);
                                 $ramdisk->set('relation', $relation_mtime);
                                 $ramdisk->write($ramdisk_url_nodelist_item);
+                                File::chmod($ramdisk_url_nodelist_item, File::CHMOD);
                                 if($object->config(Config::POSIX_ID) !== 0){
                                     File::permission($object, [
                                         'ramdisk_url_nodelist_item' => $ramdisk_url_nodelist_item,
                                     ]);
                                 }
-
                             }
                         }
                         if($object->config(Config::POSIX_ID) !== 0){
@@ -741,6 +741,7 @@ trait NodeList {
                     $ramdisk->set('response', $result_ramdisk);
                     $ramdisk->set('relation', $relation_mtime);
                     $ramdisk->write($ramdisk_url_node);
+                    File::chmod($ramdisk_url_node, File::CHMOD);
                     if($object->config(Config::POSIX_ID) !== 0){
                         File::permission($object, [
                             'ramdisk_dir' => $ramdisk_dir,
@@ -1285,6 +1286,7 @@ trait NodeList {
                                         $ramdisk->set('response', $ramdisk_data);
                                         $ramdisk->set('relation', $relation_mtime);
                                         $ramdisk->write($ramdisk_url_nodelist_item);
+                                        File::chmod($ramdisk_url_nodelist_item, File::CHMOD);
                                         if($object->config(Config::POSIX_ID) !== 0){
                                             File::permission($object, [
                                                 'ramdisk_url_nodelist_item' => $ramdisk_url_nodelist_item,
@@ -1314,6 +1316,7 @@ trait NodeList {
                             $ramdisk->set('relation', $relation_mtime);
                             if(File::is_writeable($ramdisk_url_node)){
                                 $ramdisk->write($ramdisk_url_node);
+                                File::chmod($ramdisk_url_node, File::CHMOD);
                                 if($object->config(Config::POSIX_ID) !== 0){
                                     File::permission($object, [
                                         'ramdisk_dir' => $ramdisk_dir,
@@ -1436,6 +1439,7 @@ trait NodeList {
                             $ramdisk->set('response', $ramdisk_data);
                             $ramdisk->set('relation', $relation_mtime);
                             $ramdisk->write($ramdisk_url_nodelist_item);
+                            File::chmod($ramdisk_url_nodelist_item, File::CHMOD);
                             if($object->config(Config::POSIX_ID) !== 0){
                                 File::permission($object, [
                                     'ramdisk_url_nodelist_item' => $ramdisk_url_nodelist_item,
@@ -1461,6 +1465,7 @@ trait NodeList {
                         $ramdisk->set('response', $result_ramdisk);
                         $ramdisk->set('relation', $relation_mtime);
                         $ramdisk->write($ramdisk_url_node);
+                        File::chmod($ramdisk_url_node, File::CHMOD);
                         if($object->config(Config::POSIX_ID) !== 0){
                             File::permission($object, [
                                 'ramdisk_dir' => $ramdisk_dir,

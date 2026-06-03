@@ -1512,9 +1512,11 @@ trait Index {
                         }
                         File::write($url_uuid, implode(PHP_EOL, $data['uuid']));
                         File::touch($url_uuid, $url_mtime);
+                        File::chmod($url_uuid, File::CHMOD);
                         foreach($url as $nr => $url_index){
                             File::write($url_index, implode(PHP_EOL, $data[$nr]));
                             File::touch($url_index, $url_mtime);
+                            File::chmod($url_index, File::CHMOD);
                         }
                         if($object->config(Config::POSIX_ID) !== 0){
                             $permission = [
@@ -1639,9 +1641,11 @@ trait Index {
                     }
                     File::write($url_uuid, implode(PHP_EOL, $data['uuid']));
                     File::touch($url_uuid, $url_mtime);
+                    File::chmod($url_uuid, File::CHMOD);
                     foreach($url as $nr => $url_index){
                         File::write($url_index, implode(PHP_EOL, $data[$nr]));
                         File::touch($url_index, $url_mtime);
+                        File::chmod($url_index, File::CHMOD);
                     }
                     if($object->config(Config::POSIX_ID) !== 0){
                         $permission = [
@@ -1938,6 +1942,7 @@ trait Index {
             }
             File::write($url[$index_nr], Core::object($index, Core::OBJECT_JSON));
             File::touch($url[$index_nr], $mtime);
+            File::chmod($url[$index_nr], File::CHMOD);
             if($object->config(Config::POSIX_ID) !== 0){
                 File::permission($object, [
                     'file_index' => $url[$index_nr]

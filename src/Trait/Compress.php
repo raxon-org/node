@@ -34,6 +34,7 @@ trait Compress {
                 'compact' => true,
                 'compress' => true
             ]);
+            File::chmod($url, File::CHMOD);
             if($object->config(Config::POSIX_ID) !== 0){
                 File::permission($object, [
                     'url' => $url
