@@ -3,6 +3,7 @@
 namespace Raxon\Node\Trait\Data;
 
 use Raxon\App;
+use Raxon\Config;
 
 use Raxon\Module\Cli;
 use Raxon\Module\Controller;
@@ -287,10 +288,12 @@ trait Create {
             $response['transaction'] = true;
         } else {
             $write = $data->write($url);
-            File::permission($object, [
-                'dir_data' => $dir_data,
-                'url' => $url,
-            ]);
+            if($object->config(Config::POSIX_ID)  !== 0){
+                File::permission($object, [
+                    'dir_data' => $dir_data,
+                    'url' => $url,
+                ]);
+            }
             $response['byte'] = $write;
             $response['transaction'] = false;
             if ($options['import'] === false){

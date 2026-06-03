@@ -2,6 +2,7 @@
 
 namespace Raxon\Node\Trait\Data;
 
+use Raxon\Config;
 use Raxon\Module\Core;
 use Raxon\Module\Controller;
 use Raxon\Module\Dir;
@@ -49,11 +50,14 @@ trait Lock {
         }
         Dir::create($dir_lock, Dir::CHMOD);
         File::touch($url_lock);
-        File::permission($object, [
-            'dir_cache' => $dir_cache,
-            'dir_lock' => $dir_lock,
-            'url_lock' => $url_lock
-        ]);
+        if($object->config(Config::POSIX_ID) !== 0){
+            File::permission($object, [
+                'dir_cache' => $dir_cache,
+                'dir_lock' => $dir_lock,
+                'url_lock' => $url_lock
+            ]);
+        }
+
         $object->config('node.transaction.' . $name, true);
         return true;
     }

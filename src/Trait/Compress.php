@@ -34,9 +34,11 @@ trait Compress {
                 'compact' => true,
                 'compress' => true
             ]);
-            File::permission($object, [
-                'url' => $url
-            ]);
+            if($object->config(Config::POSIX_ID) !== 0){
+                File::permission($object, [
+                    'url' => $url
+                ]);
+            }
             $duration = microtime(true) - $object->config('time.start');
             return [
                 'count' => $count,

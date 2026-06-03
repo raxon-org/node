@@ -379,9 +379,11 @@ trait Index {
         ;
         if(!Dir::exist($dir_ramdisk_response)){
             Dir::create($dir_ramdisk_response, Dir::CHMOD);
-            File::permission($object, [
-                'dir_ramdisk_response' => $dir_ramdisk_response,
-            ]);
+            if($object->config(Config::POSIX_ID) !== 0){
+                File::permission($object, [
+                    'dir_ramdisk_response' => $dir_ramdisk_response,
+                ]);
+            }
         }
         while($options['index']['min'] <= $options['index']['max']) {
             $seek = $options['index']['min'] +
@@ -1502,9 +1504,11 @@ trait Index {
                         }
                         if(!Dir::exist($dir_index)){
                             Dir::create($dir_index, Dir::CHMOD);
-                            File::permission($object, [
-                                'dir_index' => $dir_index
-                            ]);
+                            if($object->config(Config::POSIX_ID) !== 0) {
+                                File::permission($object, [
+                                    'dir_index' => $dir_index
+                                ]);
+                            }
                         }
                         File::write($url_uuid, implode(PHP_EOL, $data['uuid']));
                         File::touch($url_uuid, $url_mtime);
@@ -1512,11 +1516,13 @@ trait Index {
                             File::write($url_index, implode(PHP_EOL, $data[$nr]));
                             File::touch($url_index, $url_mtime);
                         }
-                        $permission = [
-                            $url_uuid,
-                            ...$url
-                        ];
-                        File::permission($object, $permission);
+                        if($object->config(Config::POSIX_ID) !== 0){
+                            $permission = [
+                                $url_uuid,
+                                ...$url
+                            ];
+                            File::permission($object, $permission);
+                        }
                     }
                 }
             }
@@ -1624,9 +1630,12 @@ trait Index {
                     }
                     if(!Dir::exist($dir_index)){
                         Dir::create($dir_index, Dir::CHMOD);
-                        File::permission($object, [
-                            'dir_index' => $dir_index
-                        ]);
+                        if($object->config(Config::POSIX_ID) !== 0){
+                            File::permission($object, [
+                                'dir_index' => $dir_index
+                            ]);
+                        }
+
                     }
                     File::write($url_uuid, implode(PHP_EOL, $data['uuid']));
                     File::touch($url_uuid, $url_mtime);
@@ -1634,11 +1643,13 @@ trait Index {
                         File::write($url_index, implode(PHP_EOL, $data[$nr]));
                         File::touch($url_index, $url_mtime);
                     }
-                    $permission = [
-                        $url_uuid,
-                        ...$url
-                    ];
-                    File::permission($object, $permission);
+                    if($object->config(Config::POSIX_ID) !== 0){
+                        $permission = [
+                            $url_uuid,
+                            ...$url
+                        ];
+                        File::permission($object, $permission);
+                    }
                 }
             } else {
                 $count = (int) File::read($dir_count . sha1($url_data) . $object->config('extension.txt'));
@@ -1904,9 +1915,12 @@ trait Index {
                 } else {
                     if(!Dir::is($ramdisk_dir_index)){
                         Dir::create($ramdisk_dir_index);
-                        File::permission($object, [
-                            'dir_index' => $ramdisk_dir_index
-                        ]);
+                        if($object->config(Config::POSIX_ID) !== 0){
+                            File::permission($object, [
+                                'dir_index' => $ramdisk_dir_index
+                            ]);
+                        }
+
                     }
                     $explode = explode(',', $record->name);
                     $result = [];
@@ -1924,9 +1938,11 @@ trait Index {
             }
             File::write($url[$index_nr], Core::object($index, Core::OBJECT_JSON));
             File::touch($url[$index_nr], $mtime);
-            File::permission($object, [
-                'file_index' => $url[$index_nr]
-            ]);
+            if($object->config(Config::POSIX_ID) !== 0){
+                File::permission($object, [
+                    'file_index' => $url[$index_nr]
+                ]);
+            }
         }
     }
 }

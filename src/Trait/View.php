@@ -4,6 +4,7 @@ namespace Raxon\Node\Trait;
 
 use Exception;
 use Raxon\App;
+use Raxon\Config;
 use Raxon\Exception\FileWriteException;
 use Raxon\Exception\ObjectException;
 use Raxon\Module\Cli;
@@ -87,12 +88,14 @@ Trait View {
                 ;
                 if(!Dir::is($dir_record)) {
                     Dir::create($dir_record, Dir::CHMOD);
-                    File::permission(
-                        $object,
-                        [
-                            'target' => $dir_record,
-                        ]
-                    );
+                    if($object->config(Config::POSIX_ID) !== 0){
+                        File::permission(
+                            $object,
+                            [
+                                'target' => $dir_record,
+                            ]
+                        );
+                    }
                 }
                 $create = $dir_record .
                     $node->data('uuid') .
