@@ -288,14 +288,11 @@ trait Create {
             $response['transaction'] = true;
         } else {
             $write = $data->write($url);
-            if($object->config(Config::POSIX_ID)  !== 0){
-                File::permission($object, [
-                    'dir_data' => $dir_data,
-                    'url' => $url,
-                ]);
-            } else {
-                File::chmod($url, File::CHMOD);
-            }
+            //always user www-data
+            File::permission($object, [
+                'dir_data' => $dir_data,
+                'url' => $url,
+            ]);
             $response['byte'] = $write;
             $response['transaction'] = false;
             if ($options['import'] === false){
