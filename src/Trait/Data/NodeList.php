@@ -164,7 +164,7 @@ trait NodeList {
             $options['ramdisk'] = false;
         }
 //        d($name);
-//        d($options);
+        d($options);
         $key_options = $options;
         if (
             is_object($role) &&
