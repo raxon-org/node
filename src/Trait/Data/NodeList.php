@@ -55,7 +55,6 @@ trait NodeList {
 //        d($name);
         $object = $this->object();
         $parse = false;
-        trace();
         d($options);
         if (!array_key_exists('function', $options)) {
             $options['function'] = __FUNCTION__;
