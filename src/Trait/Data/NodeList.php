@@ -1109,6 +1109,10 @@ trait NodeList {
                     unset($list);
                     $limit = '*'; //handler
                 } else {
+                    if($class === 'System.User'){
+                        d($option);
+                        ddd($list);
+                    }
                     $expose = false;
                     foreach($list as $nr => $record) {
                         if(
@@ -1133,8 +1137,6 @@ trait NodeList {
                             );
                             $record = $node->data();
                             */
-                            d($class);
-                            d($options);
                             if(stristr($class, 'account.role')){
                                 d($record);
                                 d($object_data);
