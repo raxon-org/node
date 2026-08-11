@@ -41,7 +41,7 @@ trait NodeList {
     {
         set_time_limit(30 * 60 * 60);
         if(stristr($class, 'account.role')){
-            ddd($options);
+            dd($options);
         }
         $mtime = false;
         $name = Controller::name($class);
