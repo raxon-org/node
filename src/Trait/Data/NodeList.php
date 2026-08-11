@@ -95,10 +95,6 @@ trait NodeList {
                 $options['thread'] = 8;
             }
         }
-        if(stristr($class, 'account.role')){
-            trace();
-            d($options);
-        }
         if(array_key_exists('where', $options)){
             $where = false;
             if($object->config('debug') === true) {
@@ -114,9 +110,6 @@ trait NodeList {
         }
         $options['page'] = $options['page'] ?? 1;
         $options['limit'] = $options['limit'] ?? 1000;
-        if($object->config('debug') === true){
-            d($options);
-        }
         if (!Security::is_granted(
             $name,
             $role,
@@ -171,9 +164,6 @@ trait NodeList {
         }
         elseif($options['index'] === true){
             Core::interactive();
-            if($class === 'Account.User'){
-                d('1');
-            }
             $options['index'] = $this->index_create($name, $role, $options);
         }
         if(!array_key_exists('ramdisk', $options)){
@@ -265,10 +255,6 @@ trait NodeList {
             unset($parse);
             unset($mtime);
             unset($data_url);
-            if($class === 'Account.User'){
-                d($result);
-                d('2');
-            }
             return $result;
         }
         $mtime = File::mtime($data_url);
@@ -493,9 +479,6 @@ trait NodeList {
             array_key_exists('filter', $options['index']) &&
             array_key_exists('where', $options['index'])
         ){
-            if($class === 'Account.User'){
-                d('3');
-            }
             if($options['index']['count'] === 0){
                 $dir_ramdisk_count = $object->config('ramdisk.url') .
                     $object->config(Config::POSIX_ID) .
@@ -533,12 +516,7 @@ trait NodeList {
             $local_options = $options;
             $local_options['limit'] = 1;
             $local_options['page'] = 1;
-            if($class === 'Account.User'){
-                d('4');
-                d($local_options);
-            }
             $record = $this->index_list_record($class, $role, $local_options);
-            d($record);
             while($record !== false){
                 if(is_array($record)){
                     foreach($record as $value){
@@ -1069,7 +1047,7 @@ trait NodeList {
                                 }
                             }
                         } else {
-                            ddd($data);
+                            throw new Exception('no data');
                         }
                     }
                     // Wait for all children to exit
@@ -1110,10 +1088,6 @@ trait NodeList {
                     unset($list);
                     $limit = '*'; //handler
                 } else {
-                    if($class === 'System.User'){
-                        d($option);
-                        ddd($list);
-                    }
                     $expose = false;
                     foreach($list as $nr => $record) {
                         if(
@@ -1138,11 +1112,6 @@ trait NodeList {
                             );
                             $record = $node->data();
                             */
-                            if(stristr($class, 'account.role')){
-                                d($record);
-                                d($object_data);
-                                d($options);
-                            }
                             if($has_relation){
                                 $record = $this->relation($record, $object_data, $role, $options);
                                 //collect relation mtime

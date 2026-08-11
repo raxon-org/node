@@ -47,9 +47,6 @@ trait Record {
                 'uuid' => 'ASC'
             ];
         }
-        if($class === 'System.User'){
-            d($options);
-        }
         $response = $this->list($name, $role, $options);
         unset($name);
         unset($options);
