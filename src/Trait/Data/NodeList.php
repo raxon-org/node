@@ -55,10 +55,7 @@ trait NodeList {
 //        d($name);
         $object = $this->object();
         $parse = false;
-        d($options);
-        d(debug_backtrace(4));
         if(!array_key_exists('relation', $options)){
-
             ddd($options);
         }
         if (!array_key_exists('function', $options)) {
