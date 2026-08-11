@@ -41,6 +41,7 @@ trait NodeList {
     {
         set_time_limit(30 * 60 * 60);
         if(stristr($class, 'account.role')){
+            d($class);
             d($options);
         }
         $mtime = false;
