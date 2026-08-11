@@ -104,9 +104,12 @@ trait NodeList {
         }
         $options['page'] = $options['page'] ?? 1;
         $options['limit'] = $options['limit'] ?? 1000;
-        trace();
-        d($class);
-        d($options);
+        if($class === 'Account.User'){
+            trace();
+            d($class);
+            ddd($options);
+        }
+
         if($object->config('debug') === true){
             d($options);
         }
