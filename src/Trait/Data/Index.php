@@ -170,6 +170,10 @@ trait Index {
      */
     public function index_list_record($class, $role, $options=[]): bool | array | object
     {
+        if($class === 'Account.User'){
+            d('5');
+            d($options);
+        }
         if(!array_key_exists('index', $options)){
             return false;
         }
@@ -179,11 +183,7 @@ trait Index {
         if(!array_key_exists('url_uuid', $options['index'])){
             return false;
         }
-        if($class === 'Account.User'){
-            d('5');
-            d($options);
-        }
-
+//        d($options);
         if(!array_key_exists('count', $options['index'])){
             return false;
         }
@@ -253,10 +253,6 @@ trait Index {
             $max_deep = 0;
             $result = [];
             $deepest = $this->where_get_depth($where);
-            if($class === 'Account.User'){
-                d('5');
-                d($deepest);
-            }
             $operator = [];
             $count = 0;
             $xor = false;
@@ -266,10 +262,6 @@ trait Index {
                     break;
                 }
                 $set = $this->where_get_set($where, $key, $deepest);
-                if($class === 'Account.User'){
-                    d('5');
-                    d($set);
-                }
                 $split = [];
                 $split_nr = 0;
                 foreach($set as $nr =>$item){
@@ -296,15 +288,7 @@ trait Index {
                     $local_options['limit'] = 1;
                     $local_options['page'] = 1;
                     $local_options['where'] = $set;
-                    if($class === 'Account.User'){
-                        d('5');
-                        d($set);
-                    }
                     $record = $this->index_list_record($class, $role, $local_options);
-                    if($class === 'Account.User'){
-                        d('5');
-                        d($set);
-                    }
                     $extra = false;
                     $found = [];
                     if(
