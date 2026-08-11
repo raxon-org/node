@@ -214,6 +214,10 @@ trait Relation {
                                         $this->role_system(),
                                         [
                                             'where' => $where,
+                                            'relation' => $options['relation'] ?? false,
+                                            'ramdisk' => $options['ramdisk'] ?? false,
+                                            'ramdisk_dir' => $options['ramdisk_dir'] ?? false
+
                                         ]
                                     );
                                     if(
