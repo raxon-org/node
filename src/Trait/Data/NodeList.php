@@ -96,6 +96,7 @@ trait NodeList {
             }
         }
         if(stristr($class, 'account.role')){
+            trace();
             d($options);
         }
         if(array_key_exists('where', $options)){
