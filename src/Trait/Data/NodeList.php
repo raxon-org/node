@@ -104,15 +104,6 @@ trait NodeList {
         }
         $options['page'] = $options['page'] ?? 1;
         $options['limit'] = $options['limit'] ?? 1000;
-        if($class === 'Account.User'){
-            d($class);
-            ddd(Security::is_granted(
-                $name,
-                $role,
-                $options
-            ));
-        }
-
         if($object->config('debug') === true){
             d($options);
         }
@@ -170,6 +161,9 @@ trait NodeList {
         }
         elseif($options['index'] === true){
             Core::interactive();
+            if($class === 'Account.User'){
+                d('1');
+            }
             $options['index'] = $this->index_create($name, $role, $options);
         }
         if(!array_key_exists('ramdisk', $options)){
@@ -217,6 +211,10 @@ trait NodeList {
             $name .
             $object->config('extension.json')
         ;
+        if($class === 'Account.User'){
+            d(File::exist($data_url));
+            d('2');
+        }
         if (!File::exist($data_url)) {
             $list = [];
             $result = [];
