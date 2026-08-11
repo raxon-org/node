@@ -1133,6 +1133,8 @@ trait NodeList {
                             );
                             $record = $node->data();
                             */
+                            d($class);
+                            d($options);
                             if(stristr($class, 'account.role')){
                                 d($record);
                                 d($object_data);
