@@ -179,7 +179,11 @@ trait Index {
         if(!array_key_exists('url_uuid', $options['index'])){
             return false;
         }
-//        d($options);
+        if($class === 'Account.User'){
+            d('5');
+            d($options);
+        }
+
         if(!array_key_exists('count', $options['index'])){
             return false;
         }
