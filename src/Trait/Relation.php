@@ -21,7 +21,6 @@ trait Relation {
      */
     private function relation($record, $data, $role, $options=[]): array | object
     {
-        d($options);
         $object = $this->object();
         if(!$role){
             return $record;
