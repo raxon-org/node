@@ -211,10 +211,6 @@ trait NodeList {
             $name .
             $object->config('extension.json')
         ;
-        if($class === 'Account.User'){
-            d(File::exist($data_url));
-            d('2');
-        }
         if (!File::exist($data_url)) {
             $list = [];
             $result = [];
@@ -259,7 +255,10 @@ trait NodeList {
             unset($parse);
             unset($mtime);
             unset($data_url);
-
+            if($class === 'Account.User'){
+                d($result);
+                d('2');
+            }
             return $result;
         }
         $mtime = File::mtime($data_url);
@@ -484,6 +483,9 @@ trait NodeList {
             array_key_exists('filter', $options['index']) &&
             array_key_exists('where', $options['index'])
         ){
+            if($class === 'Account.User'){
+                d('3');
+            }
             if($options['index']['count'] === 0){
                 $dir_ramdisk_count = $object->config('ramdisk.url') .
                     $object->config(Config::POSIX_ID) .
@@ -521,6 +523,10 @@ trait NodeList {
             $local_options = $options;
             $local_options['limit'] = 1;
             $local_options['page'] = 1;
+            if($class === 'Account.User'){
+                d('4');
+                d($local_options);
+            }
             $record = $this->index_list_record($class, $role, $local_options);
             d($record);
             while($record !== false){
