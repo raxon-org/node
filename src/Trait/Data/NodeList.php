@@ -105,9 +105,12 @@ trait NodeList {
         $options['page'] = $options['page'] ?? 1;
         $options['limit'] = $options['limit'] ?? 1000;
         if($class === 'Account.User'){
-            trace();
             d($class);
-            ddd($options);
+            ddd(Security::is_granted(
+                $name,
+                $role,
+                $options
+            ));
         }
 
         if($object->config('debug') === true){
