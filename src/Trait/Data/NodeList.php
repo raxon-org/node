@@ -104,6 +104,7 @@ trait NodeList {
         }
         $options['page'] = $options['page'] ?? 1;
         $options['limit'] = $options['limit'] ?? 1000;
+        d($options);
         if($object->config('debug') === true){
             d($options);
         }
