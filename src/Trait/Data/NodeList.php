@@ -1133,6 +1133,11 @@ trait NodeList {
                             );
                             $record = $node->data();
                             */
+                            if(stristr($class, 'account.role')){
+                                d($record);
+                                d($object_data);
+                                d($options);
+                            }
                             if($has_relation){
                                 $record = $this->relation($record, $object_data, $role, $options);
                                 //collect relation mtime
