@@ -40,6 +40,9 @@ trait NodeList {
     public function list($class, $role, $options=[]): array
     {
         set_time_limit(30 * 60 * 60);
+        if(stristr($class, 'account.role')){
+            ddd($options);
+        }
         $mtime = false;
         $name = Controller::name($class);
         $options = Core::object($options, Core::OBJECT_ARRAY);
