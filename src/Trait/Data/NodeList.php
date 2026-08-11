@@ -58,6 +58,10 @@ trait NodeList {
 //        d($name);
         $object = $this->object();
         $parse = false;
+
+        if(stristr($class, 'account.role')){
+            d($options);
+        }
         if (!array_key_exists('function', $options)) {
             $options['function'] = __FUNCTION__;
         }
@@ -88,6 +92,9 @@ trait NodeList {
             } else {
                 $options['thread'] = 8;
             }
+        }
+        if(stristr($class, 'account.role')){
+            d($options);
         }
         if(array_key_exists('where', $options)){
             $where = false;
