@@ -139,7 +139,6 @@ trait Patch {
             } else {
                 $validate = $this->validate($object, $object->request('node'), $validate_url,  $name . '.patch', $options['function']);
             }
-            d($validate);
             if($validate) {
                 if ($validate->success === true) {
                     $expose = $this->expose_get(
