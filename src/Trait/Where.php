@@ -318,6 +318,10 @@ trait Where {
             }
             ksort($where, SORT_NATURAL);
             $where = array_values($where);
+            if(array_key_exists('debug', $options)){
+                dd($where);
+            }
+
             return $set;
         }
         elseif(
