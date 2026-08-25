@@ -246,7 +246,6 @@ trait Where {
         if(!is_array($set)){
             return [];
         }
-        d($set);
         $count = count($set);
         $set_init = $set;
         if(array_key_exists('debug', $options)){
@@ -319,8 +318,6 @@ trait Where {
             }
             ksort($where, SORT_NATURAL);
             $where = array_values($where);
-            d($where);
-            d($set);
             return $set;
         }
         elseif(
@@ -777,7 +774,7 @@ trait Where {
                 if(array_key_exists('debug', $options)){
                     d($where);
 //                    d($index_where);
-                    d($set);
+                    dd($set);
                 }
 
                 if(empty($set) && $deepest === 0){
