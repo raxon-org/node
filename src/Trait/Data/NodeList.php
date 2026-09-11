@@ -95,7 +95,7 @@ trait NodeList {
             ){
                 $is_where_template = true;
                 $url =
-                    $object->config('module.dir.data') .
+                    $object->config('controller.dir.data') .
                     $object->config('ds') .
                     'Template' .
                     $object->config('ds') .
