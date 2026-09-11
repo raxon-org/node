@@ -96,11 +96,11 @@ trait NodeList {
                 $is_where_template = true;
                 $url =
                     $object->config('controller.dir.data') .
-                    $object->config('ds') .
                     'Template' .
                     $object->config('ds') .
                     'Where' .
-                    $object->config('ds') . $options['where'] .
+                    $object->config('ds') .
+                    Controller::name($options['where']) .
                     $object->config('extension.json');
                 dd($url);
                 $where = '';
