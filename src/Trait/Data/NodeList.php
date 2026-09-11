@@ -94,15 +94,35 @@ trait NodeList {
                 $this->is_template($options['where']) === true
             ){
                 $is_where_template = true;
-                $url =
+                $where_name = Controller::name($options['where']);
+                $explode = explode('.', $where_name, 2);
+                $url = [];
+                if(array_key_exists(1, $explode)){
+                    $where_dir = $explode[0];
+                    $where_name_sub = $explode[1];
+                    $url_list[] =
+                        $object->config('controller.dir.data') .
+                        'Template' .
+                        $object->config('ds') .
+                        'Where' .
+                        $object->config('ds') .
+                        $where_dir .
+                        $object->config('ds') .
+                        $where_name_sub .
+                        $object->config('extension.json');
+                }
+                $url[] =
                     $object->config('controller.dir.data') .
                     'Template' .
                     $object->config('ds') .
                     'Where' .
                     $object->config('ds') .
-                    Controller::name($options['where']) .
+                    $where_name .
                     $object->config('extension.json');
-                dd($url);
+                foreach($url_list as $url){
+                    d($url);
+                }
+                dd('finish');
                 $where = '';
             }
             elseif(
