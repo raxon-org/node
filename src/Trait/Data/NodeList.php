@@ -99,7 +99,7 @@ trait NodeList {
                 $url = [];
                 $dir_controller = $object->config('controller.dir.controller');
                 $package = $object->request('package') ?? null;
-                if(property_exists($options, 'package')){
+                if(array_key_exists('package', $options)){
                     $package = $options['package'];
                 }
                 if($package === null){
