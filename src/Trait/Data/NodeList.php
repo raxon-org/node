@@ -94,7 +94,15 @@ trait NodeList {
                 $this->is_template($options['where']) === true
             ){
                 $is_where_template = true;
-                ddd('yes found');
+                $url =
+                    $object->config('module.dir.data') .
+                    $object->config('ds') .
+                    'Template' .
+                    $object->config('ds') .
+                    'Where' .
+                    $object->config('ds') . $options['where'] .
+                    $object->config('extension.json');
+                dd($url);
                 $where = '';
             }
             elseif(
