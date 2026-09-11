@@ -114,9 +114,6 @@ trait NodeList {
                     $where_name_sub = $explode[1];
                     $url_list[] =
                         $dir_controller .
-                        'Template' .
-                        $object->config('ds') .
-                        'Where' .
                         $object->config('ds') .
                         $where_dir .
                         $object->config('ds') .
@@ -125,9 +122,6 @@ trait NodeList {
                 }
                 $url_list[] =
                     $dir_controller .
-                    'Template' .
-                    $object->config('ds') .
-                    'Where' .
                     $object->config('ds') .
                     $where_name .
                     $object->config('extension.json');
