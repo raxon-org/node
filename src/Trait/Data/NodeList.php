@@ -97,11 +97,20 @@ trait NodeList {
                 $where_name = Controller::name($options['where']);
                 $explode = explode('.', $where_name, 2);
                 $url = [];
+                $dir_controller = $object->config('controller.dir.controller');
+                $package = $object->request('package') ?? null;
+                if(property_exists($options, 'package')){
+                    $package = $options['package'];
+                }
+                if($package === null){
+                    throw new Exception('Package (option or request) not set');
+                }
+                ddd($package);
                 if(array_key_exists(1, $explode)){
                     $where_dir = $explode[0];
                     $where_name_sub = $explode[1];
                     $url_list[] =
-                        $object->config('controller.dir.data') .
+                        $dir_controller .
                         'Template' .
                         $object->config('ds') .
                         'Where' .
@@ -112,7 +121,7 @@ trait NodeList {
                         $object->config('extension.json');
                 }
                 $url_list[] =
-                    $object->config('controller.dir.data') .
+                    $dir_controller .
                     'Template' .
                     $object->config('ds') .
                     'Where' .
