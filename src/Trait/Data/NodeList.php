@@ -98,7 +98,6 @@ trait NodeList {
                 $explode = explode('.', $where_name, 2);
                 $url = [];
                 $dir_controller = $object->config('controller.dir');
-                ddd($dir_controller);
                 $package = $object->request('package') ?? null;
                 if(array_key_exists('package', $options)){
                     $package = $options['package'];
@@ -110,6 +109,7 @@ trait NodeList {
                 $package = Controller::name($package);
                 $package = str_replace('.', '/', $package);
                 $dir_controller = str_replace('Raxon/Node', $package, $dir_controller);
+                dd($dir_controller);
                 if(array_key_exists(1, $explode)){
                     $where_dir = $explode[0];
                     $where_name_sub = $explode[1];
