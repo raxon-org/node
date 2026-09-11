@@ -94,6 +94,7 @@ trait NodeList {
                 $this->is_template($options['where']) === true
             ){
                 $is_where_template = true;
+                ddd('yes found');
                 $where = '';
             }
             elseif(
@@ -1691,7 +1692,8 @@ trait NodeList {
         return $options['where'];
     }
 
-    private function is_template(string $where=''){
+    private function is_template(string $where=''): bool
+    {
         $explode = explode(' ', $where);
         if(count($explode) === 1){
             return true;
