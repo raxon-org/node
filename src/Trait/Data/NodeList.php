@@ -97,7 +97,8 @@ trait NodeList {
                 $where_name = Controller::name($options['where']);
                 $explode = explode('.', $where_name, 2);
                 $url = [];
-                $dir_controller = $object->config('controller.dir.controller');
+                $dir_controller = $object->config('controller.dir');
+                ddd($dir_controller);
                 $package = $object->request('package') ?? null;
                 if(array_key_exists('package', $options)){
                     $package = $options['package'];
