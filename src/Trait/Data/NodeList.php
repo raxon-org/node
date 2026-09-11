@@ -109,7 +109,6 @@ trait NodeList {
                 $package = Controller::name($package);
                 $package = str_replace('.', '/', $package);
                 $dir_controller = str_replace('Raxon/Node', $package, $dir_controller);
-                dd($dir_controller);
                 if(array_key_exists(1, $explode)){
                     $where_dir = $explode[0];
                     $where_name_sub = $explode[1];
@@ -132,11 +131,19 @@ trait NodeList {
                     $object->config('ds') .
                     $where_name .
                     $object->config('extension.json');
+                $is_found = false;
                 foreach($url_list as $url){
-                    d($url);
+                    if(File::exist($url)){
+                        $is_found = true;
+                        break;
+                    }
                 }
-                dd('finish');
-                $where = '';
+                if($is_found === false){
+                    throw new Exception('Where template not found: ' . PHP_EOL . implode(PHP_EOL, $url_list));
+                }
+                $read = $object->data_read($url);
+                $where = $read->get('where');
+                dd($where);
             }
             elseif(
                 is_string($options['where']) ||
