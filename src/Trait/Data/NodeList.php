@@ -105,12 +105,10 @@ trait NodeList {
                 if($package === null){
                     throw new Exception('Package (option or request) not set');
                 }
-                d($dir_controller);
-                d($package);
                 $package = str_replace('/', '.', $package);
                 $package = Controller::name($package);
                 $package = str_replace('.', '/', $package);
-                ddd($package);
+                $dir_controller = str_replace('raxon/node', $package, $dir_controller);
                 if(array_key_exists(1, $explode)){
                     $where_dir = $explode[0];
                     $where_name_sub = $explode[1];
