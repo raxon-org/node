@@ -109,7 +109,7 @@ trait NodeList {
                 $package = str_replace('/', '.', $package);
                 $package = Controller::name($package);
                 $package = str_replace('.', '/', $package);
-                $dir_controller = str_replace('raxon/node', $package, $dir_controller);
+                $dir_controller = str_replace('Raxon/Node', $package, $dir_controller);
                 if(array_key_exists(1, $explode)){
                     $where_dir = $explode[0];
                     $where_name_sub = $explode[1];
