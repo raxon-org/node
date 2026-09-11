@@ -109,6 +109,7 @@ trait NodeList {
                 d($package);
                 $package = str_replace('/', '.', $package);
                 $package = Controller::name($package);
+                $package = str_replace('.', '/', $package);
                 ddd($package);
                 if(array_key_exists(1, $explode)){
                     $where_dir = $explode[0];
