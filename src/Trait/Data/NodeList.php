@@ -105,6 +105,9 @@ trait NodeList {
                 if($package === null){
                     throw new Exception('Package (option or request) not set');
                 }
+                d($dir_controller);
+                d($package);
+                $package = Controller::name($package, null, '/');
                 ddd($package);
                 if(array_key_exists(1, $explode)){
                     $where_dir = $explode[0];
