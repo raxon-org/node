@@ -111,7 +111,7 @@ trait NodeList {
                         $where_name_sub .
                         $object->config('extension.json');
                 }
-                $url[] =
+                $url_list[] =
                     $object->config('controller.dir.data') .
                     'Template' .
                     $object->config('ds') .
