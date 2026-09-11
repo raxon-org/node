@@ -11,7 +11,7 @@ use Raxon\Module\Controller;
 use Raxon\Module\Dir;
 use Raxon\Module\Handler;
 use Raxon\Module\Response;
-use Raxon\Node\Module\Node as Model;
+use Raxon\Node\Module\Node as Module;
 
 use Exception;
 
@@ -40,8 +40,8 @@ class Node extends Controller {
         if(empty($role)) {
             throw new Exception('Role is empty...');
         }
-        $model = new Model($object);
-        $response = $model->create(
+        $module = new Module($object);
+        $response = $module->create(
             $object->request('class'),
             $role,
             $object->request('node')
@@ -66,8 +66,8 @@ class Node extends Controller {
         }
         switch(Handler::method()){
             case 'PATCH':
-                $model = new Model($object);
-                $response = $model->patch(
+                $module = new Module($object);
+                $response = $module->patch(
                     $object->request('class'),
                     $role,
                     $object->request('node')
@@ -102,8 +102,8 @@ class Node extends Controller {
         if(empty($uuid)){
             throw new Exception('Uuid is empty...');
         }
-        $model = new Model($object);
-        $response = $model->delete(
+        $module = new Module($object);
+        $response = $module->delete(
             $class,
             $role,
             [
@@ -140,7 +140,7 @@ class Node extends Controller {
         if(empty($role)) {
             throw new Exception('Role is empty...');
         }
-        $model = new Model($object);
+        $module = new Module($object);
         $sort = $object->request('sort');
         if(empty($sort)){
             $sort = [
@@ -197,7 +197,7 @@ class Node extends Controller {
         $output_filter = $object->request('output_filter');
         if($output_filter){
             $object->request('delete', 'output_filter');
-            $response = $model->list(
+            $response = $module->list(
                 $object->request('class'),
                 $role,
                 [
@@ -212,7 +212,7 @@ class Node extends Controller {
                 ]
             );
         } else {
-            $response = $model->list(
+            $response = $module->list(
                 $object->request('class'),
                 $role,
                 [

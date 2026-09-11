@@ -51,6 +51,7 @@ trait NodeList {
             $start = microtime(true);
         }
         $is_debug = false;
+        $is_where_template = false;
 //        d($options);
 //        d($name);
         $object = $this->object();
@@ -89,6 +90,13 @@ trait NodeList {
         if(array_key_exists('where', $options)){
             $where = false;
             if(
+                is_string($options['where']) &&
+                $this->is_template($options['where']) === true
+            ){
+                $is_where_template = true;
+                $where = '';
+            }
+            elseif(
                 is_string($options['where']) ||
                 is_array($options['where'])
             ){
@@ -1681,6 +1689,39 @@ trait NodeList {
             }
         }
         return $options['where'];
+    }
+
+    private function is_template(string $where=''){
+        $explode = explode(' ', $where);
+        if(count($explode) === 1){
+            return true;
+        }
+        $attribute = $explode[0] ?? null;
+        $operator = $explode[1] ?? null;
+        $value = $explode[2] ?? null;
+        $operator_list = [
+            '>',
+            '>>',
+            '<',
+            '<<',
+            '=',
+            '==',
+            '===',
+            '!=',
+            '!==',
+            '<>',
+            '<=',
+            '>=',
+        ];
+        $operator_list = array_merge($operator_list, Filter::OPERATOR_LIST_NAME);
+        if(!in_array(
+            $operator,
+            $operator_list,
+            true
+        )){
+            return true;
+        }
+        return false;
     }
 
     /**
