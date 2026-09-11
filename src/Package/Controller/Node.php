@@ -121,6 +121,19 @@ class Node extends Controller {
      * @throws FileWriteException
      * @throws Exception
      */
+    public static function list_where(App $object): Response
+    {
+        $role = Permission::controller($object, $object->request('class'), __FUNCTION__, $user);
+        d($role);
+        d($user);
+        dd($object->request());
+    }
+
+    /**
+     * @throws ObjectException
+     * @throws FileWriteException
+     * @throws Exception
+     */
     public static function list(App $object): Response
     {
         $role = Permission::controller($object, $object->request('class'), __FUNCTION__, $user);
