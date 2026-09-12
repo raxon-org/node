@@ -137,7 +137,6 @@ trait NodeList {
                 }
                 $read = $object->data_read($url);
                 $where = $read->get('where');
-                dd($where);
             }
             elseif(
                 is_string($options['where']) ||
