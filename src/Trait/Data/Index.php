@@ -6,7 +6,7 @@ namespace Raxon\Node\Trait\Data;
 use Raxon\App;
 use Raxon\Config;
 
-use Raxon\Exception\AuthorizationException;
+use Package\Raxon\Account\Exception\AuthorizationException;
 use Raxon\Exception\DirectoryCreateException;
 use Raxon\Exception\ObjectException;
 use Raxon\Module\Controller;

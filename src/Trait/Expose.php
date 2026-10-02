@@ -4,19 +4,16 @@ namespace Raxon\Node\Trait;
 
 use Raxon\App;
 use Raxon\Config;
-
 use Raxon\Module\Cli;
 use Raxon\Module\Controller;
 use Raxon\Module\Core;
 use Raxon\Module\Data as Storage;
 use Raxon\Module\File;
 use Raxon\Module\Parse;
-
 use Exception;
-
+use Package\Raxon\Account\Exception\AuthorizationException;
 use Raxon\Exception\FileWriteException;
 use Raxon\Exception\ObjectException;
-use Raxon\Exception\AuthorizationException;
 
 trait Expose {
 
