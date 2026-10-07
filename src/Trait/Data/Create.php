@@ -287,6 +287,7 @@ trait Create {
             $cache->set(sha1($url), $data);
             $response['transaction'] = true;
         } else {
+            d($url);
             $write = $data->write($url);
             //always user www-data
             File::permission($object, [
