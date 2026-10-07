@@ -288,9 +288,6 @@ trait Create {
             $response['transaction'] = true;
         } else {
             $write = $data->write($url);
-            if(stristr($url ,'System.Task') !== false){
-                d($write);
-            }
             //always user www-data
             File::permission($object, [
                 'dir_data' => $dir_data,
