@@ -777,7 +777,7 @@ trait Where {
                     d($set);
                 }
                 $set = $this->where_process($record, $set, $where, $key, $operator, $index_where, $options);
-                if(array_key_exists('debug', $options)){
+                if(array_key_exists('is_debug', $options)){
                     d($where);
 //                    d($index_where);
                     dd($set);
