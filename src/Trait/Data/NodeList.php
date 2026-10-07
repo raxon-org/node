@@ -143,6 +143,12 @@ trait NodeList {
                 is_array($options['where'])
             ){
                 $where = $this->list_where($options);
+                if(
+                    array_key_exists('is_debug', $options) &&
+                    $options['is_debug'] === true
+                ){
+                    d($where);
+                }
             }
             $options['where'] = $where;
         }
