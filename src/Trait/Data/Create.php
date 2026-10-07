@@ -287,10 +287,10 @@ trait Create {
             $cache->set(sha1($url), $data);
             $response['transaction'] = true;
         } else {
-            if(stristr($url ,'System.Task') !== false){
-                ddd($data);
-            }
             $write = $data->write($url);
+            if(stristr($url ,'System.Task') !== false){
+                d($write);
+            }
             //always user www-data
             File::permission($object, [
                 'dir_data' => $dir_data,
