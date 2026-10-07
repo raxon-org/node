@@ -773,7 +773,7 @@ trait Where {
             }
             $set = $this->where_get_set($where, $key, $deepest);
             while($record !== false){
-                if(array_key_exists('debug', $options)) {
+                if(array_key_exists('is_debug', $options)) {
                     d($set);
                 }
                 $set = $this->where_process($record, $set, $where, $key, $operator, $index_where, $options);
