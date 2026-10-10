@@ -27,12 +27,14 @@ function validate_is_unique(App $object, object $record, mixed $value='', mixed 
     $dir_node = $object->config('project.dir.node');
     $url = false;
     $name = false;
+    $class = false;
     $allow_empty = false;
     $data = new Data($record);
     $uuid = $data->get('uuid');
 //    $uuid = $object->request('node.uuid');
     if (is_object($validate)) {
         if (property_exists($validate, 'class')) {
+            $class = $validate->class;
             $name = Controller::name($validate->class);
             $url = $dir_node . 'Data' . $object->config('ds') . $name . $object->config('extension.json');
         }
@@ -139,8 +141,15 @@ function validate_is_unique(App $object, object $record, mixed $value='', mixed 
             'function' => $function
         ];
     }
+    $node = new Node($object);
     d($uuid);
-    ddd($options);
+    d($options);
+    if($class){
+        $response = $node->record($class, $node->role_system(), $options);
+        ddd($response);
+    }
+
+
 //    $options['memory'] = true;
     $node = new Node($object);
     if(
