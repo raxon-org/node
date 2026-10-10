@@ -142,16 +142,9 @@ function validate_is_unique(App $object, object $record, mixed $value='', mixed 
         ];
     }
     $node = new Node($object);
-    d($uuid);
-    d($options);
     if($class){
         $response = $node->record($class, $node->role_system(), $options);
-        ddd($response);
     }
-
-
-//    $options['memory'] = true;
-    $node = new Node($object);
     if(
         !empty($response) &&
         is_array($response) &&
