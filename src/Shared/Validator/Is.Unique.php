@@ -139,6 +139,8 @@ function validate_is_unique(App $object, object $record, mixed $value='', mixed 
             'function' => $function
         ];
     }
+    d($uuid);
+    ddd($options);
 //    $options['memory'] = true;
     $node = new Node($object);
     if(
