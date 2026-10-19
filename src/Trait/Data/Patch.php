@@ -242,7 +242,7 @@ trait Patch {
                                             echo str_repeat(' ', Cli::tput('columns')) . PHP_EOL;
                                             echo Cli::tput('cursor.up');
                                         }
-                                        echo 'Imported (PATCH) ' . $number . ' of ' . $amount . ' nodes ('. round(($number / $amount) * 100 , 2) .' %), ' . $time_left . PHP_EOL;
+                                        echo 'Imported (PATCH) ' . $number . ' of ' . $amount . ' nodes ('. round(($number / $amount) * 100 , 2) .' %), ' . $time_left . '.' . PHP_EOL;
                                     }
                                 }
                                 elseif($number === $amount){
