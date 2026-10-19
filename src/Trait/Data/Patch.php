@@ -237,7 +237,6 @@ trait Patch {
                                         $duration = $now - $object->config('time.start');
                                         $time_left = $duration / $number * ($amount - $number);
                                         $time_left = Core::time_format($time_left);
-                                        ddd($time_left);
                                         if($number > 1){
                                             echo Cli::tput('cursor.up');
                                             echo str_repeat(' ', Cli::tput('columns')) . PHP_EOL;
