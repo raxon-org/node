@@ -227,12 +227,23 @@ trait Patch {
                                     echo 'Imported (PATCH) ' . $number . ' of ' . $amount . ' nodes ('. round(($number / $amount) * 100 , 2) .' %)...' . PHP_EOL;
                                 }
                                 elseif($number % 10 === 0){
-                                    if($number > 1){
-                                        echo Cli::tput('cursor.up');
-                                        echo str_repeat(' ', Cli::tput('columns')) . PHP_EOL;
-                                        echo Cli::tput('cursor.up');
+                                    $clock = $object->config('raxon.org.node.import.time.clock');
+                                    if(!$clock){
+                                        $clock = $object->config('raxon.org.node.import.time.clock', microtime(true));
                                     }
-                                    echo 'Imported (PATCH) ' . $number . ' of ' . $amount . ' nodes ('. round(($number / $amount) * 100 , 2) .' %)...' . PHP_EOL;
+                                    $now = microtime(true);
+                                    if($now - $clock > 1){
+                                        $object->config('raxon.org.node.import.time.clock', $now);
+                                        $duration = $now - $object->config('time.start');
+                                        $time_left = $duration / $number * ($amount - $number);
+                                        $time_left = Core::time_format($time_left);
+                                        if($number > 1){
+                                            echo Cli::tput('cursor.up');
+                                            echo str_repeat(' ', Cli::tput('columns')) . PHP_EOL;
+                                            echo Cli::tput('cursor.up');
+                                        }
+                                        echo 'Imported (PATCH) ' . $number . ' of ' . $amount . ' nodes ('. round(($number / $amount) * 100 , 2) .' %), ' . $time_left . PHP_EOL;
+                                    }
                                 }
                                 elseif($number === $amount){
                                     echo Cli::tput('cursor.up');
