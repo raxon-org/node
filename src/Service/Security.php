@@ -3,6 +3,7 @@ namespace Raxon\Node\Service;
 
 use Raxon\App;
 use Raxon\Module\Controller;
+use Raxon\Module\Core;
 use Raxon\Module\Data;
 
 use Exception;
@@ -15,6 +16,7 @@ class Security extends Main
      */
     public static function is_granted($class, $role, $options): bool
     {
+        $options = Core::object($options, Core::ARRAY);
         if(!array_key_exists('function', $options)){
             throw new Exception('Function is missing in options');
         }
